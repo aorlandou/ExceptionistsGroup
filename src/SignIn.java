@@ -23,10 +23,6 @@ public class SignIn {
 		Account user = new Account(name, password, phone, gender, birthdate, municipality );
 		MainMenu User = new MainMenu(user);
 		User.printMenu();
-		
-		
-		
-		
 	}
 
 }
