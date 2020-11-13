@@ -9,11 +9,9 @@ public class Main {
 		    choice = sc.nextInt();
 	}
 	if (choice == 1) {
-		public static SignIn account1 = new SignIn();
-		account1.creatAccount();
+		SignIn.creatAccount();
 	}
 	if (choice == 2) {
-		public static LogIn account2 = new LogIn();
-		account2.enterAccount();
+		LogIn.enterAccount();
 	}
 }
