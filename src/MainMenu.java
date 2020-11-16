@@ -1,9 +1,45 @@
-
+importjava.util.Scanner;
 public class MainMenu {
+
+	
+	private :
+          Account accountnow; 
+	public MainMenu(Account currentaccount){
+		accountnow= currentaccount;
+	}
+	public void printMenu(){
+        do {
+          System.out.println("1. add new friends");
+          System.out.println("2. change user state");
+          System.out.println("3. show my notifications");
+          System.out.println("4. edit profile");
+          System.out.println ("5. log out");
+          Scanner scan= new Scanner(System.in);
+          System.out.print("Enter your choice: ");
+          // This method reads the number provided using keyboard
+          int num= scan.nextInt();
+          if (num==1)
+		  accountnow.addFriends();
+          else if (num==2) 
+		  Account.userState();
+          else if (num==3) 
+		  Account.showNotification();
+          else if (num==4)
+		  Account.editProfile();
+          else if (num==5)
+		  Account.logOut();
+	} while (num!=5);
+		
+       }
+
+
+
+
+
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+        printMenu();
+		
 	}
-
 }
