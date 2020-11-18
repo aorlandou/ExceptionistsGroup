@@ -37,7 +37,7 @@ JFrame jf = new JFrame("If you want to sign in press 1, if you want to log in pr
 			}
 		}while(choice != 1 && choice != 2);
 		if (choice == 1) {
-			SignIn.creatAccount();
+			SignUp.creatAccount();
 		}
 		if (choice == 2) {
 			LogIn.enterAccount();
