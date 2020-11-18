@@ -2,5 +2,10 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/alice/Downloads/mysql-connector.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/enu/mssql-jdbc-8.4.1.jre8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/enu/mssql-jdbc-8.4.1.jre11.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/enu/mssql-jdbc-8.4.1.jre14.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/mysql-connector-java-8.0.22/mysql-connector-java-8.0.22.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
