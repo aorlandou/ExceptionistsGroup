@@ -1,11 +1,10 @@
 import java.sql.Connection;
-	import java.sql.DriverManager;
-	import java.sql.SQLException;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 
 	public class DB {
 
-		/* Database connection settings, change dbName, dbusername, dbpassword */
 		private final String dbServer = "127.0.0.1";
 		private final String dbServerPort = "3306";
 		private final String dbName = "MySQL";
@@ -55,4 +54,23 @@ import java.sql.Connection;
 					+ e.getMessage());
 			}
 		} // End of getConnection
+		
+		/*this method closes the connection with the database
+		 * 
+		 */
+		public void closeConnection() throws SQLException {
+
+			try {
+
+				// if connection is (still) open
+				if (con != null)
+					con.close(); // close the connection to the database to end database session
+
+			} catch (SQLException e) {
+
+				throw new SQLException("Could not close connection with the Database Server: "
+					+ e.getMessage());
+			}
+
+		}
 	}
