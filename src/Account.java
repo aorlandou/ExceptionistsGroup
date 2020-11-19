@@ -51,5 +51,6 @@ public class Account {
 	}
 	database.close();
 }
+	public void editProfile() {
 }
 
