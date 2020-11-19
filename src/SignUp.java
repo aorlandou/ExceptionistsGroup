@@ -15,9 +15,8 @@ public class SignUp {
 			password2 = scanner.nextLine();
 		}
 		System.out.println("Please enter your phone number, your gender, your birthdate and your municipality");
-		String  gender, birthdate, municipality;
-		int phone;
-		phone = scanner.nextInt();
+		String  gender, birthdate, municipality,phone;
+		phone = scanner.nextLine();
 		gender = scanner.nextLine();
 		birthdate = scanner.nextLine();
 		municipality = scanner.nextLine();

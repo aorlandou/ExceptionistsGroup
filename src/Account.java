@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Connection;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;  
 import java.util.Date;
@@ -14,7 +15,7 @@ public class Account {
 
 	void userState (boolean x){
 	  covid=x ;
-	  sendNotification(covid) ;
+	  sendNotification() ;
 	}
 
 	public Account(String name, String surname, String password, String phone, String birthdate, String gender, String municipality,
@@ -30,6 +31,8 @@ public class Account {
 	}
 	
 	public void sendNotification() {
+		DB database= new DB();
+		Connection con=database.getConnection();
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
 	    Date date = new Date();  
 		if(covid==true) {
@@ -40,13 +43,13 @@ public class Account {
 		if(friends.size()!=0) {
 		for(int i=0;i<friends.size();i++) {
 			int phone=friends.get(i).getPhone;
-			Statement statement = connection.createStatement();
+			Statement statement = con.createStatement();
 			statement.executeUpdate("INSERT INTO notification" + "VALUES (phone,message");
 		}
 	}else {
 		System.out.println("Your friends list is empty...Please add some friends first");
 	}
-	
+	database.close();
 }
 }
 
