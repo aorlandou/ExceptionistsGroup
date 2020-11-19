@@ -7,9 +7,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Account {
-	private  String name, surname, password, phone, birthdate, gender, municipality;
+	private  String name, surname, password, birthdate, gender, municipality;
+	private int phone;
 	private boolean covid;
-  private String message;
+	private String message;
 	List<String> notifications= new ArrayList<String>();
 	List<Account> friends= new ArrayList<Account>();
 
@@ -18,16 +19,16 @@ public class Account {
 	  sendNotification() ;
 	}
 
-	public Account(String name, String surname, String password, String phone, String birthdate, String gender, String municipality,
-			boolean covid) {
+	public Account(String name, String surname, String password, int phone, String birthdate,
+			String gender, String municipality) {
 		super();
 		this.name = name;
+		this.surname = surname;
 		this.password = password;
 		this.phone = phone;
 		this.birthdate = birthdate;
 		this.gender = gender;
 		this.municipality = municipality;
-		this.covid = covid;
 	}
 	
 	public void sendNotification() {
@@ -46,10 +47,10 @@ public class Account {
 			Statement statement = con.createStatement();
 			statement.executeUpdate("INSERT INTO notification" + "VALUES (phone,message");
 		}
-	}else {
+		}else {
 		System.out.println("Your friends list is empty...Please add some friends first");
+		}
+		database.closeConnection();
 	}
-	database.close();
-}
 }
 
