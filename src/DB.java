@@ -1,6 +1,8 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import com.mysql.jdbc.Statement;
+import java.sql.*;
 
 
 	public class DB {
@@ -72,5 +74,38 @@ import java.sql.SQLException;
 					+ e.getMessage());
 			}
 
-		}
+		}//end of closeConnection
+		
+		/*this method will insert an account to our database
+		 * 
+		 */
+		public void insertAcc(Account ac) throws Exception {
+			try {
+				DB database = new DB();
+				Connection con = database.getConnection();
+				String SQL = "INSERT INTO account(phone, name, surname, password, "
+						+ "municipality, gender, birthdate) "
+		                + "VALUES(?,?,?,?,?,?,?)";
+				PreparedStatement pstmt = con.prepareStatement(SQL);
+				
+				pstmt.setInt(1, ac.getPhone());
+				pstmt.setString(2, ac.getName());
+				pstmt.setString(3, ac.getSurname());
+				pstmt.setString(4, ac.getPassword());
+				pstmt.setString(5, ac.getMunicipality());
+				pstmt.setString(6, ac.getGender());
+				pstmt.setString(7, ac.getBirthdate());
+				
+				int row = pstmt.executeUpdate();
+				
+				System.out.println("Number of rows inserted:" + row);
+				
+				database.closeConnection();
+			} catch (Exception e) {
+				throw new Exception("Could not insert account to the database: "
+						+ e.getMessage());
+			}
+			
+		}//end of incertAcc
+		
 	}
