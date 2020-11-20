@@ -22,7 +22,7 @@ import java.sql.*;
 		 * @return Connection, the Connection object
 		 * @throws Exception
 		 */
-		public Connection getConnection() throws Exception {
+		public  Connection getConnection() throws Exception {
 
 			/* Step 1 -> Dynamically load the driver's class file into memory */
 
