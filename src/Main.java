@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 
 public class Main {
+	
 	public static void main(String[] args) throws InputMismatchException {
 		//Connecting to our database
 		DB data = new DB();
@@ -47,7 +48,7 @@ JFrame jf = new JFrame("If you want to sign in press 1, if you want to log in pr
 			SignUp.creatAccount();
 		}
 		if (choice == 2) {
-			LogIn.enterAccount();
+			Login.loginMethod();
 		}
 	}
 }
