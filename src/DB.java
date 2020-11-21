@@ -9,7 +9,7 @@ import java.sql.*;
 
 		private final String dbServer = "127.0.0.1";
 		private final String dbServerPort = "3306";
-		private final String dbName = "MySQL";
+		private final String dbName = "account";
 		private final String dbusername = "root";
 		private final String dbpassword = "aliki2345";
 
@@ -88,7 +88,7 @@ import java.sql.*;
 		                + "VALUES(?,?,?,?,?,?,?)";
 				PreparedStatement pstmt = con.prepareStatement(SQL);
 				
-				pstmt.setInt(1, ac.getPhone());
+				pstmt.setString(1, ac.getPhone());
 				pstmt.setString(2, ac.getName());
 				pstmt.setString(3, ac.getSurname());
 				pstmt.setString(4, ac.getPassword());
