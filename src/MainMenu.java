@@ -1,13 +1,15 @@
-importjava.util.Scanner;
+import java.util.Scanner;
+
+
 public class MainMenu {
 
 	
-	private :
-          Account accountnow; 
+	private Account accountnow; 
 	public MainMenu(Account currentaccount){
 		accountnow= currentaccount;
 	}
 	public void printMenu(){
+		int num;
         do {
           System.out.println("1. add new friends");
           System.out.println("2. change user state");
@@ -17,7 +19,7 @@ public class MainMenu {
           Scanner scan= new Scanner(System.in);
           System.out.print("Enter your choice: ");
           // This method reads the number provided using keyboard
-          int num= scan.nextInt();
+          num= scan.nextInt();
           if (num==1)
 		  accountnow.addFriends();
           else if (num==2) 
@@ -40,6 +42,6 @@ public class MainMenu {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
         printMenu();
-		
+		}
 	}
-}
+

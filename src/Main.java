@@ -1,6 +1,9 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import javax.swing.JFrame;
+
+import databaseConnection.DB;
+
 import javax.swing.JComponent;
 import java.awt.BorderLayout;
 import java.awt.Graphics;
@@ -14,7 +17,12 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 
 public class Main {
+	
 	public static void main(String[] args) throws InputMismatchException {
+		//Connecting to our database
+		DB data = new DB();
+		data.getConnection();
+		
 		int choice;
 JFrame jf = new JFrame("If you want to sign in press 1, if you want to log in press 2");
         
@@ -37,10 +45,10 @@ JFrame jf = new JFrame("If you want to sign in press 1, if you want to log in pr
 			}
 		}while(choice != 1 && choice != 2);
 		if (choice == 1) {
-			SignIn.creatAccount();
+			SignUp.creatAccount();
 		}
 		if (choice == 2) {
-			LogIn.enterAccount();
+			Login.loginMethod();
 		}
 	}
 }
