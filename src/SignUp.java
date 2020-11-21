@@ -23,15 +23,15 @@ public class SignUp {
 		birthdate = scanner.nextLine();
 		municipality = scanner.nextLine();
 		Account user = new Account(name,surname, password, phone, birthdate,
-				gender, municipality );
+				gender, municipality);
 		DB data = new DB();
 		try {
 			data.insertAcc(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		MainMenu User = new MainMenu(user);
-		User.printMenu();
+		//MainMenu User = new MainMenu(user);
+		//User.printMenu();
 		scanner.close();
 	}
 
