@@ -11,20 +11,18 @@ public class SignUp {
 		System.out.println("Please enter your password again to confirm");
 		String password2;
 		password2 = scanner.nextLine();
-			while (password2 != password);{
+			while (!password2.equals(password));{
 				System.out.println("Please enter your password again correctly");
 				password2 = scanner.nextLine();
 			}
 		System.out.println("Please enter your phone number, your gender, your birthdate and your municipality");
-		String  gender, birthdate, municipality;
-		int phone;
-		phone = scanner.nextInt();
-		scanner.nextLine();
+		String  gender, birthdate, municipality, phone;
+		phone = scanner.nextLine();
 		gender = scanner.nextLine();
 		birthdate = scanner.nextLine();
 		municipality = scanner.nextLine();
-		Account user = new Account(name,surname, password, phone, gender,
-				birthdate, municipality );
+		Account user = new Account(name,surname, password, phone, birthdate,
+				gender, municipality );
 		DB data = new DB();
 		try {
 			data.insertAcc(user);
