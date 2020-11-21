@@ -10,7 +10,7 @@ public class SignIn {
 		System.out.println("Please enter your password again to confirm");
 		String password2;
 		password2 = scanner.nextLine();
-		while (password2 != password);{
+		while (!password2.equals(password));{
 			System.out.println("Please enter your password again correctly");
 			password2 = scanner.nextLine();
 		}
