@@ -4,12 +4,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;  
 import java.util.Date;
 
 public class Account {
 	private  String name, surname, password, birthdate, gender, municipality;
+	
 	public String getName() {
 		return name;
 	}
@@ -58,16 +60,49 @@ public class Account {
 		this.municipality = municipality;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
 
-	private int phone;
+	public boolean isCovid() {
+		return covid;
+	}
+
+	public void setCovid(boolean covid) {
+		this.covid = covid;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public List<String> getNotifications() {
+		return notifications;
+	}
+
+	public void setNotifications(List<String> notifications) {
+		this.notifications = notifications;
+	}
+
+	public List<Account> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(List<Account> friends) {
+		this.friends = friends;
+	}
+
+
+	private String phone;
 	private boolean covid;
 	private String message;
 	List<String> notifications= new ArrayList<String>();
@@ -78,7 +113,7 @@ public class Account {
 	  sendNotification() ;
 	}
 
-	public Account(String name, String surname, String password, int phone, String birthdate,
+	public Account(String name, String surname, String password, String phone, String birthdate,
 			String gender, String municipality) {
 		super();
 		this.name = name;
@@ -91,9 +126,12 @@ public class Account {
 	}
 	
 	
-	public void sendNotification() {
+	public void sendNotification() throws Exception {
 		DB database= new DB();
-		Connection con=database.getConnection();
+		Connection con;
+		
+			con = database.getConnection();
+		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
 	    Date date = new Date();  
 		if(covid==true) {
@@ -103,10 +141,16 @@ public class Account {
 		}
 		if(friends.size()!=0) {
 		for(int i=0;i<friends.size();i++) {
-			int phone=friends.get(i).getPhone;
-			Statement statement = con.createStatement();
-			statement.executeUpdate("INSERT INTO notification" + "VALUES (phone,message");
-		}
+			String phone=friends.get(i).getPhone();
+			Statement statement;
+			
+				statement = con.createStatement();
+			
+				statement.executeUpdate("INSERT INTO notification" + "VALUES (phone,message");
+			
+				
+			}
+		
 		}else {
 		System.out.println("Your friends list is empty...Please add some friends first");
 		}
