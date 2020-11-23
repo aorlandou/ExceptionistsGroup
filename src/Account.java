@@ -163,7 +163,7 @@ public class Account {
 			System.out.println(" [1] Change name.");
 			System.out.println(" [2] Change surname.");
 			System.out.println(" [3] Change password.");
-			System.out.println(" [4] Cchange municipality.");
+			System.out.println(" [4] Change municipality.");
 			System.out.println(" [0] Finish profile editing.");
 
 			Scanner scanner= new Scanner(System.in);
