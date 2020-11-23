@@ -2,12 +2,14 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;  
 import java.util.Date;
 
 public class Account {
 	private  String name, surname, password, birthdate, gender, municipality;
+	
 	public String getName() {
 		return name;
 	}
@@ -122,9 +124,12 @@ public class Account {
 	}
 	
 	
-	public void sendNotification() {
+	public void sendNotification() throws Exception {
 		DB database= new DB();
-		Connection con=database.getConnection();
+		Connection con;
+		
+			con = database.getConnection();
+		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
 	    Date date = new Date();  
 		if(covid==true) {
@@ -135,9 +140,15 @@ public class Account {
 		if(friends.size()!=0) {
 		for(int i=0;i<friends.size();i++) {
 			String phone=friends.get(i).getPhone();
-			Statement statement = con.createStatement();
-			statement.executeUpdate("INSERT INTO notification" + "VALUES (phone,message");
-		}
+			Statement statement;
+			
+				statement = con.createStatement();
+			
+				statement.executeUpdate("INSERT INTO notification" + "VALUES (phone,message");
+			
+				
+			}
+		
 		}else {
 		System.out.println("Your friends list is empty...Please add some friends first");
 		}
