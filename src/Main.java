@@ -38,7 +38,7 @@ public class Main extends JFrame implements ActionListener {
 	add(label);
 	JButton button1 = new JButton("button 1");
 	button1.addActionListener(this);
-    add(button1);
+    add(button1); 
     JButton button2 = new JButton("button 2");
     button2.addActionListener(this);
     add(button2);
