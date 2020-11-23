@@ -11,8 +11,6 @@ import javax.swing.JOptionPane;
 public class TestMain {
 
 	public static void main(String[] args) {
-		Account user = new Account("Aliki","Orlandou", "1234", "6940047470", "14/12/2001",
-				"female" , "Marousi" );
 		DB database= new DB();
 		Connection connection = null;
 		Statement statement = null;
@@ -45,7 +43,7 @@ public class TestMain {
 	try {
 		if(results.next()) {
 			 try {
-				get=results.getString("");
+				get=results.getString("phone");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
