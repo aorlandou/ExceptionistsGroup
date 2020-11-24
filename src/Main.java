@@ -2,13 +2,6 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
-import databaseConnection.DB;
-import testaki.testaki;
-=======
-
-
-
 import javax.swing.JComponent;
 import java.awt.BorderLayout;
 import java.awt.Graphics;
@@ -17,9 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JButton;
-
 import java.awt.FlowLayout;
-
 import javax.swing.JFrame;
 import javax.swing.JButton;
 
@@ -54,10 +45,10 @@ public class Main extends JFrame implements ActionListener {
 		String buttonType = e.getActionCommand();
 		switch (buttonType) {
 		case "button 1":
-			SignIn.creatAccount();
+			SignUp.creatAccount();
 			break;
 		case "button 2":
-			LogIn.enterAccount();
+			Login.enterAccount();
 			break;
 		
 		}
