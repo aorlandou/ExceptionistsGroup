@@ -45,7 +45,7 @@ import java.sql.*;
 
 				con = DriverManager.getConnection("jdbc:mysql://"
 					+ dbServer + ":" + dbServerPort + "/" + dbName, dbusername, dbpassword);
-				System.out.print("connected");
+				System.out.print("connected \n");
 				// Step 3 -> returns the connection object
 				return con;
 
