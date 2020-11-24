@@ -24,15 +24,11 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 
 public class Main extends JFrame implements ActionListener {
-<<<<<<< HEAD
-	
-	public static final int WIDTH = 600;
-	public static final int HEIGHT = 200;
-=======
+
 
 	public static final int WIDTH = 700;
 	public static final int HEIGHT = 600;
->>>>>>> branch 'EleniCommit' of https://github.com/aorlandou/ExceptionistsGroup.git
+
 	
 	//Connecting to our database
 	DB data = new DB();
