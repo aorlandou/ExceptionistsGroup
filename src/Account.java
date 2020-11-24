@@ -156,46 +156,60 @@ public class Account {
 		}
 		database.closeConnection();
 	}
-	
 	public void editProfile() {
-	
-			System.out.println("****** PROFILE EDIT ******");
-			System.out.println(" [1] Change name.");
-			System.out.println(" [2] Change surname.");
-			System.out.println(" [3] Change password.");
-			System.out.println(" [4] Change municipality.");
-			System.out.println(" [0] Finish profile editing.");
+		System.out.println("****** PROFILE EDIT ******");
+		System.out.println(" [1] Change name.");
+		System.out.println(" [2] Change surname.");
+		System.out.println(" [3] Change password.");
+		System.out.println(" [4] Change municipality.");
+		System.out.println(" [0] Finish profile editing.");
 
-			Scanner scanner= new Scanner(System.in);
-			int choice =scanner.nextInt();
-			while(choice!=0) {
-				switch (choice) {
-					case 1: 
-						System.out.println("Please enter the name. ");
-						name=scanner.nextLine();
-					break;
-					case 2:
-						System.out.println("Please enter the surname. ");
-						surname=scanner.nextLine();
-					break;
-					case 3: 
-						System.out.println("Please enter the new password. ");
-						String password1=scanner.nextLine();
-						System.out.println("Please enter again the new password. ");
-						String password2=scanner.nextLine();
-						if(password1==password2) {
-							password=scanner.nextLine(); }
-					break;
-					case 4:
-						System.out.println("Please enter the new municipality. ");
-						municipality=scanner.nextLine();
-					break;
-				}
-				choice =scanner.nextInt();
-				}
-			  System.out.println("Do you want to delete your profile? If so, enter your password.");
-			  Scanner scanner1= new Scanner(System.in);
-			  String pass=scanner1.nextLine();
+		Scanner scanner1= new Scanner(System.in);
+		int choice =scanner1.nextInt();
+		while(choice!=0) {
+			switch (choice) {
+				case 1: 
+					System.out.println("Please enter the name. ");
+					Scanner scanner2= new Scanner(System.in);
+				    this.name=scanner2.nextLine();
+				break;
+				case 2:
+					System.out.println("Please enter the surname. ");
+					Scanner scanner3= new Scanner(System.in);
+					this.surname=scanner3.nextLine();
+				break;
+				case 3: 
+					System.out.println("Please enter the new password. ");
+					Scanner scanner4= new Scanner(System.in);
+					String password1=scanner4.nextLine(); 
+					System.out.println("Please enter again the new password. ");
+					Scanner scanner5= new Scanner(System.in);
+					String password2=scanner5.nextLine();
+					if(password1==password2) {
+						this.password=password1;
+						System.out.println("Password has been changed successfully.");	}
+				break;
+				case 4:
+					System.out.println("Please enter the new municipality. ");
+					Scanner scanner6= new Scanner(System.in);
+					this.municipality=scanner6.nextLine();
+				break;
+			}
+			Scanner scanner7= new Scanner(System.in);
+			choice =scanner7.nextInt();
+			}
+		
+		  System.out.println("Do you want to delete your profile? If so, enter your password.");
+		  Scanner scanner7= new Scanner(System.in);
+		   String pass=scanner7.nextLine();
+		/* p = null;
+		    System.gc();*/
 	}
-
+		public void showNotifications() {
+			  Collections.sort(notifications);
+			  for (int i = 0; i <notifications.size(); i++) {
+			      System.out.println(notifications.get(i));
+		  }
+	}
+	
 }
