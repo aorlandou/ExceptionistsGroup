@@ -22,8 +22,8 @@ import javax.swing.JButton;
 
 public class Main extends JFrame implements ActionListener {
 	
-	public static final int WIDTH = 700;
-	public static final int HEIGHT = 600;
+	public static final int WIDTH = 600;
+	public static final int HEIGHT = 200;
 	
 	//Connecting to our database
 	DB data = new DB();

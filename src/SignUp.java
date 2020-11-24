@@ -1,27 +1,25 @@
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class SignUp {
 	public static void creatAccount() {
 			// TODO Auto-generated method stub
-			System.out.println("Please enter your name, your surname and your password");
-			Scanner scanner = new Scanner(System.in);
-			String name, surname, password; 
-			name = scanner.nextLine();
-			surname = scanner.nextLine();
-			password = scanner.nextLine();
+			String name = JOptionPane.showInputDialog("Please enter your name");
+			String surname = JOptionPane.showInputDialog("Please enter your surname");
+			String password = JOptionPane.showInputDialog("Please enter your password");
 			String password2;
-				do {
-					System.out.println("Please enter your password again to confirm");
-					password2 = scanner.nextLine();
+			do {
+			    password2 = JOptionPane.showInputDialog("Please enter your password again to confirm");
+			
 				}
 				while (!password2.equals(password)); 
-		System.out.println("Please enter your phone number, your gender, your birthdate and your municipality");
-		String  gender, birthdate, municipality, phone;
-		phone = scanner.nextLine();
-		gender = scanner.nextLine();
-		birthdate = scanner.nextLine();
-		municipality = scanner.nextLine();
+			String phone = JOptionPane.showInputDialog("Please enter your phone number");
+			String gender = JOptionPane.showInputDialog("Please enter your gender");
+			String birthdate = JOptionPane.showInputDialog("Please enter your birthdate");
+			String municipality = JOptionPane.showInputDialog("Please enter your municipality");
+			
 		Account user = new Account(name,surname, password, phone, birthdate,
 				gender, municipality );
 		DB data = new DB();
@@ -32,7 +30,6 @@ public class SignUp {
 		}
 		MainMenu User = new MainMenu(user);
 		User.printMenu();
-		scanner.close();
 	}
 
 }
