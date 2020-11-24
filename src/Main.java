@@ -55,41 +55,11 @@ public class Main extends JFrame implements ActionListener {
 		switch (buttonType) {
 		case "button 1":
 			SignIn.creatAccount();
-=======
-	public static void main(String[] args) throws InputMismatchException {
-		//Connecting to our database
-		DB data = new DB();
-		
-		
-		int choice;
-JFrame jf = new JFrame("If you want to sign in press 1, if you want to log in press 2");
-        
-        jf.setBounds(0, 0, 700, 100);
-        
-        jf.setLayout(new FlowLayout());
-        jf.add(new JButton("button 1"));
-        jf.add(new JButton("button 2"));
-        jf.setVisible(true);
-		Scanner sc = new Scanner(System.in);
-		do{
-			try
-			{
-				choice = sc.nextInt();
-			}
-			catch(InputMismatchException e)
-			{
-				System.out.println("Please enter a valid answer"); 
-		    	choice = sc.nextInt();
-			}
-		}while(choice != 1 && choice != 2);
-		if (choice == 1) {
-
-			SignUp.creatAccount();
 			break;
 		case "button 2":
 			LogIn.enterAccount();
-			Login.loginMethod();
 			break;
+		
 		}
 	}
 	public static void main(String[] args) {
