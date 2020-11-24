@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -84,6 +85,40 @@ public class TestMain {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
- }
+ 
+	/*update account fields*/
+	String newpassword="100";
+	String phone="6955300531";
+	String SQL = "UPDATE account SET password=? WHERE phone=?";
+	PreparedStatement pstmt = null;
+	try {
+		pstmt = connection.prepareStatement(SQL);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	try {
+		pstmt.setString(1,newpassword);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	try {
+		pstmt.setString(2,phone);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	try {
+		pstmt.executeUpdate();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+		
+	 
+	
+	}	
 }
  
