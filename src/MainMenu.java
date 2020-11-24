@@ -25,6 +25,14 @@ public class MainMenu {
           if (num==1)
 		  accountnow.addFriends();
           else if (num==2) 
+		   boolean x;
+        	  String key; 
+        	  System.out.println("do you have tested positive (yes) or negative (no) to covid 19? ");
+     	        Scanner scanner= new Scanner(System.in);
+     		    this.key=scanner.nextLine();
+     		    if (key=="yes")
+     		    	x=true;
+     		    else x=false;
 		  Account.userState();
           else if (num==3) 
 		  Account.showNotification();
