@@ -1,13 +1,17 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;  
 import java.util.Date;
+import java.util.Collections;
 
 public class Account {
 	private  String name, surname, password, birthdate, gender, municipality;
+	
 	public String getName() {
 		return name;
 	}
@@ -122,9 +126,12 @@ public class Account {
 	}
 	
 	
-	public void sendNotification() {
+	public void sendNotification() throws Exception {
 		DB database= new DB();
-		Connection con=database.getConnection();
+		Connection con;
+		
+			con = database.getConnection();
+		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
 	    Date date = new Date();  
 		if(covid==true) {
@@ -135,13 +142,60 @@ public class Account {
 		if(friends.size()!=0) {
 		for(int i=0;i<friends.size();i++) {
 			String phone=friends.get(i).getPhone();
-			Statement statement = con.createStatement();
-			statement.executeUpdate("INSERT INTO notification" + "VALUES (phone,message");
-		}
+			Statement statement;
+			
+				statement = con.createStatement();
+			
+				statement.executeUpdate("INSERT INTO notification" + "VALUES (phone,message");
+			
+				
+			}
+		
 		}else {
 		System.out.println("Your friends list is empty...Please add some friends first");
 		}
 		database.closeConnection();
 	}
-}
+	
+	public void editProfile() {
+	
+			System.out.println("****** PROFILE EDIT ******");
+			System.out.println(" [1] Change name.");
+			System.out.println(" [2] Change surname.");
+			System.out.println(" [3] Change password.");
+			System.out.println(" [4] Change municipality.");
+			System.out.println(" [0] Finish profile editing.");
 
+			Scanner scanner= new Scanner(System.in);
+			int choice =scanner.nextInt();
+			while(choice!=0) {
+				switch (choice) {
+					case 1: 
+						System.out.println("Please enter the name. ");
+						name=scanner.nextLine();
+					break;
+					case 2:
+						System.out.println("Please enter the surname. ");
+						surname=scanner.nextLine();
+					break;
+					case 3: 
+						System.out.println("Please enter the new password. ");
+						String password1=scanner.nextLine();
+						System.out.println("Please enter again the new password. ");
+						String password2=scanner.nextLine();
+						if(password1==password2) {
+							password=scanner.nextLine(); }
+					break;
+					case 4:
+						System.out.println("Please enter the new municipality. ");
+						municipality=scanner.nextLine();
+					break;
+				}
+				choice =scanner.nextInt();
+				}
+			  System.out.println("Do you want to delete your profile? If so, enter your password.");
+			  Scanner scanner1= new Scanner(System.in);
+			  String pass=scanner1.nextLine();
+	}
+
+}
