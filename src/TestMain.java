@@ -43,7 +43,7 @@ public class TestMain {
 			results = statement.executeQuery(query);
 			while(results.next()) {
 				 try {
-					String pass =results.getString("password");
+					pass =results.getString("password");
 					System.out.println("user password:" + pass);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -61,11 +61,12 @@ public class TestMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
 		 
 	
-	/*create table with the notifications of the user
-	 * 
-	 */
+		/*create table with the notifications of the user
+		 * 
+		 */
 		DB database= new DB();
 		Connection connection = null;
 		Statement statement = null;
@@ -153,7 +154,7 @@ public class TestMain {
 		e.printStackTrace();
 	}
 		
-	 
+	
 	
 	}	
 }
