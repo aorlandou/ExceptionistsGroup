@@ -43,7 +43,7 @@ public class TestMain {
 			results = statement.executeQuery(query);
 			while(results.next()) {
 				 try {
-					pass =results.getString("password");
+					String pass =results.getString("password");
 					System.out.println("user password:" + pass);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
