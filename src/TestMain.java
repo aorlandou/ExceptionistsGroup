@@ -154,7 +154,11 @@ public class TestMain {
 		e.printStackTrace();
 	}
 		
-	
+
+	 /*Test getVariable DB class*/
+	DB data=new DB();
+	String variable=data.getVariable("account", "6955300531", "password");
+	System.out.println(variable);
 	
 	}	
 }

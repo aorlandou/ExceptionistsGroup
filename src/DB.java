@@ -1,6 +1,3 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import com.mysql.jdbc.Statement;
 import java.sql.*;
 
@@ -108,4 +105,57 @@ import java.sql.*;
 			
 		}//end of incertAcc
 		
-	}
+		/*get DataBase data method*/
+		public String getVariable (String table, String phone, String variable) {
+			DB database= new DB();
+			Connection connection = null;
+			Statement statement = null;
+			ResultSet results = null;
+			try {
+				connection = database.getConnection();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		
+			try {
+				statement = connection.createStatement();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			String query="SELECT "+variable+" FROM "+table+" WHERE phone = "+phone;
+			    
+			    String pass="";
+				try {
+				results = statement.executeQuery(query);
+				while(results.next()) {
+					 try {
+						pass =results.getString(variable);
+						
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			 try {
+				database.closeConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 return pass;
+			 }
+			 
+			
+			
+		}
+		
+	
