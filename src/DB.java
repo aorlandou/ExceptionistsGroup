@@ -108,27 +108,42 @@ import java.sql.*;
 		/*get DataBase data method*/
 		public String getVariable (String table, String phone, String variable) {
 			DB database= new DB();
-			Connection connection = null;
 			Statement statement = null;
 			ResultSet results = null;
-			try {
-				connection = database.getConnection();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			String pass = "nothing returned";
+			//Statement statement = connection.createStatement();
 
-		
+		/*
 			try {
 				statement = connection.createStatement();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}*/
+			String SQL ="SELECT ? FROM ? WHERE phone = ?";
+			PreparedStatement pstmt;
+			try {
+				Connection con = database.getConnection();
+				pstmt = con.prepareStatement(SQL);
+				pstmt.setString(1, variable);
+				pstmt.setString(2, table);
+				pstmt.setString(3, phone);
+				ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {
+					pass = rs.getString(variable);
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			String query="SELECT "+variable+" FROM "+table+" WHERE phone = "+phone;
-			    
-			    String pass="";
-				try {
+			
+			
+			
+			
+			/*	try {
 				results = statement.executeQuery(query);
 				while(results.next()) {
 					 try {
@@ -144,7 +159,7 @@ import java.sql.*;
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+			*/
 			 try {
 				database.closeConnection();
 			} catch (SQLException e) {
@@ -152,7 +167,7 @@ import java.sql.*;
 				e.printStackTrace();
 			}
 			 return pass;
-			 }
+			}
 			 
 			
 			
