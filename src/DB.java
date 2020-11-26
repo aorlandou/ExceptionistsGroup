@@ -140,11 +140,11 @@ import java.sql.*;
 			}
 			 
 		/*get name from DataBase method*/
-		public String getName ( String phone) {
+		public String getName (String phone) {
 			DB database= new DB();
 			Statement statement = null;
 			ResultSet results = null;
-			String pass = "nothing returned";
+			String nm = "nothing returned"; //name
 			String name = null;
 		    String SQL ="SELECT name FROM account WHERE phone = ?";
 			PreparedStatement pstmt;
@@ -154,7 +154,7 @@ import java.sql.*;
 				pstmt.setString(1,phone);
 			    ResultSet rs = pstmt.executeQuery();
 				while (rs.next()) {
-					pass = rs.getString(name);
+					nm = rs.getString(name);
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -170,15 +170,15 @@ import java.sql.*;
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			 return pass;
+			 return nm;
 			}
 			 
 		/*get surname from DataBase method*/
-		public String getSurname ( String phone) {
+		public String getSurname (String phone) {
 			DB database= new DB();
 			Statement statement = null;
 			ResultSet results = null;
-			String pass = "nothing returned";
+			String sn = "nothing returned"; //surname
 			String surname = null;
 		    String SQL ="SELECT name FROM account WHERE phone = ?";
 			PreparedStatement pstmt;
@@ -188,7 +188,7 @@ import java.sql.*;
 				pstmt.setString(1,phone);
 			    ResultSet rs = pstmt.executeQuery();
 				while (rs.next()) {
-					pass = rs.getString(surname);
+					sn = rs.getString(surname);
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -204,8 +204,145 @@ import java.sql.*;
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			 return pass;
+			 return sn;
 			}
+		
+		/*get municipality from DataBase method*/
+		public String getMunicipality (String phone) {
+			DB database= new DB();
+			Statement statement = null;
+			ResultSet results = null;
+			String mun = "nothing returned"; //municipality
+			String name = null;
+		    String SQL ="SELECT municipality FROM account WHERE phone = ?";
+			PreparedStatement pstmt;
+			try {
+				Connection con = database.getConnection();
+				pstmt = con.prepareStatement(SQL);
+				pstmt.setString(1,phone);
+			    ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {
+					mun = rs.getString(name);
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+						
+			 try {
+				database.closeConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 return mun;
+			}
+		
+		/*get gender from DataBase method*/
+		public String getGender (String phone) {
+			DB database= new DB();
+			Statement statement = null;
+			ResultSet results = null;
+			String gend = "nothing returned"; //gender
+			String gender = null;
+		    String SQL ="SELECT gender FROM account WHERE phone = ?";
+			PreparedStatement pstmt;
+			try {
+				Connection con = database.getConnection();
+				pstmt = con.prepareStatement(SQL);
+				pstmt.setString(1,phone);
+			    ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {
+					gend = rs.getString(gender);
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+						
+			 try {
+				database.closeConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 return gend;
+			}
+		
+		/*get birthdate from DataBase method*/
+		public String getBirthdate (String phone) {
+			DB database= new DB();
+			Statement statement = null;
+			ResultSet results = null;
+			String bd = "nothing returned"; //birthdate
+			String birthdate = null;
+		    String SQL ="SELECT name FROM account WHERE phone = ?";
+			PreparedStatement pstmt;
+			try {
+				Connection con = database.getConnection();
+				pstmt = con.prepareStatement(SQL);
+				pstmt.setString(1,phone);
+			    ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {
+					bd = rs.getString(birthdate);
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+						
+			 try {
+				database.closeConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 return bd;
+			}
+		
+		/*get state from DataBase method*/
+		public String getState (String phone) {
+			DB database= new DB();
+			Statement statement = null;
+			ResultSet results = null;
+			String st = "nothing returned"; //state
+			String state = null;
+		    String SQL ="SELECT name FROM account WHERE phone = ?";
+			PreparedStatement pstmt;
+			try {
+				Connection con = database.getConnection();
+				pstmt = con.prepareStatement(SQL);
+				pstmt.setString(1,phone);
+			    ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {
+					st = rs.getString(state);
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+						
+			 try {
+				database.closeConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 return st;
+			}
+		
 		
 		/*update password in database method*/
 		public void updatePassword(String phone, String newpassword) {
