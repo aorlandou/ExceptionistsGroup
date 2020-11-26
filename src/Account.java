@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;  
 import java.util.Date;
 import java.util.Collections;
+import java.util.InputMismatchException;
+
 
 public class Account {
 	private  String name, surname, password, birthdate, gender, municipality;
@@ -211,5 +213,43 @@ public class Account {
 			      System.out.println(notifications.get(i));
 		  }
 	}
-	
+		
+		public void addFriends () throws Exception {
+
+			Scanner scanner8 = new Scanner(System.in);
+			int selection = 1;
+			boolean check = true; 
+			while (check) {
+				try {
+					System.out.println("Press 1 to show friends or press 2 to add a new friend.\n");
+					selection = scanner8.nextInt();
+					if (selection == 1 || selection == 2)
+						check = false;
+					else
+						check = true;
+				} catch (InputMismatchException e) {
+					System.out.println("An error has occured, please try again.\n");
+					scanner8.nextLine();
+				}
+			}
+			if (selection == 1) {
+				if (friends.size() != 0) {
+					try {
+						System.out.println("Your current friends are:\n");
+						DB d = new DB();
+						Connection con = d.getConnection();
+						for (int i=0; i<friends.size(); i++) {
+							System.out.println(d.getName(friends.get(i)) + " " 
+							+ d.getSurname(friends.get(i)) + " " + friends.get(i) + "\n");
+						}
+						d.closeConnection();
+					} catch (Exception e) {
+						throw new Exception("Could not show friends: "
+								+ e.getMessage());
+					}
+				
+			}
+			
+		}
+	}
 }
