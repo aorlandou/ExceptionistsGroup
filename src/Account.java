@@ -221,7 +221,7 @@ public class Account {
 			boolean check = true; 
 			while (check) {
 				try {
-					System.out.println("Press 1 to show friends or press 2 to add a new friend.\n");
+					System.out.println("Enter 1 to show friends or enter 2 to add a new friend.\n");
 					selection = scanner8.nextInt();
 					if (selection == 1 || selection == 2)
 						check = false;
@@ -247,9 +247,31 @@ public class Account {
 						throw new Exception("Could not show friends: "
 								+ e.getMessage());
 					}
-				
+				} else {
+					System.out.println("Your friend list is empty...Please add some friends first. \n");
+				}
+			} else {
+				String process = "continue";
+				while (process.contentEquals("continue")) {
+					DB dd = new DB(); 
+					try {
+						System.out.println("Please enter your friend's phone number.");
+						String friendphone = scanner8.next();
+						String answer = dd.getName(friendphone);
+						if (answer.equals("nothing returned")) {
+							System.out.println("Sorry but this phonenumber does not exist. \n Back in menu");
+							return;
+						} else {
+							friends.add(friendphone);
+						}
+						System.out.println("If you would like to add more friends enter continue, otherwise enter stop.");
+						process = scanner8.next();
+					} catch(InputMismatchException e) {
+						System.err.printf("\n Exception: %s \n", e);
+						System.out.println("Invalid data \n Try again");
+						scanner8.nextLine();
+					}
+				}
 			}
-			
-		}
 	}
 }
