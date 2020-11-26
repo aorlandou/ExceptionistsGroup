@@ -105,32 +105,22 @@ import java.sql.*;
 			
 		}//end of incertAcc
 		
-		/*get DataBase data method*/
-		public String getVariable (String table, String phone, String variable) {
+		/*get password from DataBase method*/
+		public String getPassword ( String phone) {
 			DB database= new DB();
 			Statement statement = null;
 			ResultSet results = null;
 			String pass = "nothing returned";
-			//Statement statement = connection.createStatement();
-
-		/*
-			try {
-				statement = connection.createStatement();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
-			String SQL ="SELECT ? FROM ? WHERE phone = ?";
+			String password = null;
+			String SQL ="SELECT password FROM account WHERE phone = ?";
 			PreparedStatement pstmt;
 			try {
 				Connection con = database.getConnection();
 				pstmt = con.prepareStatement(SQL);
-				pstmt.setString(1, variable);
-				pstmt.setString(2, table);
-				pstmt.setString(3, phone);
-				ResultSet rs = pstmt.executeQuery();
+				pstmt.setString(1,phone);
+			    ResultSet rs = pstmt.executeQuery();
 				while (rs.next()) {
-					pass = rs.getString(variable);
+					pass = rs.getString(password);
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -139,27 +129,7 @@ import java.sql.*;
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
-			
-			
-			/*	try {
-				results = statement.executeQuery(query);
-				while(results.next()) {
-					 try {
-						pass =results.getString(variable);
 						
-						
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			*/
 			 try {
 				database.closeConnection();
 			} catch (SQLException e) {
@@ -169,8 +139,164 @@ import java.sql.*;
 			 return pass;
 			}
 			 
-			
+		/*get name from DataBase method*/
+		public String getName ( String phone) {
+			DB database= new DB();
+			Statement statement = null;
+			ResultSet results = null;
+			String pass = "nothing returned";
+			String name = null;
+		    String SQL ="SELECT name FROM account WHERE phone = ?";
+			PreparedStatement pstmt;
+			try {
+				Connection con = database.getConnection();
+				pstmt = con.prepareStatement(SQL);
+				pstmt.setString(1,phone);
+			    ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {
+					pass = rs.getString(name);
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+						
+			 try {
+				database.closeConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 return pass;
+			}
+			 
+		/*get surname from DataBase method*/
+		public String getSurname ( String phone) {
+			DB database= new DB();
+			Statement statement = null;
+			ResultSet results = null;
+			String pass = "nothing returned";
+			String surname = null;
+		    String SQL ="SELECT name FROM account WHERE phone = ?";
+			PreparedStatement pstmt;
+			try {
+				Connection con = database.getConnection();
+				pstmt = con.prepareStatement(SQL);
+				pstmt.setString(1,phone);
+			    ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {
+					pass = rs.getString(surname);
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+						
+			 try {
+				database.closeConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 return pass;
+			}
+		
+		/*update password in database method*/
+		public void updatePassword(String phone, String newpassword) {
+		String SQL = "UPDATE account SET password = ? WHERE phone = ?";
+		PreparedStatement pstmt = null;
+		DB database=new DB();
+		Connection connection = null;
+		try {
+			connection = database.getConnection();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			pstmt = connection.prepareStatement(SQL);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			pstmt.setString(1,newpassword);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			pstmt.setString(2,phone);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		try {
+			database.closeConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 			
 		}
 		
+		/*update municipality in database method*/
+		public void updateMunicipality(String phone, String newmunicipality) {
+		String SQL = "UPDATE account SET municipality = ? WHERE phone = ?";
+		PreparedStatement pstmt = null;
+		DB database=new DB();
+		Connection connection = null;
+		try {
+			connection = database.getConnection();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			pstmt = connection.prepareStatement(SQL);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			pstmt.setString(1,newmunicipality);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			pstmt.setString(2,phone);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		try {
+			database.closeConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		}
+	}		
 	

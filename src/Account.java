@@ -93,11 +93,11 @@ public class Account {
 		this.notifications = notifications;
 	}
 
-	public List<Account> getFriends() {
+	public List<String> getFriends() {
 		return friends;
 	}
 
-	public void setFriends(List<Account> friends) {
+	public void setFriends(List<String> friends) {
 		this.friends = friends;
 	}
 
@@ -106,7 +106,7 @@ public class Account {
 	private boolean covid;
 	private String message;
 	List<String> notifications= new ArrayList<String>();
-	List<Account> friends= new ArrayList<Account>();
+	List<String> friends= new ArrayList<String>();
 
 	void userState (boolean x){
 	  covid=x ;

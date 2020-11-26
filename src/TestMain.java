@@ -157,7 +157,7 @@ public class TestMain {
 
 	 /*Test getVariable DB class*/
 	DB data=new DB();
-	String variable=data.getVariable("account", "6955300531", "password");
+	String variable=data.getPassword("6955300531");
 	System.out.println(variable);
 	
 	}	
