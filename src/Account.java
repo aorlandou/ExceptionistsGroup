@@ -140,9 +140,8 @@ public class Account {
 		if(friends.size()!=0) {
 		for(int i=0;i<friends.size();i++) {
 			DB data=new DB();
-			data.addNotification(phone, friends.get(i));
-			
-				
+			data.addNotification(friends.get(i), message);
+					
 			}
 		
 		}else {
