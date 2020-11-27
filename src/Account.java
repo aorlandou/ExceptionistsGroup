@@ -113,7 +113,11 @@ public class Account {
 	void userState (String key){
 	  boolean x=Boolean.parseBoolean(key);
 	  covid=x ;
-	  sendNotification() ;
+	  try {
+		sendNotification() ;
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
 	}
 
 	public Account(String name, String surname, String password, String phone, String birthdate,
@@ -133,9 +137,11 @@ public class Account {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
 	    Date date = new Date();  
 		if(covid==true) {
-			message="Your friend "+surname+" "+name+" has been tested possitive for coronavirus "+formatter.format(date);
+			message="Your friend "+surname+" "+name+" has been tested possitive for coronavirus "
+		+formatter.format(date);
 		}else {
-			message="Your friend "+surname+" "+name+" has recovered from coronavirus "+formatter.format(date);
+			message="Your friend "+surname+" "+name+" has recovered from coronavirus "
+		+formatter.format(date);
 		}
 		if(friends.size()!=0) {
 		for(int i=0;i<friends.size();i++) {
@@ -257,7 +263,8 @@ public class Account {
 						} else {
 							friends.add(friendphone);
 						}
-						System.out.println("If you would like to add more friends enter continue, otherwise enter stop.");
+						System.out.println("If you would like to add more friends enter continue, "
+								+ "otherwise enter stop.");
 						process = scanner8.next();
 					} catch(InputMismatchException e) {
 						System.err.printf("\n Exception: %s \n", e);

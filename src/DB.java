@@ -23,8 +23,6 @@ import java.util.List;
 		 */
 		public  Connection getConnection() throws Exception {
 
-			/* Step 1 -> Dynamically load the driver's class file into memory */
-
 			try {
 
 				// Dynamically load the driver's class file into memory
@@ -36,7 +34,7 @@ import java.util.List;
 			}
 
 			/*
-			 * Step 2 -> Establish a connection with the database and initializes
+			 * Establish a connection with the database and initializes
 			 * the Connection object (con)
 			 */
 
@@ -105,7 +103,7 @@ import java.util.List;
 						+ e.getMessage());
 			}
 			
-		}//end of incertAcc
+		}//end of insertAcc
 		
 		/*get password from DataBase method*/
 		public String getPassword ( String phone) {
@@ -122,7 +120,7 @@ import java.util.List;
 				pstmt.setString(1,phone);
 			    ResultSet rs = pstmt.executeQuery();
 				while (rs.next()) {
-					pass = rs.getString(password);
+					pass = rs.getString("password");
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -156,7 +154,7 @@ import java.util.List;
 				pstmt.setString(1,phone);
 			    ResultSet rs = pstmt.executeQuery();
 				while (rs.next()) {
-					nm = rs.getString(name);
+					nm = rs.getString("name");
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -166,14 +164,14 @@ import java.util.List;
 				e.printStackTrace();
 			}
 						
-			 try {
+			try {
 				database.closeConnection();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			 return nm;
-			}
+			}//end of getName
 			 
 		/*get surname from DataBase method*/
 		public String getSurname (String phone) {
@@ -190,7 +188,7 @@ import java.util.List;
 				pstmt.setString(1,phone);
 			    ResultSet rs = pstmt.executeQuery();
 				while (rs.next()) {
-					sn = rs.getString(surname);
+					sn = rs.getString("surname");
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -200,14 +198,14 @@ import java.util.List;
 				e.printStackTrace();
 			}
 						
-			 try {
+			try {
 				database.closeConnection();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			 return sn;
-			}
+			}//end of getSurname
 		
 		/*get municipality from DataBase method*/
 		public String getMunicipality (String phone) {
@@ -224,7 +222,7 @@ import java.util.List;
 				pstmt.setString(1,phone);
 			    ResultSet rs = pstmt.executeQuery();
 				while (rs.next()) {
-					mun = rs.getString(municipality);
+					mun = rs.getString("municipality");
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -234,14 +232,14 @@ import java.util.List;
 				e.printStackTrace();
 			}
 						
-			 try {
+			try {
 				database.closeConnection();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			 return mun;
-			}
+			}//end of getMunicipality
 		
 		/*get gender from DataBase method*/
 		public String getGender (String phone) {
@@ -258,7 +256,7 @@ import java.util.List;
 				pstmt.setString(1,phone);
 			    ResultSet rs = pstmt.executeQuery();
 				while (rs.next()) {
-					gend = rs.getString(gender);
+					gend = rs.getString("gender");
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -268,14 +266,14 @@ import java.util.List;
 				e.printStackTrace();
 			}
 						
-			 try {
+			try {
 				database.closeConnection();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			 return gend;
-			}
+			}//end of getGender 
 		
 		/*get birthdate from DataBase method*/
 		public String getBirthdate (String phone) {
@@ -292,7 +290,7 @@ import java.util.List;
 				pstmt.setString(1,phone);
 			    ResultSet rs = pstmt.executeQuery();
 				while (rs.next()) {
-					bd = rs.getString(birthdate);
+					bd = rs.getString("birthdate");
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -302,14 +300,14 @@ import java.util.List;
 				e.printStackTrace();
 			}
 						
-			 try {
+			try {
 				database.closeConnection();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			 return bd;
-			}
+			}//end of getBirthdate
 		
 		/*get state from DataBase method*/
 		public String getState (String phone) {
@@ -326,7 +324,7 @@ import java.util.List;
 				pstmt.setString(1,phone);
 			    ResultSet rs = pstmt.executeQuery();
 				while (rs.next()) {
-					st = rs.getString(state);
+					st = rs.getString("state");
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -336,14 +334,14 @@ import java.util.List;
 				e.printStackTrace();
 			}
 						
-			 try {
+			try {
 				database.closeConnection();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			 return st;
-			}
+			}//end of getState
 		
 		
 		/*get notifications from DataBase and insert them in a list method*/
@@ -362,7 +360,7 @@ import java.util.List;
 				pstmt.setString(1,phone);
 			    ResultSet rs = pstmt.executeQuery();
 				while (rs.next()) {
-					not = rs.getString(notification);
+					not = rs.getString("notification");
 					notifications.add(not);
 				}
 			} catch (SQLException e1) {
@@ -373,14 +371,14 @@ import java.util.List;
 				e.printStackTrace();
 			}
 						
-			 try {
+			try {
 				database.closeConnection();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			 return notifications;
-			}
+			}//end of getNotifications
 		
 		/*insert new notification in database method*/
 		public void addNotification(String phone, String notification)  {
@@ -437,35 +435,15 @@ import java.util.List;
 		Connection connection = null;
 		try {
 			connection = database.getConnection();
+			pstmt = connection.prepareStatement(SQL);
+			pstmt.setString(1,newpassword);
+			pstmt.setString(2,phone);
+			pstmt.executeUpdate();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		try {
-			pstmt = connection.prepareStatement(SQL);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			pstmt.setString(1,newpassword);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			pstmt.setString(2,phone);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		
 		try {
 			database.closeConnection();
 		} catch (SQLException e) {
@@ -473,7 +451,7 @@ import java.util.List;
 			e.printStackTrace();
 		}
 			
-		}
+		}//end of updatePassword
 		
 		/*update municipality in database method*/
 		public void updateMunicipality(String phone, String newmunicipality) {
@@ -483,35 +461,15 @@ import java.util.List;
 		Connection connection = null;
 		try {
 			connection = database.getConnection();
+			pstmt = connection.prepareStatement(SQL);
+			pstmt.setString(1,newmunicipality);
+			pstmt.setString(2,phone);
+			pstmt.executeUpdate();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		try {
-			pstmt = connection.prepareStatement(SQL);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			pstmt.setString(1,newmunicipality);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			pstmt.setString(2,phone);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		
 		try {
 			database.closeConnection();
 		} catch (SQLException e) {
@@ -519,6 +477,6 @@ import java.util.List;
 			e.printStackTrace();
 		}
 			
-		}
+		}//end of updateMunicipality
 	}		
 	
