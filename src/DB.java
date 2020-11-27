@@ -382,6 +382,12 @@ import java.util.List;
 			 return notifications;
 			}
 		
+		/*insert new notification in database method*/
+		public void addNotification(String phone, String friendphone) {
+			
+		}
+		
+	
 		/*update password in database method*/
 		public void updatePassword(String phone, String newpassword) {
 		String SQL = "UPDATE account SET password = ? WHERE phone = ?";
