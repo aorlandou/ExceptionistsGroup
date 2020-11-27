@@ -110,7 +110,8 @@ public class Account {
 	List<String> notifications= new ArrayList<String>();
 	List<String> friends= new ArrayList<String>();
 
-	void userState (boolean x){
+	void userState (String key){
+	  boolean x=Boolean.parseBoolean(key);
 	  covid=x ;
 	  sendNotification() ;
 	}
