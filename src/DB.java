@@ -1,5 +1,7 @@
 import com.mysql.jdbc.Statement;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 	public class DB {
@@ -343,6 +345,42 @@ import java.sql.*;
 			 return st;
 			}
 		
+		
+		/*get notifications from DataBase and insert them in a list method*/
+		public List<String> getNotifications( String phone) {
+			DB database= new DB();
+			List<String> notifications= new ArrayList<String>();
+			Statement statement = null;
+			ResultSet results = null;
+			String not = "nothing returned";
+			String notification = null;
+			String SQL ="SELECT notification FROM notifications WHERE phone = ?";
+			PreparedStatement pstmt;
+			try {
+				Connection con = database.getConnection();
+				pstmt = con.prepareStatement(SQL);
+				pstmt.setString(1,phone);
+			    ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {
+					not = rs.getString(notification);
+					notifications.add(not);
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+						
+			 try {
+				database.closeConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 return notifications;
+			}
 		
 		/*update password in database method*/
 		public void updatePassword(String phone, String newpassword) {
