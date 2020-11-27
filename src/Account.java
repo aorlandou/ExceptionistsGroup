@@ -119,7 +119,7 @@ public class Account {
 		e.printStackTrace();
 	}
 	}
-
+	
 	public Account(String name, String surname, String password, String phone, String birthdate,
 			String gender, String municipality) {
 		super();
