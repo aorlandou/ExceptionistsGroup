@@ -213,7 +213,7 @@ import java.sql.*;
 			Statement statement = null;
 			ResultSet results = null;
 			String mun = "nothing returned"; //municipality
-			String name = null;
+			String municipality = null;
 		    String SQL ="SELECT municipality FROM account WHERE phone = ?";
 			PreparedStatement pstmt;
 			try {
@@ -222,7 +222,7 @@ import java.sql.*;
 				pstmt.setString(1,phone);
 			    ResultSet rs = pstmt.executeQuery();
 				while (rs.next()) {
-					mun = rs.getString(name);
+					mun = rs.getString(municipality);
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -282,7 +282,7 @@ import java.sql.*;
 			ResultSet results = null;
 			String bd = "nothing returned"; //birthdate
 			String birthdate = null;
-		    String SQL ="SELECT name FROM account WHERE phone = ?";
+		    String SQL ="SELECT birthdate FROM account WHERE phone = ?";
 			PreparedStatement pstmt;
 			try {
 				Connection con = database.getConnection();
@@ -316,7 +316,7 @@ import java.sql.*;
 			ResultSet results = null;
 			String st = "nothing returned"; //state
 			String state = null;
-		    String SQL ="SELECT name FROM account WHERE phone = ?";
+		    String SQL ="SELECT state FROM account WHERE phone = ?";
 			PreparedStatement pstmt;
 			try {
 				Connection con = database.getConnection();
