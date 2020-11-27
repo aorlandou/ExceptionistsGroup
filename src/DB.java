@@ -352,7 +352,7 @@ import java.util.List;
 			ResultSet results = null;
 			String not = "nothing returned";
 			String notification = null;
-			String SQL ="SELECT notification FROM notifications WHERE phone = ?";
+			String SQL ="SELECT notification FROM notification WHERE phone = ?";
 			PreparedStatement pstmt;
 			try {
 				Connection con = database.getConnection();
