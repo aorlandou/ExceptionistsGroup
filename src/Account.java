@@ -144,7 +144,7 @@ public class Account {
 		}
 		if(friends.size()!=0) {
 		for(int i=0;i<friends.size();i++) {
-			String phone=friends.get(i).getPhone();
+			String phone=friends.get(i);
 			Statement statement;
 			
 				statement = con.createStatement();
