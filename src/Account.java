@@ -133,12 +133,7 @@ public class Account {
 	}
 	
 	
-	public void sendNotification() throws Exception {
-		DB database= new DB();
-		Connection con;
-		
-			con = database.getConnection();
-		
+	public void sendNotification() {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
 	    Date date = new Date();  
 		if(covid==true) {
@@ -150,21 +145,18 @@ public class Account {
 		}
 		if(friends.size()!=0) {
 		for(int i=0;i<friends.size();i++) {
-			String phone=friends.get(i);
-			Statement statement;
-			
-				statement = con.createStatement();
-			
-				statement.executeUpdate("INSERT INTO notification" + "VALUES (phone,message");
-			
-				
+			DB data=new DB();
+			data.addNotification(friends.get(i), message);
+					
 			}
 		
 		}else {
 		System.out.println("Your friends list is empty...Please add some friends first");
 		}
-		database.closeConnection();
+		
 	}
+	
+	
 	public void editProfile() {
 		System.out.println("****** PROFILE EDIT ******");
 		System.out.println(" [1] Change name.");

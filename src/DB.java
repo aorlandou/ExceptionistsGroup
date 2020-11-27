@@ -380,6 +380,53 @@ import java.util.List;
 			 return notifications;
 			}//end of getNotifications
 		
+		/*insert new notification in database method*/
+		public void addNotification(String phone, String notification)  {
+			
+				DB database = new DB();
+				Connection con = null;
+				try {
+					con = database.getConnection();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				String SQL = "INSERT INTO notification (phone, notification)" + "VALUES(?,?)";
+				PreparedStatement pstmt = null;
+				try {
+					pstmt = con.prepareStatement(SQL);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					pstmt.setString(1, phone);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					pstmt.setString(2, notification);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					int row = pstmt.executeUpdate();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}				
+				try {
+					database.closeConnection();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+		}
+		
+	
 		/*update password in database method*/
 		public void updatePassword(String phone, String newpassword) {
 		String SQL = "UPDATE account SET password = ? WHERE phone = ?";
