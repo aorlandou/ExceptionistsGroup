@@ -5,9 +5,12 @@ public class MainMenu {
 
 	
 	private Account accountnow; 
-	public MainMenu(Account currentaccount){
+	 MainMenu(Account currentaccount){
 		accountnow= currentaccount;
 	}
+	MainMenu(){
+		 System.out.println("Account has been created");
+	 }
 	public void printMenu(){
 		int num;
         do {
@@ -24,7 +27,7 @@ public class MainMenu {
 		   }while ((num<1) || (num>5)); 
 		   
 	          if (num==1)
-	        	  accountnow.addFriends();
+	        	  accountnow.setFriends();
 	          else if (num==2) { 
 	        	   
 	        	  String key; 
@@ -52,7 +55,9 @@ public class MainMenu {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-                 printMenu();
+                 //private Account accountnow; 
+		MainMenu x = new MainMenu(); 
+		x.printMenu();
 		}
 	}
 
