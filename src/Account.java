@@ -157,15 +157,17 @@ public class Account {
 		database.closeConnection();
 	}
 	public void editProfile() {
+		
 		System.out.println("****** PROFILE EDIT ******");
 		System.out.println(" [1] Change name.");
 		System.out.println(" [2] Change surname.");
 		System.out.println(" [3] Change password.");
 		System.out.println(" [4] Change municipality.");
+		System.out.println(" [5] Delete your profile.");
 		System.out.println(" [0] Finish profile editing.");
-
+		
 		Scanner scanner1= new Scanner(System.in);
-		int choice =scanner1.nextInt();
+		int choice=scanner1.nextInt();
 		while(choice!=0) {
 			switch (choice) {
 				case 1: 
@@ -185,7 +187,7 @@ public class Account {
 					System.out.println("Please enter again the new password. ");
 					Scanner scanner5= new Scanner(System.in);
 					String password2=scanner5.nextLine();
-					if(password1==password2) {
+					if(password1.equals(password2)) {
 						this.password=password1;
 						System.out.println("Password has been changed successfully.");	}
 				break;
@@ -193,18 +195,32 @@ public class Account {
 					System.out.println("Please enter the new municipality. ");
 					Scanner scanner6= new Scanner(System.in);
 					this.municipality=scanner6.nextLine();
+				case 5: 
+					 System.out.println("Do you want to delete your profile? If so, enter your password.");
+					 Scanner scanner7= new Scanner(System.in);
+					 String pass=scanner7.nextLine();
+					 /*if(pass.equals(this.password)){
+						  user=null; 
+						 System.gc();
+						 boolean flag=true;
+						  } */
 				break;
 			}
-			Scanner scanner7= new Scanner(System.in);
-			choice =scanner7.nextInt();
-			}
 		
-		  System.out.println("Do you want to delete your profile? If so, enter your password.");
-		  Scanner scanner7= new Scanner(System.in);
-		   String pass=scanner7.nextLine();
-		/* p = null;
-		    System.gc();*/
+			System.out.println("****** PROFILE EDIT ******");
+			System.out.println(" [1] Change name.");
+			System.out.println(" [2] Change surname.");
+			System.out.println(" [3] Change password.");
+			System.out.println(" [4] Change municipality.");
+			System.out.println(" [5] Delete your profile.");
+			System.out.println(" [0] Finish profile editing.");
+			
+			Scanner scanner8= new Scanner(System.in);
+			choice =scanner8.nextInt();
+			}
 	}
+		
+	
 		public void showNotifications() {
 			  Collections.sort(notifications);
 			  for (int i = 0; i <notifications.size(); i++) {
