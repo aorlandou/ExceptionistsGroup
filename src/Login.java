@@ -27,6 +27,7 @@ public class Login {
 			System.err.printf("\n Exception: %s \n", e);
 			System.out.println("Invalid data \n Try again");
 		} //end catch
+		sc.close();
 	} //end of passwordControl method
 
 	public void control(String ans, String password, String phone) {
@@ -58,8 +59,9 @@ public class Login {
 		} else { //Now user can login
 			createCurrentAccount(phone);
 		}
+		sc.close();
 	} //end of control method
-	
+
 	//Method that creates the current account
 	public void createCurrentAccount(String phone) {
 		DB db = new DB(); //create DB object
@@ -69,9 +71,8 @@ public class Login {
 		String birthday = db.getBirthdate(phone);
 		String gender = db.getGender(phone);
 		String municipality = db.getMunicipality(phone);
-		
-		//The constructor of class Account is called 
 		Account currentAccount = new Account(name, surname, password, phone, birthday, gender, municipality);
+		//The constructor of class Account is called 
 		//Print main menu
 	}
 	
