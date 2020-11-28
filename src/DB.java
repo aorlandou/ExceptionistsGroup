@@ -138,7 +138,7 @@ import java.sql.*;
 			}
 			 return pass;
 			}
-			 
+
 		/*get name from DataBase method*/
 		public String getName (String phone) {
 			DB database= new DB();
