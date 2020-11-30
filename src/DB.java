@@ -105,6 +105,23 @@ import java.util.List;
 			
 		}//end of insertAcc
 		
+		/*
+		 * this method will delete an account from our database
+		 */
+		public void deleteAcc(String phone) throws Exception {
+			try {
+				DB database = new DB();
+				Connection con = database.getConnection();
+				String SQL = "DELETE FROM account WHERE phone = ?";
+				PreparedStatement pstmt = con.prepareStatement(SQL);
+				pstmt.setString(1,phone);
+				pstmt.executeUpdate();
+			} catch (Exception e) {
+				throw new Exception("Could not delete account from the database: "
+						+ e.getMessage());
+			}
+		}//end of deleteAcc
+		
 		/*get password from DataBase method*/
 		public String getPassword ( String phone) {
 			DB database= new DB();
