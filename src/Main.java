@@ -21,9 +21,7 @@ public class Main extends JFrame implements ActionListener {
 	public static final int HEIGHT = 200;
 
 	
-	//Connecting to our database
-	DB data = new DB();
-	data.getConnection();
+	
 	public Main( ) {
 	super( );
 	setSize(WIDTH, HEIGHT);

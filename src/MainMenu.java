@@ -27,7 +27,7 @@ public class MainMenu {
 		   }while ((num<1) || (num>5)); 
 		   
 	          if (num==1)
-	        	  accountnow.setFriends();
+	        	  accountnow.addFriends();
 	          else if (num==2) { 
 	        	   
 	        	  String key; 

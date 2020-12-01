@@ -61,53 +61,7 @@ public class TestMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-		 
-	
-		/*create table with the notifications of the user
-		 * 
-		 */
-		DB database= new DB();
-		Connection connection = null;
-		Statement statement = null;
-		ResultSet results = null;
-		try {
-			connection = database.getConnection();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    List<String> notifications= new ArrayList<String>();
-    try {
-		statement = connection.createStatement();
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	String query="SELECT notification FROM notification WHERE phone = 6940047470 ";
-	try {
-		results = statement.executeQuery(query);
-		while(results.next()) {
-			 try {
-				String pass =results.getString("notification");
-				notifications.add(pass);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	try {
-		database.closeConnection();
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-	
+		
  
 	/*update account fields
 	 * 

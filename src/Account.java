@@ -113,9 +113,13 @@ public class Account {
 	void userState (String key){
 	  boolean x=Boolean.parseBoolean(key);
 	  covid=x ;
-	  sendNotification() ;
+	  try {
+		sendNotification() ;
+	} catch (Exception e) {
+		e.printStackTrace();
 	}
-
+	}
+	
 	public Account(String name, String surname, String password, String phone, String birthdate,
 			String gender, String municipality) {
 		super();
@@ -129,46 +133,42 @@ public class Account {
 	}
 	
 	
-	public void sendNotification() throws Exception {
-		DB database= new DB();
-		Connection con;
-		
-			con = database.getConnection();
-		
+	public void sendNotification() {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
 	    Date date = new Date();  
 		if(covid==true) {
-			message="Your friend "+surname+" "+name+" has been tested possitive for coronavirus "+formatter.format(date);
+			message="Your friend "+surname+" "+name+" has been tested possitive for coronavirus "
+		+formatter.format(date);
 		}else {
-			message="Your friend "+surname+" "+name+" has recovered from coronavirus "+formatter.format(date);
+			message="Your friend "+surname+" "+name+" has recovered from coronavirus "
+		+formatter.format(date);
 		}
 		if(friends.size()!=0) {
 		for(int i=0;i<friends.size();i++) {
-			String phone=friends.get(i).getPhone();
-			Statement statement;
-			
-				statement = con.createStatement();
-			
-				statement.executeUpdate("INSERT INTO notification" + "VALUES (phone,message");
-			
-				
+			DB data=new DB();
+			data.addNotification(friends.get(i), message);
+					
 			}
 		
 		}else {
 		System.out.println("Your friends list is empty...Please add some friends first");
 		}
-		database.closeConnection();
+		
 	}
+	
+	
 	public void editProfile() {
+		
 		System.out.println("****** PROFILE EDIT ******");
 		System.out.println(" [1] Change name.");
 		System.out.println(" [2] Change surname.");
 		System.out.println(" [3] Change password.");
 		System.out.println(" [4] Change municipality.");
+		System.out.println(" [5] Delete your profile.");
 		System.out.println(" [0] Finish profile editing.");
-
+		
 		Scanner scanner1= new Scanner(System.in);
-		int choice =scanner1.nextInt();
+		int choice=scanner1.nextInt();
 		while(choice!=0) {
 			switch (choice) {
 				case 1: 
@@ -188,7 +188,7 @@ public class Account {
 					System.out.println("Please enter again the new password. ");
 					Scanner scanner5= new Scanner(System.in);
 					String password2=scanner5.nextLine();
-					if(password1==password2) {
+					if(password1.equals(password2)) {
 						this.password=password1;
 						System.out.println("Password has been changed successfully.");	}
 				break;
@@ -196,18 +196,32 @@ public class Account {
 					System.out.println("Please enter the new municipality. ");
 					Scanner scanner6= new Scanner(System.in);
 					this.municipality=scanner6.nextLine();
+				case 5: 
+					 System.out.println("Do you want to delete your profile? If so, enter your password.");
+					 Scanner scanner7= new Scanner(System.in);
+					 String pass=scanner7.nextLine();
+					 /*if(pass.equals(this.password)){
+						  user=null; 
+						 System.gc();
+						 boolean flag=true;
+						  } */
 				break;
 			}
-			Scanner scanner7= new Scanner(System.in);
-			choice =scanner7.nextInt();
-			}
 		
-		  System.out.println("Do you want to delete your profile? If so, enter your password.");
-		  Scanner scanner7= new Scanner(System.in);
-		   String pass=scanner7.nextLine();
-		/* p = null;
-		    System.gc();*/
+			System.out.println("****** PROFILE EDIT ******");
+			System.out.println(" [1] Change name.");
+			System.out.println(" [2] Change surname.");
+			System.out.println(" [3] Change password.");
+			System.out.println(" [4] Change municipality.");
+			System.out.println(" [5] Delete your profile.");
+			System.out.println(" [0] Finish profile editing.");
+			
+			Scanner scanner8= new Scanner(System.in);
+			choice =scanner8.nextInt();
+			}
 	}
+		
+	
 		public void showNotifications() {
 			  Collections.sort(notifications);
 			  for (int i = 0; i <notifications.size(); i++) {
@@ -265,7 +279,8 @@ public class Account {
 						} else {
 							friends.add(friendphone);
 						}
-						System.out.println("If you would like to add more friends enter continue, otherwise enter stop.");
+						System.out.println("If you would like to add more friends enter continue, "
+								+ "otherwise enter stop.");
 						process = scanner8.next();
 					} catch(InputMismatchException e) {
 						System.err.printf("\n Exception: %s \n", e);
