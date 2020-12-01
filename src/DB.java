@@ -397,6 +397,41 @@ import java.util.List;
 			 return notifications;
 			}//end of getNotifications
 		
+		public List<String> getFriends( String phone) {
+			DB database= new DB();
+			List<String> friends= new ArrayList<String>();
+			Statement statement = null;
+			ResultSet results = null;
+			String not = "nothing returned";
+			String notification = null;
+			String SQL ="SELECT notification FROM notification WHERE phone = ?";
+			PreparedStatement pstmt;
+			try {
+				Connection con = database.getConnection();
+				pstmt = con.prepareStatement(SQL);
+				pstmt.setString(1,phone);
+			    ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {
+					not = rs.getString("friends");
+					friends.add(not);
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+						
+			try {
+				database.closeConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 return friends;
+			}//end of getFriends
+		
 		/*insert new notification in database method*/
 		public void addNotification(String phone, String notification)  {
 			
