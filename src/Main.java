@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import databaseConnection.DB;
 import javax.swing.JComponent;
 import java.awt.BorderLayout;
 import java.awt.Graphics;
@@ -49,7 +50,6 @@ public class Main extends JFrame implements ActionListener {
 			Login loginObj = new Login(); //create object for Login class
 			loginObj.loginmethod(); //call loginMethod to start the process of Login
 			break;
-		
 		}
 	}
 	public static void main(String[] args) {
@@ -59,4 +59,3 @@ public class Main extends JFrame implements ActionListener {
 		w.setVisible(true);
 	}
 }
-
