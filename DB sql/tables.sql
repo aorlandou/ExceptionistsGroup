@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `account` (
-  `phone` int NOT NULL,
+  `phone` varchar(45) NOT NULL,
   `name` varchar(45) NOT NULL,
   `surname` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
@@ -41,8 +41,63 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
+INSERT INTO `account` VALUES ('6940047470','Aliki','Orlandou','1234','Marousi','female','14/12/2001',NULL),('6955300531','Konstantina','Zouni','100','Chalandri','female','9/5/2001',NULL);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `friends`
+--
+
+DROP TABLE IF EXISTS `friends`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `friends` (
+  `phone` varchar(45) NOT NULL,
+  `friendphone` varchar(45) NOT NULL,
+  PRIMARY KEY (`phone`),
+  KEY `friendphone_idx` (`friendphone`),
+  CONSTRAINT `friendphone` FOREIGN KEY (`phone`) REFERENCES `account` (`phone`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `friends`
+--
+
+LOCK TABLES `friends` WRITE;
+/*!40000 ALTER TABLE `friends` DISABLE KEYS */;
+/*!40000 ALTER TABLE `friends` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notification`
+--
+
+DROP TABLE IF EXISTS `notification`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `notification` (
+  `phone` varchar(45) NOT NULL,
+  `notification` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`phone`),
+  CONSTRAINT `phoneNotif` FOREIGN KEY (`phone`) REFERENCES `account` (`phone`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notification`
+--
+
+LOCK TABLES `notification` WRITE;
+/*!40000 ALTER TABLE `notification` DISABLE KEYS */;
+INSERT INTO `notification` VALUES ('6940047470','test');
+/*!40000 ALTER TABLE `notification` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping events for database 'account'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -53,4 +108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-15 22:47:23
+-- Dump completed on 2020-11-30 18:38:10
