@@ -46,7 +46,8 @@ public class Main extends JFrame implements ActionListener {
 			SignUp.creatAccount();
 			break;
 		case "button 2":
-			Login.enterAccount();
+			Login loginObj = new Login(); //create object for Login class
+			loginObj.loginmethod(); //call loginMethod to start the process of Login
 			break;
 		
 		}

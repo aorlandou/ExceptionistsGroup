@@ -13,6 +13,11 @@ import java.util.InputMismatchException;
 
 public class Account {
 	private  String name, surname, password, birthdate, gender, municipality;
+	private String phone;
+	private String covidState; //returns "yes" if user has covid or "no" if he doesn't have
+	private String message;
+	List<String> notifications= new ArrayList<String>();
+	List<String> friends= new ArrayList<String>();
 	
 	public String getName() {
 		return name;
@@ -70,13 +75,12 @@ public class Account {
 		this.phone = phone;
 	}
 
-
-	public boolean isCovid() {
-		return covid;
+	public String getCovidState() {
+		return covidState;
 	}
 
-	public void setCovid(boolean covid) {
-		this.covid = covid;
+	public void setCovidState(String covidState) {
+		this.covidState = covidState;
 	}
 
 	public String getMessage() {
@@ -104,11 +108,7 @@ public class Account {
 	}
 
 
-	private String phone;
-	private boolean covid;
-	private String message;
-	List<String> notifications= new ArrayList<String>();
-	List<String> friends= new ArrayList<String>();
+	
 
 	void userState (String key){
 	  boolean x=Boolean.parseBoolean(key);

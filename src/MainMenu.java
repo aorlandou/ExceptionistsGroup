@@ -1,20 +1,22 @@
 import java.util.Scanner;
 
-
 public class MainMenu {
 
-	
-	private Account accountnow; 
-	 MainMenu(Account currentaccount){
-		accountnow= currentaccount;
+	private Account accountnow; //current Account
+
+	public MainMenu(Account accountnow) {
+		this.accountnow = accountnow;
 	}
+
 	MainMenu(){
 		 System.out.println("Account has been created");
-	 }
+	}
+
 	public void printMenu(){
 		int num;
+
         do {
-		   do{	
+		   do{
 	         	 System.out.println("1. add new friends");
 	         	 System.out.println("2. change user state");
 	         	 System.out.println("3. show my notifications");
@@ -24,8 +26,8 @@ public class MainMenu {
 	         	 System.out.print("Enter your choice: ");
 	         	 // This method reads the number provided using keyboard
 	         	 num= scan.nextInt();
-		   }while ((num<1) || (num>5)); 
-		   
+		   } while ((num<1) || (num>5)); 
+
 	          if (num==1)
 	        	  accountnow.addFriends();
 	          else if (num==2) { 
@@ -44,15 +46,8 @@ public class MainMenu {
 	          else if (num==5)
 	        	  Account.logOut();
         		
-        } while (num!=5);
-		
+        } while (num!=5);	
 }
-
-
-
-
-
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
                  //private Account accountnow; 

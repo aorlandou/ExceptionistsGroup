@@ -1,5 +1,7 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 
 public class Login {
 
@@ -79,8 +81,20 @@ public class Login {
 		String gender = db.getGender(phone);
 		String municipality = db.getMunicipality(phone);
 		Account currentAccount = new Account(name, surname, password, phone, birthday, gender, municipality);
-		//The constructor of class Account is called
-		//Print main menu
+		//The constructor of class Account that we have created is called
+		List<String> friends = new ArrayList<String>(); //List in which user's friends are saved
+		friends = db.getFriends(phone);
+		List<String> notifications = new ArrayList<String>(); //List in which user's notifications are saved
+		notifications = db.getNotifications(phone);
+		currentAccount.setNotifications(notifications);
+		currentAccount.setFriends(friends);
+		String covidState = db.getState(phone); //returns yes if user has covid/ no if user hasn't covid
+		if (! covidState.equals("nothing returned")) { // this means that user has already inserted his covidState
+			currentAccount.setCovidState(covidState); //call of method setCovidState so that to save user's state
+		}
+		MainMenu mainMenu = new MainMenu(currentAccount); //create MainMenu object
+		mainMenu.printMenu();
+		
 	}
 	
 	
