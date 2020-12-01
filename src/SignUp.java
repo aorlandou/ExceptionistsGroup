@@ -27,7 +27,6 @@ public class SignUp {
 
 		MainMenu User = new MainMenu(user);
 		User.printMenu();
-
 	}
 
 }

@@ -57,7 +57,6 @@ public class Main extends JFrame implements ActionListener {
 		case "button 2":
 			Login.loginMethod();
 			break;
-		
 		}
 	}
 	public static void main(String[] args) {
