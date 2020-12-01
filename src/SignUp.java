@@ -24,9 +24,9 @@ public class SignUp {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		MainMenu User = new MainMenu(user);
 		User.printMenu();
+
 	}
 
 }

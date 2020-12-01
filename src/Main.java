@@ -2,11 +2,7 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
 import databaseConnection.DB;
-
-=======
-
 import javax.swing.JComponent;
 import java.awt.BorderLayout;
 import java.awt.Graphics;
@@ -15,9 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JButton;
-
 import java.awt.FlowLayout;
-
 import javax.swing.JFrame;
 import javax.swing.JButton;
 
@@ -28,9 +22,7 @@ public class Main extends JFrame implements ActionListener {
 	public static final int HEIGHT = 200;
 
 	
-	//Connecting to our database
-	DB data = new DB();
-	data.getConnection();
+	
 	public Main( ) {
 	super( );
 	setSize(WIDTH, HEIGHT);
@@ -55,7 +47,8 @@ public class Main extends JFrame implements ActionListener {
 			SignUp.creatAccount();
 			break;
 		case "button 2":
-			Login.loginMethod();
+			Login loginObj = new Login(); //create object for Login class
+			loginObj.loginmethod(); //call loginMethod to start the process of Login
 			break;
 		}
 	}
