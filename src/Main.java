@@ -54,10 +54,10 @@ public class Main extends JFrame implements ActionListener {
 		String buttonType = e.getActionCommand();
 		switch (buttonType) {
 		case "button 1":
-			SignIn.creatAccount();
+			SignUp.creatAccount();
 			break;
 		case "button 2":
-			LogIn.enterAccount();
+			loginMethod.enterAccount();
 			break;
 		
 		}
