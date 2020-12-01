@@ -197,7 +197,7 @@ import java.util.List;
 			ResultSet results = null;
 			String sn = "nothing returned"; //surname
 			String surname = null;
-		    String SQL ="SELECT name FROM account WHERE phone = ?";
+		    String SQL ="SELECT surname FROM account WHERE phone = ?";
 			PreparedStatement pstmt;
 			try {
 				Connection con = database.getConnection();
