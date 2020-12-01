@@ -7,8 +7,6 @@ import databaseConnection.DB;
 
 =======
 
-
-
 import javax.swing.JComponent;
 import java.awt.BorderLayout;
 import java.awt.Graphics;
@@ -57,7 +55,7 @@ public class Main extends JFrame implements ActionListener {
 			SignUp.creatAccount();
 			break;
 		case "button 2":
-			loginMethod.enterAccount();
+			Login.loginMethod();
 			break;
 		
 		}
@@ -69,4 +67,3 @@ public class Main extends JFrame implements ActionListener {
 		w.setVisible(true);
 	}
 }
-
