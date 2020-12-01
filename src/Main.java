@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import databaseConnection.DB;
-import testaki.testaki;
+
 =======
 
 

@@ -27,10 +27,10 @@ public class SignUp {
 			e.printStackTrace();
 		}
 
-		//MainMenu User = new MainMenu(user);
-		//User.printMenu();
-		scanner.close();
+		MainMenu User = new MainMenu(user);
+		User.printMenu();
 
+		
 	}
 
 }
