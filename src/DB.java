@@ -399,12 +399,12 @@ import java.util.List;
 		
 		public List<String> getFriends( String phone) {
 			DB database= new DB();
-			List<String> friends= new ArrayList<String>();
+			List<String> friendList= new ArrayList<String>();
 			Statement statement = null;
 			ResultSet results = null;
 			String not = "nothing returned";
-			String notification = null;
-			String SQL ="SELECT notification FROM notification WHERE phone = ?";
+			String friends = null;
+			String SQL ="SELECT friends FROM notification WHERE phone = ?";
 			PreparedStatement pstmt;
 			try {
 				Connection con = database.getConnection();
@@ -413,7 +413,7 @@ import java.util.List;
 			    ResultSet rs = pstmt.executeQuery();
 				while (rs.next()) {
 					not = rs.getString("friends");
-					friends.add(not);
+					friendList.add(not);
 				}
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
@@ -429,7 +429,7 @@ import java.util.List;
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			 return friends;
+			 return friendList;
 			}//end of getFriends
 		
 		/*insert new notification in database method*/
