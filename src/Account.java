@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -131,29 +130,32 @@ public class Account {
 		this.gender = gender;
 		this.municipality = municipality;
 	}
-	
-	
+
+	/*
+	 * This method adds a new notification in every friend's notification list when
+	 * the user is tested positive or negative for the virus
+	 */
 	public void sendNotification() {
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
-	    Date date = new Date();  
-		if(covid==true) {
-			message="Your friend "+surname+" "+name+" has been tested possitive for coronavirus "
-		+formatter.format(date);
-		}else {
-			message="Your friend "+surname+" "+name+" has recovered from coronavirus "
-		+formatter.format(date);
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		Date date = new Date();
+		if (covidState == true) {
+			message = "Your friend " + surname + " " + name + " has been tested possitive for coronavirus "
+					+ formatter.format(date);
+		} else {
+			message = "Your friend " + surname + " " + name + " has recovered from coronavirus "
+					+ formatter.format(date);
 		}
-		if(friends.size()!=0) {
-		for(int i=0;i<friends.size();i++) {
-			DB data=new DB();
-			data.addNotification(friends.get(i), message);
-					
+		if (friends.size() != 0) {
+			for (int i = 0; i < friends.size(); i++) {
+				DB data = new DB();
+				data.addNotification(friends.get(i), message);
+
 			}
-		
-		}else {
-		System.out.println("Your friends list is empty...Please add some friends first");
+
+		} else {
+			System.out.println("Your friends list is empty...Please add some friends first");
 		}
-		
+
 	}
 	
 	
