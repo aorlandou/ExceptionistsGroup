@@ -138,10 +138,10 @@ public class Account {
 	public void sendNotification() {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		Date date = new Date();
-		if (covidState == true) {
+		if (covidState.equals("positive")) {
 			message = "Your friend " + surname + " " + name + " has been tested possitive for coronavirus "
 					+ formatter.format(date);
-		} else {
+		} else if (covidState.equals("negative")){
 			message = "Your friend " + surname + " " + name + " has recovered from coronavirus "
 					+ formatter.format(date);
 		}
@@ -152,10 +152,7 @@ public class Account {
 
 			}
 
-		} else {
-			System.out.println("Your friends list is empty...Please add some friends first");
-		}
-
+		} 	
 	}
 	
 	
