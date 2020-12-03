@@ -4,7 +4,10 @@ import java.util.Scanner;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;  
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Collections;
 import java.util.InputMismatchException;
@@ -136,25 +139,24 @@ public class Account {
 	 * the user is tested positive or negative for the virus
 	 */
 	public void sendNotification() {
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		Date date = new Date();
+		LocalDate date = LocalDate.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		if (covidState.equals("positive")) {
 			message = "Your friend " + surname + " " + name + " has been tested possitive for coronavirus "
-					+ formatter.format(date);
-		} else if (covidState.equals("negative")){
+					+ date.format(formatter) + " " + DateTimeFormatter.ofPattern("hh:mm a").format(LocalTime.now());
+		} else if (covidState.equals("negative")) {
 			message = "Your friend " + surname + " " + name + " has recovered from coronavirus "
-					+ formatter.format(date);
-		}
-		if (friends.size() != 0) {
-			for (int i = 0; i < friends.size(); i++) {
-				DB data = new DB();
-				data.addNotification(friends.get(i), message);
+					+ date.format(formatter) + " " + DateTimeFormatter.ofPattern("hh:mm a").format(LocalTime.now());
+			if (friends.size() != 0) {
+				for (int i = 0; i < friends.size(); i++) {
+					DB data = new DB();
+					data.addNotification(friends.get(i), message);
+
+				}
 
 			}
-
-		} 	
+		}
 	}
-	
 	
 	public void editProfile() {
 		
