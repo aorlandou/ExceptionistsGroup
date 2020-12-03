@@ -176,12 +176,14 @@ public class Account {
 					Scanner scanner2= new Scanner(System.in);
 				    this.name=scanner2.nextLine();
 				    data.updateName(phone,name);
+				    System.out.println("Name has been changed successfully.");
 				break;
 				case 2:
 					System.out.println("Please enter the surname. ");
 					Scanner scanner3= new Scanner(System.in);
 					this.surname=scanner3.nextLine();
 					data.updateSurname(phone, surname);
+					System.out.println("Surname has been changed successfully.");
 				break;
 				case 3: 
 					System.out.println("Please enter the new password. ");
@@ -200,15 +202,21 @@ public class Account {
 					Scanner scanner6= new Scanner(System.in);
 					this.municipality=scanner6.nextLine();
 					data.updateMunicipality(phone, municipality);
+					System.out.println("Municipality has been changed successfully.");
 				case 5: 
 					 System.out.println("Do you want to delete your profile? If so, enter your password.");
 					 Scanner scanner7= new Scanner(System.in);
 					 String pass=scanner7.nextLine();
-					 /*if(pass.equals(this.password)){
-						  user=null; 
-						 System.gc();
-						 boolean flag=true;
-						  } */
+					 if(pass.equals(this.password)){
+						 try {
+							data.deleteAcc(phone);
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						 System.out.println("Account has been deleted successfully.");
+						 System.exit(0);
+						  } 
 				break;
 			}
 		
