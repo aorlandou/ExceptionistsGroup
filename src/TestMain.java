@@ -5,115 +5,97 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
 /*this class is used only for testing
  * 
  */
+
+/*Aliki an borei trekse auton ton kwdika tis erikas.*/
+/*Exw kanei kapoies allages gia na borei na trexei*/
+/* An thes dokimase kai tin teleutaia epilogi poy einai i diagrafi an kai*/
+/* pio poly thelw na dw an leitourgei swsta to menu giati tin diagrafi tin exeis dokimasei kai esy*/
 public class TestMain {
 
 	public static void main(String[] args) {
-		/*search for password that connects to the phone given by the user
-		 * 
-		 */
-		DB database= new DB();
-		Connection connection = null;
-		Statement statement = null;
-		ResultSet results = null;
-		try {
-			connection = database.getConnection();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	
-		try {
-			statement = connection.createStatement();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		String query="SELECT password FROM account WHERE phone = 6940047470 ";
-		 
 		
+	    String phone="6955300531";
+	    String password="0";
+		System.out.println("****** PROFILE EDIT ******");
+		System.out.println(" [1] Change name.");
+		System.out.println(" [2] Change surname.");
+		System.out.println(" [3] Change password.");
+		System.out.println(" [4] Change municipality.");
+		System.out.println(" [5] Delete your profile.");
+		System.out.println(" [0] Finish profile editing.");
 		
-		try {
-			results = statement.executeQuery(query);
-			while(results.next()) {
-				 try {
-					String pass =results.getString("password");
-					System.out.println("user password:" + pass);
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		Scanner scanner1= new Scanner(System.in);
+		int choice=scanner1.nextInt();
+		DB data=new DB();
+		while(choice!=0) {
+			switch (choice) {
+				case 1: 
+					System.out.println("Please enter the name. ");
+					Scanner scanner2= new Scanner(System.in);
+				    String name=scanner2.nextLine();
+				    data.updateName(phone,name);
+				    System.out.println("Name has been changed successfully.");
+				break;
+				case 2:
+					System.out.println("Please enter the surname. ");
+					Scanner scanner3= new Scanner(System.in);
+					String surname=scanner3.nextLine();
+					data.updateSurname(phone, surname);
+					System.out.println("Surname has been changed successfully.");
+				break;
+				case 3: 
+					System.out.println("Please enter the new password. ");
+					Scanner scanner4= new Scanner(System.in);
+					String password1=scanner4.nextLine(); 
+					System.out.println("Please enter again the new password. ");
+					Scanner scanner5= new Scanner(System.in);
+					String password2=scanner5.nextLine();
+					if(password1.equals(password2)) {
+						password=password1;
+						System.out.println("Password has been changed successfully.");
+						data.updatePassword(phone, password);}
+				break;
+				case 4:
+					System.out.println("Please enter the new municipality. ");
+					Scanner scanner6= new Scanner(System.in);
+					String municipality=scanner6.nextLine();
+					data.updateMunicipality(phone, municipality);
+					System.out.println("Municipality has been changed successfully.");
+				case 5: 
+					 System.out.println("Do you want to delete your profile? If so, enter your password.");
+					 Scanner scanner7= new Scanner(System.in);
+					 String pass=scanner7.nextLine();
+					 if(pass.equals(password)){
+						 try {
+							data.deleteAcc(phone);
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						 System.out.println("Account has been deleted successfully.");
+						 System.exit(0);
+						  } 
+				break;
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-		 try {
-			database.closeConnection();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
- 
-	/*update account fields
-	 * 
-	 */
-	String newpassword="100";
-	String phone="6955300531";
-	String SQL = "UPDATE account SET password = ? WHERE phone = ?";
-	PreparedStatement pstmt = null;
-	try {
-		connection = database.getConnection();
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	try {
-		pstmt = connection.prepareStatement(SQL);
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	try {
-		pstmt.setString(1,newpassword);
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	try {
-		pstmt.setString(2,phone);
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	try {
-		pstmt.executeUpdate();
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-
-	try {
-		database.closeConnection();
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-		
-
-	 /*Test getVariable DB class*/
-	DB data=new DB();
-	String variable=data.getPassword("6955300531");
-	System.out.println(variable);
-	
-	}	
+			System.out.println("****** PROFILE EDIT ******");
+			System.out.println(" [1] Change name.");
+			System.out.println(" [2] Change surname.");
+			System.out.println(" [3] Change password.");
+			System.out.println(" [4] Change municipality.");
+			System.out.println(" [5] Delete your profile.");
+			System.out.println(" [0] Finish profile editing.");
+			
+			Scanner scanner8= new Scanner(System.in);
+			choice =scanner8.nextInt();
+			}
+}
 }
  
