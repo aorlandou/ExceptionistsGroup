@@ -168,17 +168,20 @@ public class Account {
 		
 		Scanner scanner1= new Scanner(System.in);
 		int choice=scanner1.nextInt();
+		DB data=new DB();
 		while(choice!=0) {
 			switch (choice) {
 				case 1: 
 					System.out.println("Please enter the name. ");
 					Scanner scanner2= new Scanner(System.in);
 				    this.name=scanner2.nextLine();
+				    data.updateName(phone,name);
 				break;
 				case 2:
 					System.out.println("Please enter the surname. ");
 					Scanner scanner3= new Scanner(System.in);
 					this.surname=scanner3.nextLine();
+					data.updateSurname(phone, surname);
 				break;
 				case 3: 
 					System.out.println("Please enter the new password. ");
@@ -189,12 +192,14 @@ public class Account {
 					String password2=scanner5.nextLine();
 					if(password1.equals(password2)) {
 						this.password=password1;
-						System.out.println("Password has been changed successfully.");	}
+						System.out.println("Password has been changed successfully.");
+						data.updatePassword(phone, password);}
 				break;
 				case 4:
 					System.out.println("Please enter the new municipality. ");
 					Scanner scanner6= new Scanner(System.in);
 					this.municipality=scanner6.nextLine();
+					data.updateMunicipality(phone, municipality);
 				case 5: 
 					 System.out.println("Do you want to delete your profile? If so, enter your password.");
 					 Scanner scanner7= new Scanner(System.in);
