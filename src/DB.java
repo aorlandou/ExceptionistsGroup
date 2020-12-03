@@ -340,6 +340,7 @@ public class DB {
 			while (rs.next()) {
 				st = rs.getString("state");
 			}
+<<<<<<< HEAD
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -375,6 +376,35 @@ public class DB {
 			while (rs.next()) {
 				not = rs.getString("notification");
 				notifications.add(not);
+=======
+			 return notifications;
+			}//end of getNotifications
+		
+		public List<String> getFriends( String phone) {
+			DB database= new DB();
+			List<String> friendList= new ArrayList<String>();
+			Statement statement = null;
+			ResultSet results = null;
+			String not = "nothing returned";
+			String friends = null;
+			String SQL ="SELECT friends FROM notification WHERE phone = ?";
+			PreparedStatement pstmt;
+			try {
+				Connection con = database.getConnection();
+				pstmt = con.prepareStatement(SQL);
+				pstmt.setString(1,phone);
+			    ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {
+					not = rs.getString("friends");
+					friendList.add(not);
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+>>>>>>> 60c60d587e3881a8569b392631178afb5a5a5231
 			}
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
@@ -411,6 +441,7 @@ public class DB {
 				not = rs.getString("friends");
 				friends.add(not);
 			}
+<<<<<<< HEAD
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -476,6 +507,60 @@ public class DB {
 
 	/* update password in database method */
 	public void updatePassword(String phone, String newpassword) {
+=======
+			 return friendList;
+			}//end of getFriends
+		
+		/*insert new notification in database method*/
+		public void addNotification(String phone, String notification)  {
+			
+				DB database = new DB();
+				Connection con = null;
+				try {
+					con = database.getConnection();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				String SQL = "INSERT INTO notification (phone, notification)" + "VALUES(?,?)";
+				PreparedStatement pstmt = null;
+				try {
+					pstmt = con.prepareStatement(SQL);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					pstmt.setString(1, phone);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					pstmt.setString(2, notification);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					int row = pstmt.executeUpdate();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}				
+				try {
+					database.closeConnection();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+		}
+		
+	
+		/*update password in database method*/
+		public void updatePassword(String phone, String newpassword) {
+>>>>>>> 60c60d587e3881a8569b392631178afb5a5a5231
 		String SQL = "UPDATE account SET password = ? WHERE phone = ?";
 		PreparedStatement pstmt = null;
 		DB database = new DB();
