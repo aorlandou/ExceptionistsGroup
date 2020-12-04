@@ -112,14 +112,14 @@ public class Account {
 
 	
 
-	void userState (){
+	public void userState (){
 	  String key; 
 	  System.out.println("Have you been tested positive (yes) or negative (no) for COVID-19? ");
 	  Scanner scanner= new Scanner(System.in);
-	  this.key=scanner.nextLine();
-          if ( covidState.equals(key) and  covidState.equals("yes") )
+	  key=scanner.nextLine();
+          if ( covidState.equals(key) && covidState.equals("yes") )
 		  covidState = "yes" ;
-	  else if ( !covidState.equals(key) and  covidState.equals("yes") ){
+	  else if ( !covidState.equals(key) &&  covidState.equals("yes") ){
 		  covidState = "no" ;
 		message = "recoverded" ; }
 	  else 
