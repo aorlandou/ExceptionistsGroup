@@ -112,7 +112,11 @@ public class Account {
 
 	
 
-	void userState (String key){
+	void userState (){
+	  String key; 
+	  System.out.println("Have you been tested positive (yes) or negative (no) for COVID-19? ");
+	  Scanner scanner= new Scanner(System.in);
+	  this.key=scanner.nextLine();
 	  boolean x=Boolean.parseBoolean(key);
 	  covid=x ;
 	  try {
