@@ -117,8 +117,15 @@ public class Account {
 	  System.out.println("Have you been tested positive (yes) or negative (no) for COVID-19? ");
 	  Scanner scanner= new Scanner(System.in);
 	  this.key=scanner.nextLine();
-	  boolean x=Boolean.parseBoolean(key);
-	  covid=x ;
+          if ( covidState.equals(key) and  covidState.equals("yes") )
+		  covidState = "yes" ;
+	  else if ( !covidState.equals(key) and  covidState.equals("yes") ){
+		  covidState = "no" ;
+		message = "recoverded" ; }
+	  else 
+		  covidState = "yes" ;
+
+	  
 	  try {
 		sendNotification() ;
 	} catch (Exception e) {
