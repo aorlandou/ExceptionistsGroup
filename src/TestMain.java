@@ -21,8 +21,8 @@ public class TestMain {
 
 	public static void main(String[] args) {
 		
-	    String phone="6955300531";
-	    String password="0";
+	    String phone="phone";
+	    String password="password";
 		System.out.println("****** PROFILE EDIT ******");
 		System.out.println(" [1] Change name.");
 		System.out.println(" [2] Change surname.");
