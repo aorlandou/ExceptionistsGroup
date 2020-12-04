@@ -121,7 +121,7 @@ public class Account {
 		  covidState = "yes" ;
 	  else if ( !covidState.equals(key) &&  covidState.equals("yes") ){
 		  covidState = "no" ;
-		message = "recoverded" ; }
+		message = "recover" ; }
 	  else 
 		  covidState = "yes" ;
 
