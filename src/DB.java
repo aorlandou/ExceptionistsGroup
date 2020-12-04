@@ -107,8 +107,8 @@ public class DB {
 	 * this method will delete an account from our database
 	 */
 	public void deleteAcc(String phone) throws Exception {
+		DB database = new DB();
 		try {
-			DB database = new DB();
 			Connection con = database.getConnection();
 			String SQL = "DELETE FROM account WHERE phone = ?";
 			PreparedStatement pstmt = con.prepareStatement(SQL);
@@ -116,6 +116,12 @@ public class DB {
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			throw new Exception("Could not delete account from the database: " + e.getMessage());
+		}
+		try {
+			database.closeConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}// end of deleteAcc
 
