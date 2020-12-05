@@ -214,14 +214,30 @@ public class Account {
 						data.updatePassword(phone, password);
 						System.out.println("Password has been changed successfully.");
 					}else {
-						System.out.println("Wrong password. Please enter again the new password.");
-						Scanner scanner6= new Scanner(System.in);
-						String pass2=scanner6.nextLine();
-						if(password1.equals(pass2)) {
-							this.password=password1;
-							data.updatePassword(phone, password);
-							System.out.println("Password has been changed successfully.");
-					}
+						int count = 3;
+						boolean cor = false;
+						while (count > 0 && cor == false) {
+							System.out.println("Wrong password.");
+							System.out.println("You have " + count + " trial(s) left to enter your new "
+									+ "password correctly.");
+							System.out.println("Please try again and enter a new password.");
+							Scanner scanner6= new Scanner(System.in);
+							String pass1=scanner6.nextLine();
+							System.out.println("Please enter the new password again.");
+							String pass2=scanner5.nextLine();
+								if (pass1.equals(pass2)) {
+									password = pass1;
+									data.updatePassword(phone, password);
+									System.out.println("Password has been changed successfully.");
+									cor = true;
+								}else {
+									count--;
+								}
+						}
+						if (count == 0) {
+							System.out.println("You exceeded the number of trials you had to change "
+									+ "your password. \nYou are redirected back to PROFILE EDITING...");
+						}	
 					}
 				break;
 				case 4:
@@ -245,6 +261,9 @@ public class Account {
 						 System.out.println("Account has been deleted successfully.");
 						 System.exit(0);
 						  } 
+				break;
+				case 0:
+					System.exit(0);
 				break;
 			}
 		
