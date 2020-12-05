@@ -112,9 +112,20 @@ public class Account {
 
 	
 
-	void userState (String key){
-	  boolean x=Boolean.parseBoolean(key);
-	  covid=x ;
+	public void userState (){
+	  String key; 
+	  System.out.println("Have you been tested positive (yes) or negative (no) for COVID-19? ");
+	  Scanner scanner= new Scanner(System.in);
+	  key=scanner.nextLine();
+          if ( covidState.equals(key) && covidState.equals("yes") )
+		  covidState = "yes" ;
+	  else if ( !covidState.equals(key) &&  covidState.equals("yes") ){
+		  covidState = "no" ;
+		message = "recover" ; }
+	  else 
+		  covidState = "yes" ;
+
+	  
 	  try {
 		sendNotification() ;
 	} catch (Exception e) {
@@ -158,6 +169,10 @@ public class Account {
 		}
 	}
 	
+	/*
+	 * This method changes user's account information  
+	 */
+	
 	public void editProfile() {
 		
 		System.out.println("****** PROFILE EDIT ******");
@@ -196,19 +211,30 @@ public class Account {
 					String password2=scanner5.nextLine();
 					if(password1.equals(password2)) {
 						this.password=password1;
+						data.updatePassword(phone, password);
 						System.out.println("Password has been changed successfully.");
-						data.updatePassword(phone, password);}
+					}else {
+						System.out.println("Wrong password. Please enter again the new password.");
+						Scanner scanner6= new Scanner(System.in);
+						String pass2=scanner6.nextLine();
+						if(password1.equals(pass2)) {
+							this.password=password1;
+							data.updatePassword(phone, password);
+							System.out.println("Password has been changed successfully.");
+					}
+					}
 				break;
 				case 4:
 					System.out.println("Please enter the new municipality. ");
-					Scanner scanner6= new Scanner(System.in);
-					this.municipality=scanner6.nextLine();
+					Scanner scanner7= new Scanner(System.in);
+					this.municipality=scanner7.nextLine();
 					data.updateMunicipality(phone, municipality);
 					System.out.println("Municipality has been changed successfully.");
+				break;
 				case 5: 
 					 System.out.println("Do you want to delete your profile? If so, enter your password.");
-					 Scanner scanner7= new Scanner(System.in);
-					 String pass=scanner7.nextLine();
+					 Scanner scanner8= new Scanner(System.in);
+					 String pass=scanner8.nextLine();
 					 if(pass.equals(this.password)){
 						 try {
 							data.deleteAcc(phone);
@@ -230,8 +256,8 @@ public class Account {
 			System.out.println(" [5] Delete your profile.");
 			System.out.println(" [0] Finish profile editing.");
 			
-			Scanner scanner8= new Scanner(System.in);
-			choice =scanner8.nextInt();
+			Scanner scanner9= new Scanner(System.in);
+			choice =scanner9.nextInt();
 			}
 	}
 		
