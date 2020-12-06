@@ -334,7 +334,6 @@ public class DB {
 		DB database = new DB();
 		Statement statement = null;
 		ResultSet results = null;
-		String st = "nothing returned"; // state
 		String state = null;
 		String SQL = "SELECT state FROM account WHERE phone = ?";
 		PreparedStatement pstmt;
@@ -344,7 +343,7 @@ public class DB {
 			pstmt.setString(1, phone);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				st = rs.getString("state");
+				state = rs.getString("state");
 			}
 
 		} catch (SQLException e1) {
@@ -361,7 +360,7 @@ public class DB {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return st;
+		return state;
 	}// end of getState
 
 	/* get notifications from DataBase and insert them in a list method */

@@ -22,7 +22,15 @@ public class TestMain {
 	public static void main(String[] args) {
 		
 		DB data = new DB();
-	    String phone = "6977362135";
+		try {
+			data.getConnection();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	    /*String phone = "6977362135";
 	    String password = "den";
 	    System.out.println("****** PROFILE EDIT ******");
 		System.out.println(" [1] Change name.");
@@ -128,7 +136,7 @@ public class TestMain {
 			
 			Scanner scanner9= new Scanner(System.in);
 			choice =scanner9.nextInt();
-			}
+			}*/
 }
 }
  
