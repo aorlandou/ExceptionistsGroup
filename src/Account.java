@@ -32,94 +32,6 @@ public class Account {
 		this.municipality = municipality;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getSurname() {
-		return surname;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getBirthdate() {
-		return birthdate;
-	}
-
-	public void setBirthdate(String birthdate) {
-		this.birthdate = birthdate;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	public String getMunicipality() {
-		return municipality;
-	}
-
-	public void setMunicipality(String municipality) {
-		this.municipality = municipality;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getCovidState() {
-		return covidState;
-	}
-
-	public void setCovidState(String covidState) {
-		this.covidState = covidState;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public List<String> getNotifications() {
-		return notifications;
-	}
-
-	public void setNotifications(List<String> notifications) {
-		this.notifications = notifications;
-	}
-
-	public List<String> getFriends() {
-		return friends;
-	}
-
-	public void setFriends(List<String> friends) {
-		this.friends = friends;
-	}
-
 	public void userState() {
 		String key;
 		System.out.println("Have you been tested positive (yes) or negative (no) for COVID-19? ");
@@ -364,5 +276,93 @@ public class Account {
 				}
 			}
 		}
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getMunicipality() {
+		return municipality;
+	}
+
+	public void setMunicipality(String municipality) {
+		this.municipality = municipality;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getCovidState() {
+		return covidState;
+	}
+
+	public void setCovidState(String covidState) {
+		this.covidState = covidState;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public List<String> getNotifications() {
+		return notifications;
+	}
+
+	public void setNotifications(List<String> notifications) {
+		this.notifications = notifications;
+	}
+
+	public List<String> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(List<String> friends) {
+		this.friends = friends;
 	}
 }
