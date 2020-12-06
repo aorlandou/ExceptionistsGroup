@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -33,18 +36,22 @@ public class Account {
 	}
 
 	public void userState() {
-		String key;
-		System.out.println("Have you been tested positive (yes) or negative (no) for COVID-19? ");
-		Scanner scanner = new Scanner(System.in);
-		key = scanner.next();
-		if (key.equals("yes")) {
+		String key1 = JOptionPane.showInputDialog("Have you been tested positive (yes) or negative (no) for COVID-19? ");
+		if(covidState!=null) {
+		if (key1.equals("yes")) {
 			covidState = "positive";
-		} else if (covidState.equals("positive") && key.equals("no")) {
+		} else if (covidState.equals("positive") && key1.equals("no")) {
 			covidState = "recovered";
-		} else if (covidState.equals("negative") && key.equals("no")) {
+		} else if (covidState.equals("negative") && key1.equals("no")) {
 			covidState = "negative";
-		} else if (covidState == null && key.equals("no")) {
+		} }
+		else {
+			if (key1.equals("no")) {
+		
 			covidState = "negative";
+		}else {
+			covidState="positive";
+		}
 		}
 
 		try {
@@ -52,7 +59,7 @@ public class Account {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		scanner.close();
+		
 	}
 
 	/*
