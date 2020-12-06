@@ -1,4 +1,7 @@
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -9,8 +12,8 @@ public class Login {
 		DB dbObject = new DB(); // create DB object
 		Scanner sc = new Scanner(System.in); // Scanner object sc
 		try {
-			System.out.println("Please enter your phonenumber");
-			String phone = sc.next();
+			String phone=JOptionPane.showInputDialog("Please enter your phonenumber");
+			
 			String answer = dbObject.getPassword(phone);
 
 			if (answer.equals("nothing returned")) { // phone doesn't exist in the system
