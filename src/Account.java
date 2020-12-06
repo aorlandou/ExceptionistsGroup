@@ -273,6 +273,8 @@ public class Account {
 						return;
 					} else {
 						friends.add(friendphone);
+						String p = getPhone();
+						dd.insertFriend(p, friendphone);
 					}
 					System.out.println(
 							"If you would like to add more friends enter continue, " + "otherwise enter stop.");
