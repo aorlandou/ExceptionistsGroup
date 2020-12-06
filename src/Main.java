@@ -25,7 +25,7 @@ public class Main extends JFrame implements ActionListener {
 		setTitle("Window");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setLayout(new FlowLayout());
-		JLabel label = new JLabel("If you want to sign in press 1, if you want to log in press 2");
+		JLabel label = new JLabel("If you want to sign up press 1, if you want to log in press 2");
 		add(label);
 		JButton button1 = new JButton("button 1");
 		button1.addActionListener(this);

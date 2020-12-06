@@ -36,7 +36,7 @@ public class Account {
 		String key;
 		System.out.println("Have you been tested positive (yes) or negative (no) for COVID-19? ");
 		Scanner scanner = new Scanner(System.in);
-		key = scanner.nextLine();
+		key = scanner.next();
 		if (key.equals("yes")) {
 			covidState = "positive";
 		} else if (covidState.equals("positive") && key.equals("no")) {
@@ -52,6 +52,7 @@ public class Account {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		scanner.close();
 	}
 
 	/*
