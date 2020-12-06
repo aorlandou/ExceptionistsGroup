@@ -90,7 +90,7 @@ public class Login {
 		currentAccount.setNotifications(notifications);
 		currentAccount.setFriends(friends);
 		String covidState = db.getState(phone); // returns yes if user has covid/ no if user hasn't covid
-		if (!covidState.equals("nothing returned")) { // this means that user has already inserted his covidState
+		if (covidState != null) { // this means that user has already inserted his covidState
 			currentAccount.setCovidState(covidState); // call of method setCovidState so that to save user's state
 		}
 		MainMenu mainMenu = new MainMenu(currentAccount); // create MainMenu object
