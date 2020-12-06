@@ -15,6 +15,7 @@ public class Login {
 
 			if (answer.equals("nothing returned")) { // phone doesn't exist in the system
 				System.out.println("Sorry but this phonenumber does not exists \n Back in menu");
+				sc.close();
 				return; // User is returned in previous method
 			} else { // phone exists / continue process
 				boolean validpass; // validpass returns if user has entered a valid password

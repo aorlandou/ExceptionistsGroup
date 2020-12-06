@@ -21,7 +21,8 @@ public class MainMenu {
 				Scanner scan = new Scanner(System.in);
 				System.out.print("Enter your choice: ");
 				// This method reads the number provided using keyboard
-				num = scan.nextInt();
+				//num = scan.nextInt();
+				num = 2;
 			} while ((num < 1) || (num > 5));
 
 			if (num == 1)
