@@ -603,6 +603,32 @@ public class DB {
 
 	}// end of updateName
 
+	/* update state in database method */
+	public void updateState(String phone, String newstate) {
+		String SQL = "UPDATE account SET state = ? WHERE phone = ?";
+		PreparedStatement pstmt = null;
+		DB database = new DB();
+		Connection connection = null;
+		try {
+			connection = database.getConnection();
+			pstmt = connection.prepareStatement(SQL);
+			pstmt.setString(1, newstate);
+			pstmt.setString(2, phone);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		try {
+			database.closeConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}// end of updateState
+	
 	public void insertFriend(String phone, String friendphone) {
 
 		DB database = new DB();

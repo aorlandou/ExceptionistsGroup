@@ -17,7 +17,7 @@ public class Login {
 			String answer = dbObject.getPassword(phone);
 
 			if (answer.equals("nothing returned")) { // phone doesn't exist in the system
-				System.out.println("Sorry but this phonenumber does not exists \n Back in menu");
+				System.out.println("Sorry but this phonenumber does not exists");
 				sc.close();
 				return; // User is returned in previous method
 			} else { // phone exists / continue process
@@ -49,8 +49,7 @@ public class Login {
 		String password; // user's password is expected
 		boolean found = false; // We examine if user has succeeded to login
 		while (tryAgain.equals("yes") && count < 5) { // only 5 times user can try to type his password
-			System.out.println("Please enter your password");
-			password = sc.next(); // user enters again the password
+			password=JOptionPane.showInputDialog("Please enter your password");// user enters again the password
 			count++;
 			if (!ans.equals(password)) { // not valid password
 				System.out.println("Sorry but your password in not correct");
