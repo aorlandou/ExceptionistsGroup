@@ -34,7 +34,10 @@ public class Account {
 	}
 
 	public void userState() {
-		String key1 = JOptionPane.showInputDialog("Have you been tested positive (yes) or negative (no) for COVID-19? ");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Have you been tested positive (yes) or negative (no) for COVID-19? ");
+		//String key1 = JOptionPane.showInputDialog("Have you been tested positive (yes) or negative (no) for COVID-19? ");
+		String key1 = sc.next();
 		if(covidState!=null) {
 		if (key1.equals("yes")) {
 			covidState = "positive";
