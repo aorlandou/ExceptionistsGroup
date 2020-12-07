@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import javax.swing.JOptionPane;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -53,7 +51,8 @@ public class Account {
 			covidState="positive";
 		}
 		}
-
+        DB data=new DB();
+        data.updateState(phone,covidState);
 		try {
 			sendNotification();
 		} catch (Exception e) {
@@ -220,8 +219,11 @@ public class Account {
 
 	public void showNotifications() {
 		Collections.sort(notifications);
+		if(notifications.size()!=0) {
 		for (int i = 0; i < notifications.size(); i++) {
 			System.out.println(notifications.get(i));
+		}}else {
+			System.out.println("You don't have any notifications yet");
 		}
 	}
 
@@ -248,13 +250,11 @@ public class Account {
 				try {
 					System.out.println("Your current friends are:\n");
 					DB d = new DB();
-					Connection con = d.getConnection();
-					for (int i = 0; i < friends.size(); i++) {
+						for (int i = 0; i < friends.size(); i++) {
 						System.out.println(d.getName(friends.get(i)) + " " + d.getSurname(friends.get(i)) + " "
 								+ friends.get(i) + "\n");
 					}
-					d.closeConnection();
-				} catch (Exception e) {
+				    } catch (Exception e) {
 					throw new Exception("Could not show friends: " + e.getMessage());
 				}
 			} else {
@@ -273,6 +273,8 @@ public class Account {
 						return;
 					} else {
 						friends.add(friendphone);
+						String p = getPhone();
+						dd.insertFriend(p, friendphone);
 					}
 					System.out.println(
 							"If you would like to add more friends enter continue, " + "otherwise enter stop.");
