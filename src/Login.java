@@ -49,8 +49,9 @@ public class Login {
 		String password; // user's password is expected
 		boolean found = false; // We examine if user has succeeded to login
 		while (tryAgain.equals("yes") && count < 5) { // only 5 times user can try to type his password
-			System.out.println("Please enter your password");
-			password = sc.next(); // user enters again the password
+			//System.out.println("Please enter your password");
+			password = JOptionPane.showInputDialog("Please enter your password");
+			//password = sc.next(); // user enters again the password
 			count++;
 			if (!ans.equals(password)) { // not valid password
 				System.out.println("Sorry but your password in not correct");
