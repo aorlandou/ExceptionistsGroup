@@ -13,11 +13,11 @@ public class MainMenu {
 
 		do {
 			do {
-				System.out.println("1. add new friends");
-				System.out.println("2. change user state");
-				System.out.println("3. show my notifications");
-				System.out.println("4. edit profile");
-				System.out.println("5. log out");
+				System.out.println("1. Friends");
+				System.out.println("2. Change user state");
+				System.out.println("3. Show my notifications");
+				System.out.println("4. Edit profile");
+				System.out.println("5. Log out");
 				Scanner scan = new Scanner(System.in);
 				System.out.print("Enter your choice: ");
 				// This method reads the number provided using keyboard
@@ -28,11 +28,9 @@ public class MainMenu {
 				try {
 					accountnow.addFriends();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			else if (num == 2) {
-
 				accountnow.userState();
 			} else if (num == 3)
 				accountnow.showNotifications();
