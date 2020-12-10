@@ -6,7 +6,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,6 +19,7 @@ public class Login implements ActionListener  {
 	private static JLabel success;
 	private int count = 0; //counts how many trials user has done to login
 
+	//Method for login
 	public void loginmethod() {
 
 		JFrame frame = new JFrame();
@@ -54,9 +54,9 @@ public class Login implements ActionListener  {
 		success = new JLabel("");
 		success.setBounds(10, 110, 300, 25);
 		panel.add(success);
-		
+
 		frame.setVisible(true);
-		count++;
+		count++; //increase the trials of login into account
 	}
 
 	//method getCount
@@ -70,21 +70,22 @@ public class Login implements ActionListener  {
 		String phone = phoneText.getText();
 		String password = passwordText.getText();
 		String answer = dbObject.getPassword(phone);
-		
+
 		if (answer.equals("nothing returned")) {
 			success.setText("Sorry, this phonenumber does not exist");
-			return;
+			//return in Main !! PROBLEM
 		} else if (password.contentEquals(answer)) { //if phone exists in DB and password is also correct
 			success.setText("LOGIN SUCCESSFUL");
 			createCurrentAccount(phone);
 		} else if (!password.contentEquals(answer)) {
-			count++;
-			success.setText("Your password is incorrect \n Please enter valid data");
+			success.setText("Your password is incorrect");
+			success.setText("Please enter valid data");
 				if (getCount() <= 3 ) {
 					loginmethod();
 				} else {
-					success.setText("Sorry you can not login \n Try again later");
-					return;
+					success.setText("Sorry you can not login");
+					success.setText("Try again later");
+					System.exit(0);
 				}
 		}
 	}
@@ -106,7 +107,8 @@ public class Login implements ActionListener  {
 		notifications = db.getNotifications(phone);
 		currentAccount.setNotifications(notifications);
 		currentAccount.setFriends(friends);
-		String covidState = db.getState(phone); // returns yes if user has covid/ no if user hasn't covid
+		String covidState = db.getState(phone); // returns yes if user has covid /  no if user hasn't covid
+
 		if (covidState != null) { // this means that user has already inserted his covidState
 			currentAccount.setCovidState(covidState); // call of method setCovidState so that to save user's state
 		}
@@ -114,5 +116,4 @@ public class Login implements ActionListener  {
 		mainMenu.printMenu();
 
 	}
-
 }
