@@ -19,8 +19,9 @@ public class Login implements ActionListener  {
 	private static JPasswordField passwordText;
 	private static JButton button;
 	private static JLabel success;
+	private int count = 0; //counts how many trials user has done to login
 
-	public void loginmethod() {
+	public void loginmethod() { //method using GUI for the login procedure
 
 		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
@@ -56,17 +57,22 @@ public class Login implements ActionListener  {
 		panel.add(success);
 		
 		frame.setVisible(true);
+		count++;
+	}
 
+	//method getCount
+	public int getCount() {
+		return count;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		DB dbObject = new DB(); // create DB object
-		int count = 1;
+		
 		String phone = phoneText.getText();
 		String password = passwordText.getText();
 		String answer = dbObject.getPassword(phone);
-		
+
 		if (answer.equals("nothing returned")) {
 			success.setText("Sorry, this phonenumber does not exist");
 			return;
@@ -74,13 +80,14 @@ public class Login implements ActionListener  {
 			success.setText("LOGIN SUCCESSFUL");
 			createCurrentAccount(phone);
 		} else if (!password.contentEquals(answer)) {
-			count++;
-			success.setText("Your password is incorrect \n Please enter valid data");
-				if (count <= 5) {
-				loginmethod();
+			success.setText("Your password is incorrect");
+			success.setText("Please enter valid data");
+				if (getCount() <= 3) {
+					loginmethod();
 				} else {
-					success.setText("Sorry you can not login \n Try again later");
-					return;
+					success.setText("Sorry you can not login");
+					success.setText("Try again later");
+					System.exit(0);
 				}
 		}
 	}
@@ -108,7 +115,5 @@ public class Login implements ActionListener  {
 		}
 		MainMenu mainMenu = new MainMenu(currentAccount); // create MainMenu object
 		mainMenu.printMenu();
-
 	}
-
 }
