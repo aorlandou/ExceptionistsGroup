@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,6 +18,7 @@ public class Login implements ActionListener  {
 	private static JPasswordField passwordText;
 	private static JButton button;
 	private static JLabel success;
+	private int count = 0; //counts how many trials user has done to login
 
 	public void loginmethod() {
 
@@ -56,13 +56,17 @@ public class Login implements ActionListener  {
 		panel.add(success);
 		
 		frame.setVisible(true);
+		count++;
+	}
 
+	//method getCount
+	public int getCount() {
+		return count;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		DB dbObject = new DB(); // create DB object
-		int count = 1;
 		String phone = phoneText.getText();
 		String password = passwordText.getText();
 		String answer = dbObject.getPassword(phone);
@@ -76,8 +80,8 @@ public class Login implements ActionListener  {
 		} else if (!password.contentEquals(answer)) {
 			count++;
 			success.setText("Your password is incorrect \n Please enter valid data");
-				if (count <= 5) {
-				loginmethod();
+				if (getCount() <= 3 ) {
+					loginmethod();
 				} else {
 					success.setText("Sorry you can not login \n Try again later");
 					return;
