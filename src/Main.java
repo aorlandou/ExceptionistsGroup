@@ -25,12 +25,12 @@ public class Main extends JFrame implements ActionListener {
 		setTitle("Window");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setLayout(new FlowLayout());
-		JLabel label = new JLabel("If you want to sign up press 1, if you want to log in press 2");
+		JLabel label = new JLabel("Select your choice: ");
 		add(label);
-		JButton button1 = new JButton("button 1");
+		JButton button1 = new JButton("[1] Sign Up");
 		button1.addActionListener(this);
 		add(button1);
-		JButton button2 = new JButton("button 2");
+		JButton button2 = new JButton("[2] Login to your account");
 		button2.addActionListener(this);
 		add(button2);
 
@@ -39,10 +39,10 @@ public class Main extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String buttonType = e.getActionCommand();
 		switch (buttonType) {
-		case "button 1":
+		case "[1] Sign Up":
 			SignUp.creatAccount();
 			break;
-		case "button 2":
+		case "[2] Login to your account":
 			Login loginObj = new Login(); // create object for Login class
 			loginObj.loginmethod(); // call loginMethod to start the process of Login
 			break;
