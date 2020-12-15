@@ -28,5 +28,6 @@
 	<classpathentry kind="lib" path="C:/Users/alice/Desktop/eclipse/plugins/org.eclipse.wb.core.ui_1.10.0.202009181620.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alice/Desktop/eclipse/plugins/org.eclipse.wb.core.databinding_1.9.1.202009181620.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/3ο εξάμηνο/swt.jar"/>
+	<classpathentry kind="lib" path="src/swing2swt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
