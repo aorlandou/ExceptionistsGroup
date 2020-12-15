@@ -19,5 +19,14 @@
 	<classpathentry kind="lib" path="C:/Users/Public.DESKTOP-I5BS8GA/Downloads/org.eclipse.wb.core.xml_1.9.1.202009181620.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alice/Downloads/org.eclipse.jgit-5.9.0.202009080501-r.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alice/Desktop/eclipse/plugins/org.eclipse.swt_3.113.0.v20191204-0601.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/3ο εξάμηνο/org.eclipse.swt-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/3ο εξάμηνο/swing-layout-1.0.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/3ο εξάμηνο/SWTmanager.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/3ο εξάμηνο/org.eclipse.wb.core.databinding_1.1.0.r37x201109091012.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/3ο εξάμηνο/org.eclipse.wb.core_1.1.0.r37x201109091012.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alice/Desktop/eclipse/plugins/org.eclipse.wb.swt_1.9.1.202009181620.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alice/Desktop/eclipse/plugins/org.eclipse.wb.core.ui_1.10.0.202009181620.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alice/Desktop/eclipse/plugins/org.eclipse.wb.core.databinding_1.9.1.202009181620.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/3ο εξάμηνο/swt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
