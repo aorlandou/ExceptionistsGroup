@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class MainMenu {
 
@@ -13,7 +14,7 @@ public class MainMenu {
 
 		do {
 			do {
-				System.out.println("1. Friends");
+				/*System.out.println("1. Friends");
 				System.out.println("2. Change user state");
 				System.out.println("3. Show my notifications");
 				System.out.println("4. Edit profile");
@@ -21,7 +22,14 @@ public class MainMenu {
 				Scanner scan = new Scanner(System.in);
 				System.out.print("Enter your choice: ");
 				// This method reads the number provided using keyboard
-				num = scan.nextInt();
+				num = scan.nextInt();*/
+				 JOptionPane.showInternalMessageDialog(null, "1. add new friends\");\r\n"
+ 	    	 		+ "         	(\"2. change user state\");\r\n"
+ 	    	 		+ "         	(\"3. show my notifications\");\r\n"
+ 	    	 		+ "         	(\"4. edit profile\");\r\n"
+ 	    	 		+ "         	 (\"5. log out\");\r\n");
+ 	    	 String choice = JOptionPane.showInputDialog("Please enter your choice");
+ 	    	 num=Integer.parseInt(choice); 
 			} while ((num < 1) || (num > 5));
 
 			if (num == 1)
