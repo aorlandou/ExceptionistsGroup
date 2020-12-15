@@ -31,7 +31,7 @@ public class Main {
 		DB data = new DB();
 		//data.getConnection();
 		try {
-			maingraphics window = new maingraphics();
+			Main window = new Main();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();
