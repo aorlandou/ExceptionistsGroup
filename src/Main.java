@@ -1,9 +1,7 @@
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Label;
-
 import java.awt.event.ActionEvent;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.layout.GridLayout;
@@ -87,8 +85,8 @@ public class Main {
 		Button2.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				Login.loginmethod();
-
+				Login log = new Login();
+				log.loginmethod();
 			}
 		});
 		Button2.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.NORMAL));
