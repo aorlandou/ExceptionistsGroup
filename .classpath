@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="lib" path="C:/Users/alice/Downloads/mysql-connector.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/enu/mssql-jdbc-8.4.1.jre8.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/enu/mssql-jdbc-8.4.1.jre11.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/enu/mssql-jdbc-8.4.1.jre14.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/mysql-connector-java-8.0.22/mysql-connector-java-8.0.22.jar"/>
-
-	<classpathentry kind="lib" path="C:/Users/user/Desktop/eclipse/plugins/org.eclipse.swt.win32.win32.x86_64_3.113.0.v20191204-0601.jar" sourcepath="C:/Users/user/Desktop/eclipse/plugins/org.eclipse.swt.win32.win32.x86_64_3.113.0.v20191204-0601.jar"/>
-	<classpathentry kind="src" path="/Maingraphics"/>
-	<classpathentry kind="lib" path="/Maingraphics/swing2swt.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Public.DESKTOP-I5BS8GA/Documents/eclipse/plugins/org.eclipse.swt.win32.win32.x86_3.1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Public.DESKTOP-I5BS8GA/Documents/eclipse/plugins/org.eclipse.swt_3.1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Public.DESKTOP-I5BS8GA/Downloads/org.eclipse.wb.core.databinding.xml_1.9.1.202009181620.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Public.DESKTOP-I5BS8GA/Downloads/org.eclipse.wb.core.ui_1.10.0.202009181620.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Public.DESKTOP-I5BS8GA/Downloads/org.eclipse.wb.core.databinding_1.9.1.202009181620.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Public.DESKTOP-I5BS8GA/Downloads/org.eclipse.wb.core.lib_1.9.1.202009181620.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Public.DESKTOP-I5BS8GA/Downloads/org.eclipse.wb.core.java_1.9.2.202009181620.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Public.DESKTOP-I5BS8GA/Downloads/org.eclipse.wb.core_1.10.1.202009181620.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Public.DESKTOP-I5BS8GA/Downloads/org.eclipse.wb.core.xml_1.9.1.202009181620.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alice/Downloads/org.eclipse.jgit-5.9.0.202009080501-r.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alice/Desktop/eclipse/plugins/org.eclipse.swt_3.113.0.v20191204-0601.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/3ο εξάμηνο/org.eclipse.swt-3.1.jar"/>
@@ -33,5 +29,10 @@
 	<classpathentry kind="lib" path="C:/Users/alice/Desktop/eclipse/plugins/org.eclipse.wb.core.databinding_1.9.1.202009181620.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alice/OneDrive/Documents/uni/3ο εξάμηνο/swt.jar"/>
 	<classpathentry kind="lib" path="src/swing2swt.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>
