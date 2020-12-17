@@ -20,16 +20,16 @@ public class Main extends JFrame implements ActionListener {
 	public Main() {
 		super();
 		setSize(WIDTH, HEIGHT);
-		setTitle("Window");
+		setTitle("COVID-19");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new FlowLayout());
 		JLabel label = new JLabel(
-				"If you want to sign up press the left button, if you want to log in press the right");
+				"Press one button to start!");
 		add(label);
-		JButton Sign_up = new JButton("Sign_up");
+		JButton Sign_up = new JButton("Sign up");
 		Sign_up.addActionListener(this);
 		add(Sign_up);
-		JButton Log_in = new JButton("Log_in");
+		JButton Log_in = new JButton("Login");
 		Log_in.addActionListener(this);
 		add(Log_in);
 	}
@@ -37,10 +37,10 @@ public class Main extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String buttonType = e.getActionCommand();
 		switch (buttonType) {
-		case "Sign_up":
+		case "Sign up":
 			SignUp.creatAccount();
 			break;
-		case "Log_in":
+		case "Login":
 			Login log = new Login();
 			log.loginmethod();
 			break;
