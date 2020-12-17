@@ -1,13 +1,11 @@
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import databaseConnection.DB;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import java.awt.FlowLayout;
 
-DB data = new DB();data.getConnection();
 
 public class Main extends JFrame implements ActionListener {
 
@@ -15,8 +13,9 @@ public class Main extends JFrame implements ActionListener {
 	public static final int WIDTH = 600;
 	public static final int HEIGHT = 200;
 
-	 Connecting to our database
-	 DB data = new DB();data.getConnection();
+	 //Connecting to our database
+	 //DB data = new DB();
+	 //data.getConnection();
 
 	public Main() {
 		super();
