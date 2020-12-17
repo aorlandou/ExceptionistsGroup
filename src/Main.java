@@ -1,3 +1,4 @@
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import databaseConnection.DB;
@@ -32,7 +33,6 @@ public class Main extends JFrame implements ActionListener {
 		JButton Log_in = new JButton("Log_in");
 		Log_in.addActionListener(this);
 		add(Log_in);
-
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -47,9 +47,7 @@ public class Main extends JFrame implements ActionListener {
 			break;
 		}
 	}
-
 	public static void main(String[] args) {
-
 		Main w = new Main();
 		w.setVisible(true);
 	}
