@@ -1,54 +1,51 @@
-import java.util.Scanner;
-import java.util.InputMismatchException;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JComponent;
-import java.awt.BorderLayout;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Font;
-import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.FlowLayout;
-import javax.swing.JFrame;
-import javax.swing.JButton;
+
 
 public class Main extends JFrame implements ActionListener {
 
+	private static final long serialVersionUID = 1L;
 	public static final int WIDTH = 600;
 	public static final int HEIGHT = 200;
+
+	 //Connecting to our database
+	 //DB data = new DB();
+	 //data.getConnection();
 
 	public Main() {
 		super();
 		setSize(WIDTH, HEIGHT);
-		setTitle("Window");
-		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		setTitle("COVID-19");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new FlowLayout());
-		JLabel label = new JLabel("If you want to sign up press 1, if you want to log in press 2");
+		JLabel label = new JLabel(
+				"Press one button to start!");
 		add(label);
-		JButton button1 = new JButton("button 1");
-		button1.addActionListener(this);
-		add(button1);
-		JButton button2 = new JButton("button 2");
-		button2.addActionListener(this);
-		add(button2);
-
+		JButton Sign_up = new JButton("Sign up");
+		Sign_up.addActionListener(this);
+		add(Sign_up);
+		JButton Log_in = new JButton("Login");
+		Log_in.addActionListener(this);
+		add(Log_in);
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		String buttonType = e.getActionCommand();
 		switch (buttonType) {
-		case "button 1":
+		case "Sign up":
 			SignUp.creatAccount();
 			break;
-		case "button 2":
-			Login loginObj = new Login(); // create object for Login class
-			loginObj.loginmethod(); // call loginMethod to start the process of Login
+		case "Login":
+			Login log = new Login();
+			log.loginmethod();
 			break;
 		}
 	}
-
 	public static void main(String[] args) {
 		Main w = new Main();
 		w.setVisible(true);
