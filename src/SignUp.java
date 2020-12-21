@@ -34,7 +34,7 @@ public class SignUp implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		frame.add(panel);
-		frame.setVisible(true);
+
 		panel.setLayout(null);
 
 	    nameLabel = new JLabel("Name:");
@@ -90,8 +90,9 @@ public class SignUp implements ActionListener{
 		button.setBounds(10, 300 , 100, 65);
 		button.addActionListener(new SignUp());
 		panel.add(button);
-		
-		
+
+		frame.setVisible(true);
+
 	}
 		
 	@Override
