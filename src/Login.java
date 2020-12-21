@@ -17,7 +17,7 @@ public class Login implements ActionListener  {
 	private static JPasswordField passwordText;
 	private static JButton button;
 	private static JLabel success;
-	private int count = 0; //counts how many trials user has done to login
+	private static int count = 0; //counts how many trials user has done to login
 
 	//Method for login
 	public void loginmethod() {
@@ -56,7 +56,7 @@ public class Login implements ActionListener  {
 		panel.add(success);
 
 		frame.setVisible(true);
-		count++; //increase the trials of login into account
+		this.count++; //increase the trials of login into account
 	}
 
 	//method getCount
@@ -74,6 +74,8 @@ public class Login implements ActionListener  {
 		if (answer.equals("nothing returned")) {
 			success.setText("Sorry, this phonenumber does not exist");
 			//return in Main !! PROBLEM
+			Main back = new Main();
+			back.main(null);
 		} else if (password.contentEquals(answer)) { //if phone exists in DB and password is also correct
 			success.setText("LOGIN SUCCESSFUL");
 			createCurrentAccount(phone);

@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class SignUp implements ActionListener{
@@ -13,9 +14,9 @@ public class SignUp implements ActionListener{
 	private static JLabel surnameLabel;
 	private static JTextField surnameText;
 	private static JLabel passwordLabel;
-	private static JTextField passwordText;
+	private static JPasswordField passwordText;
 	private static JLabel password2Label;
-	private static JTextField password2Text;
+	private static JPasswordField password2Text;
 	private static JLabel phoneLabel;
 	private static JTextField phoneText;
 	private static JLabel genderLabel;
@@ -53,7 +54,7 @@ public class SignUp implements ActionListener{
 		passwordLabel = new JLabel("Password:");
 		passwordLabel.setBounds(10, 80, 800, 25);
 		panel.add(passwordLabel);
-		passwordText = new JTextField();
+		passwordText = new JPasswordField();
 		passwordText.setBounds(100, 80, 165, 25);
 		panel.add(passwordText);
 		
@@ -120,7 +121,7 @@ public class SignUp implements ActionListener{
 			password2Label = new JLabel("Please enter your password again to confirm:");
 			password2Label.setBounds(10, 20, 700, 15);
 			panel2.add(password2Label);
-			password2Text = new JTextField();
+			password2Text = new JPasswordField();
 			password2Text.setBounds(280, 20, 165, 25);
 			panel2.add(password2Text);
 			}while (!password2Text.equals(passwordText));
