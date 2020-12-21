@@ -32,7 +32,6 @@ public class SignUp implements ActionListener{
 		JPanel panel = new JPanel();
 		frame.setSize(600, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		frame.add(panel);
 
 		panel.setLayout(null);
@@ -43,42 +42,42 @@ public class SignUp implements ActionListener{
 		nameText = new JTextField();
 		nameText.setBounds(100, 20, 165, 25);
 		panel.add(nameText);
-		
+
 		surnameLabel = new JLabel("Surname:");
 		surnameLabel.setBounds(10, 50, 800, 25);
 		panel.add(surnameLabel);
 		surnameText = new JTextField();
 		surnameText.setBounds(100, 50, 165, 25);
 		panel.add(surnameText);
-		
+
 		passwordLabel = new JLabel("Password:");
 		passwordLabel.setBounds(10, 80, 800, 25);
 		panel.add(passwordLabel);
 		passwordText = new JPasswordField();
 		passwordText.setBounds(100, 80, 165, 25);
 		panel.add(passwordText);
-		
+
 		phoneLabel = new JLabel("Phone:");
 		phoneLabel.setBounds(10, 110, 800, 25);
 		panel.add(phoneLabel);
 		phoneText = new JTextField();
 		phoneText.setBounds(100, 110, 165, 25);
 		panel.add(phoneText);
-		
+
 		genderLabel = new JLabel("Gender:");
 		genderLabel.setBounds(10, 140, 800, 25);
 		panel.add(genderLabel);
 		genderText = new JTextField();
 		genderText.setBounds(100, 140, 165, 25);
 		panel.add(genderText);
-		
+
 		birthdateLabel = new JLabel("Birthdate:");
 		birthdateLabel.setBounds(10, 170, 800, 25);
 		panel.add(birthdateLabel);
 		birthdateText = new JTextField();
 		birthdateText.setBounds(100, 170, 165, 25);
 		panel.add(birthdateText);
-		
+
 		municipalityLabel = new JLabel("Municipality:");
 		municipalityLabel.setBounds(10, 200, 800, 25);
 		panel.add(municipalityLabel);
