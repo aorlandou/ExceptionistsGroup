@@ -5,6 +5,8 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JList;
+import javax.swing.JCheckBox;
 
 public class Test {
 
@@ -45,6 +47,9 @@ public class Test {
 		lblNewLabel.setFont(new Font("Viner Hand ITC", Font.PLAIN, 15));
 		lblNewLabel.setForeground(new Color(255, 0, 0));
 		frame.getContentPane().add(lblNewLabel, BorderLayout.CENTER);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Yes");
+		frame.getContentPane().add(chckbxNewCheckBox, BorderLayout.EAST);
 	}
 
 }
