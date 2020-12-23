@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,15 +16,19 @@ import java.util.Collections;
 import java.util.InputMismatchException;
 
 public class Account {
-	private String name, surname, password, birthdate, gender, municipality;
+	String name;
+	String password;
+	String birthdate;
+	private String municipality;
+	String gender;
+	String surname;
 	private String phone;
 	private String covidState; // returns "yes" if user has covid or "no" if he doesn't have
 	private String message;
 	List<String> notifications = new ArrayList<String>();
 	List<String> friends = new ArrayList<String>();
 	
-	public Account(String name, String surname, String password, String phone, String birthdate, String gender,
-			String municipality) {
+	public Account(String name, String surname, String password, String phone, String birthdate,String gender, String municipality) {
 		super();
 		this.name = name;
 		this.surname = surname;
