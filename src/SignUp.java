@@ -134,9 +134,10 @@ public class SignUp implements ActionListener{
 		} catch (Exception en) {
 			en.printStackTrace();
 		}
-		
-		MainMenu User = new MainMenu(user);
-		User.printMenu();
+		Main w = new Main();
+		w.closeW();
+		MainMenuGUI mainMenu = new MainMenuGUI(user); // create MainMenu object
+		mainMenu.setVisible(true);
 		
 	}
 }
