@@ -114,8 +114,8 @@ public class Login implements ActionListener  {
 		if (covidState != null) { // this means that user has already inserted his covidState
 			currentAccount.setCovidState(covidState); // call of method setCovidState so that to save user's state
 		}
-		MainMenu mainMenu = new MainMenu(currentAccount); // create MainMenu object
-		mainMenu.printMenu();
+		MainMenuGUI mainMenu = new MainMenuGUI(currentAccount); // create MainMenu object
+		mainMenu.setVisible(true);
 
 	}
 }
