@@ -29,6 +29,7 @@ public class Login implements ActionListener  {
 		JPanel panel = new JPanel();
 		frame.setSize(350, 300);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 
 		frame.add(panel);
 		panel.setLayout(null);

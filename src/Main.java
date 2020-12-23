@@ -27,6 +27,7 @@ public class Main extends JFrame implements ActionListener {
 		setSize(386, 205);
 		setTitle("COVID-19");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setLocationRelativeTo(null);
 		JButton Sign_up = new JButton("Sign up");
 		Sign_up.setBounds(85, 89, 82, 29);
 		Sign_up.setForeground(new Color(0, 0, 0));

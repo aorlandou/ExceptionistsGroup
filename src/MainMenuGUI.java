@@ -39,6 +39,7 @@ public class MainMenuGUI extends JFrame implements ActionListener{
 		setSize(702, 418);
 		setTitle("Menu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(128, 128, 128));
