@@ -139,5 +139,6 @@ public class SignUp implements ActionListener{
 		w.closeW();
 		MainMenuGUI mainMenu = new MainMenuGUI(user); // create MainMenu object
 		mainMenu.setVisible(true);
+		}
 	}
 }
