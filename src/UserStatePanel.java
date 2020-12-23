@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JRadioButton;
 
 public class UserStatePanel extends JPanel {
 
@@ -22,17 +23,13 @@ public class UserStatePanel extends JPanel {
 		lblNewLabel.setBounds(10, 80, 400, 21);
 		add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Positive");
+		JRadioButton btnNewButton = new JRadioButton("Positive");
 		btnNewButton.setBackground(Color.LIGHT_GRAY);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnNewButton.setBounds(99, 119, 89, 31);
 		add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Negative");
+		JRadioButton btnNewButton_1 = new JRadioButton("Negative");
 		btnNewButton_1.setBackground(Color.LIGHT_GRAY);
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_1.setBounds(227, 119, 97, 31);
