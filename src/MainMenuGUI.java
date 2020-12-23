@@ -25,14 +25,14 @@ public class MainMenuGUI extends JFrame implements ActionListener{
 	
 	public MainMenuGUI(Account accountnow) {
 		super();
-		//creating the panel objects
-		frpanel = new FriendsPanel();
-		usrst = new UserStatePanel(accountnow);
-		notif = new NotifPanel();
-		edit = new EditProfPanel();
-		
 		//creation of the Account object
 		this.accountnow = accountnow;
+		
+		//creating the panel objects
+		frpanel = new FriendsPanel(accountnow);
+		usrst = new UserStatePanel(accountnow);
+		notif = new NotifPanel(accountnow);
+		edit = new EditProfPanel(accountnow);
 		
 		getContentPane().setBackground(new Color(176, 196, 222));
 		getContentPane().setLayout(null);
