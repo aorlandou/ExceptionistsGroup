@@ -23,32 +23,33 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
 public class SignUpwithgraphics extends JFrame {
-	public SignUpwithgraphics() {
-	}
+
 
 	private  JPanel contentPane;
-	private  JTextField textField;
-	private  JTextField textField_1;
-	private  JPasswordField textField_2;
-	private  JPasswordField textField_3;
-	private  JTextField textField_4;
-	private  JTextField textField_5;
-	private  JTextField textField_6;
-	private  JTextField textField_7;
+	private  JTextField nameField;
+	private  JTextField surnameField;
+	private  JPasswordField pass1Field;
+	private  JPasswordField pass2Field;
+	private  JTextField phoneField;
+	private  JTextField genderField;
+	private  JTextField bdateField;
+	private  JTextField municField;
 	
 
 	/**
 	 * Create the frame.
 	 */
-	public void creatAccount() {
+	public SignUpwithgraphics() {
 		
 		setTitle("Complete the fields");
 		setBackground(new Color(255, 255, 255));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setLocationRelativeTo(null);
+		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{0, 0, 0};
 		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -64,14 +65,14 @@ public class SignUpwithgraphics extends JFrame {
 		gbc_lblNewLabel.gridy = 0;
 		contentPane.add(lblNewLabel, gbc_lblNewLabel);
 		
-		textField = new JTextField();
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.insets = new Insets(0, 0, 5, 0);
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.gridx = 1;
-		gbc_textField.gridy = 0;
-		contentPane.add(textField, gbc_textField);
-		textField.setColumns(10);
+		nameField = new JTextField();
+		GridBagConstraints gbc_nameField = new GridBagConstraints();
+		gbc_nameField.insets = new Insets(0, 0, 5, 0);
+		gbc_nameField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_nameField.gridx = 1;
+		gbc_nameField.gridy = 0;
+		contentPane.add(nameField, gbc_nameField);
+		nameField.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Surname :");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
@@ -81,14 +82,14 @@ public class SignUpwithgraphics extends JFrame {
 		gbc_lblNewLabel_1.gridy = 1;
 		contentPane.add(lblNewLabel_1, gbc_lblNewLabel_1);
 		
-		textField_1 = new JTextField();
-		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-		gbc_textField_1.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_1.gridx = 1;
-		gbc_textField_1.gridy = 1;
-		contentPane.add(textField_1, gbc_textField_1);
-		textField_1.setColumns(10);
+		surnameField = new JTextField();
+		GridBagConstraints gbc_surnameField = new GridBagConstraints();
+		gbc_surnameField.insets = new Insets(0, 0, 5, 0);
+		gbc_surnameField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_surnameField.gridx = 1;
+		gbc_surnameField.gridy = 1;
+		contentPane.add(surnameField, gbc_surnameField);
+		surnameField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Password :");
 		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
@@ -98,14 +99,14 @@ public class SignUpwithgraphics extends JFrame {
 		gbc_lblNewLabel_2.gridy = 2;
 		contentPane.add(lblNewLabel_2, gbc_lblNewLabel_2);
 		
-		textField_2 = new JPasswordField();
-		GridBagConstraints gbc_textField_2 = new GridBagConstraints();
-		gbc_textField_2.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_2.gridx = 1;
-		gbc_textField_2.gridy = 2;
-		contentPane.add(textField_2, gbc_textField_2);
-		textField_2.setColumns(10);
+		pass1Field = new JPasswordField();
+		GridBagConstraints gbc_pass1Field = new GridBagConstraints();
+		gbc_pass1Field.insets = new Insets(0, 0, 5, 0);
+		gbc_pass1Field.fill = GridBagConstraints.HORIZONTAL;
+		gbc_pass1Field.gridx = 1;
+		gbc_pass1Field.gridy = 2;
+		contentPane.add(pass1Field, gbc_pass1Field);
+		pass1Field.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Confirm password :");
 		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
@@ -115,20 +116,20 @@ public class SignUpwithgraphics extends JFrame {
 		gbc_lblNewLabel_3.gridy = 3;
 		contentPane.add(lblNewLabel_3, gbc_lblNewLabel_3);
 		
-		textField_3 = new JPasswordField();
-		textField_3.addFocusListener(new FocusAdapter() {
+		pass2Field = new JPasswordField();
+		pass2Field.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusLost(FocusEvent arg0) {
 				validatePassword();
 			}
 		});
-		GridBagConstraints gbc_textField_3 = new GridBagConstraints();
-		gbc_textField_3.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_3.gridx = 1;
-		gbc_textField_3.gridy = 3;
-		contentPane.add(textField_3, gbc_textField_3);
-		textField_3.setColumns(10);
+		GridBagConstraints gbc_pass2Field = new GridBagConstraints();
+		gbc_pass2Field.insets = new Insets(0, 0, 5, 0);
+		gbc_pass2Field.fill = GridBagConstraints.HORIZONTAL;
+		gbc_pass2Field.gridx = 1;
+		gbc_pass2Field.gridy = 3;
+		contentPane.add(pass2Field, gbc_pass2Field);
+		pass2Field.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Phone :");
 		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
@@ -138,14 +139,14 @@ public class SignUpwithgraphics extends JFrame {
 		gbc_lblNewLabel_4.gridy = 4;
 		contentPane.add(lblNewLabel_4, gbc_lblNewLabel_4);
 		
-		textField_4 = new JTextField();
-		GridBagConstraints gbc_textField_4 = new GridBagConstraints();
-		gbc_textField_4.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_4.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_4.gridx = 1;
-		gbc_textField_4.gridy = 4;
-		contentPane.add(textField_4, gbc_textField_4);
-		textField_4.setColumns(10);
+		phoneField = new JTextField();
+		GridBagConstraints gbc_phoneField = new GridBagConstraints();
+		gbc_phoneField.insets = new Insets(0, 0, 5, 0);
+		gbc_phoneField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_phoneField.gridx = 1;
+		gbc_phoneField.gridy = 4;
+		contentPane.add(phoneField, gbc_phoneField);
+		phoneField.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("Gender :");
 		GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();
@@ -155,14 +156,14 @@ public class SignUpwithgraphics extends JFrame {
 		gbc_lblNewLabel_5.gridy = 5;
 		contentPane.add(lblNewLabel_5, gbc_lblNewLabel_5);
 		
-		textField_5 = new JTextField();
-		GridBagConstraints gbc_textField_5 = new GridBagConstraints();
-		gbc_textField_5.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_5.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_5.gridx = 1;
-		gbc_textField_5.gridy = 5;
-		contentPane.add(textField_5, gbc_textField_5);
-		textField_5.setColumns(10);
+		genderField = new JTextField();
+		GridBagConstraints gbc_genderField = new GridBagConstraints();
+		gbc_genderField.insets = new Insets(0, 0, 5, 0);
+		gbc_genderField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_genderField.gridx = 1;
+		gbc_genderField.gridy = 5;
+		contentPane.add(genderField, gbc_genderField);
+		genderField.setColumns(10);
 		
 		JLabel lblNewLabel_6 = new JLabel("Birthdate :");
 		GridBagConstraints gbc_lblNewLabel_6 = new GridBagConstraints();
@@ -172,14 +173,14 @@ public class SignUpwithgraphics extends JFrame {
 		gbc_lblNewLabel_6.gridy = 6;
 		contentPane.add(lblNewLabel_6, gbc_lblNewLabel_6);
 		
-		textField_6 = new JTextField();
-		GridBagConstraints gbc_textField_6 = new GridBagConstraints();
-		gbc_textField_6.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_6.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_6.gridx = 1;
-		gbc_textField_6.gridy = 6;
-		contentPane.add(textField_6, gbc_textField_6);
-		textField_6.setColumns(10);
+		bdateField = new JTextField();
+		GridBagConstraints gbc_bdateField = new GridBagConstraints();
+		gbc_bdateField.insets = new Insets(0, 0, 5, 0);
+		gbc_bdateField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_bdateField.gridx = 1;
+		gbc_bdateField.gridy = 6;
+		contentPane.add(bdateField, gbc_bdateField);
+		bdateField.setColumns(10);
 		
 		JLabel lblNewLabel_7 = new JLabel("Municipality :");
 		GridBagConstraints gbc_lblNewLabel_7 = new GridBagConstraints();
@@ -189,27 +190,27 @@ public class SignUpwithgraphics extends JFrame {
 		gbc_lblNewLabel_7.gridy = 7;
 		contentPane.add(lblNewLabel_7, gbc_lblNewLabel_7);
 		
-		textField_7 = new JTextField();
-		GridBagConstraints gbc_textField_7 = new GridBagConstraints();
-		gbc_textField_7.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_7.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_7.gridx = 1;
-		gbc_textField_7.gridy = 7;
-		contentPane.add(textField_7, gbc_textField_7);
-		textField_7.setColumns(10);
+		municField = new JTextField();
+		GridBagConstraints gbc_municField = new GridBagConstraints();
+		gbc_municField.insets = new Insets(0, 0, 5, 0);
+		gbc_municField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_municField.gridx = 1;
+		gbc_municField.gridy = 7;
+		contentPane.add(municField, gbc_municField);
+		municField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Sign Up");
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String name = textField.getText();
-				String surname = textField_1.getText();
-				String password = textField_2.getText();
-				String password2 = textField_3.getText();
-				String phone = textField_4.getText();
-				String birthdate = textField_5.getText();
-				String gender = textField_6.getText();
-				String municipality = textField_7.getText();
+				String name = nameField.getText();
+				String surname = surnameField.getText();
+				String password = pass1Field.getText();
+				String password2 = pass2Field.getText();
+				String phone = phoneField.getText();
+				String birthdate = bdateField.getText();
+				String gender = genderField.getText();
+				String municipality = municField.getText();
 				Account user = new Account(name, surname, password, phone, birthdate, gender, municipality);
 				
 				DB data = new DB();
@@ -218,10 +219,10 @@ public class SignUpwithgraphics extends JFrame {
 				} catch (Exception en) {
 					en.printStackTrace();
 				}
-				
-				MainMenu User = new MainMenu(user);
-				User.printMenu();
-				dispose();
+				Main m = new Main();
+				m.closeW();
+				MainMenuGUI mainMenu = new MainMenuGUI(user); // create MainMenu object
+				mainMenu.setVisible(true);
 			}
 		});
 		btnNewButton.setHorizontalAlignment(SwingConstants.LEFT);
@@ -238,8 +239,8 @@ public class SignUpwithgraphics extends JFrame {
 	}
 
 public void validatePassword() {
-	String password = textField_2.getText();
-	String password2 = textField_3.getText();
+	String password = pass1Field.getText();
+	String password2 = pass2Field.getText();
 	if (!password.contentEquals(password2)) {
 		JOptionPane.showMessageDialog(this,"Please enter your password correclty");
 	}
