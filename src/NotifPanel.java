@@ -8,7 +8,7 @@ public class NotifPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public NotifPanel() {
+	public NotifPanel(Account accountnow) {
 		setBounds(0, 0, 420, 357);
 		setBackground(new Color(176, 196, 222));
 		setLayout(null);

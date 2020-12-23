@@ -39,12 +39,12 @@ public class Account {
 		this.municipality = municipality;
 	}
 
-	public void userState() {
-		Object[] possibleValues = { "Yes", "No"};
-		String key1 = (String) JOptionPane.showInputDialog(null,
-				"Have you been tested positive (yes) or negative (no) for COVID-19?", "User State",
-				JOptionPane.INFORMATION_MESSAGE, null,
-				possibleValues, possibleValues[0]);
+	public void userState(String key1) {
+		//Object[] possibleValues = { "Yes", "No"};
+		//String key1 = (String) JOptionPane.showInputDialog(null,
+				//"Have you been tested positive (yes) or negative (no) for COVID-19?", "User State",
+				//JOptionPane.INFORMATION_MESSAGE, null,
+				//possibleValues, possibleValues[0]);
 		if(covidState!=null) {
 		if (key1.equals("yes")) {
 			covidState = "positive";
