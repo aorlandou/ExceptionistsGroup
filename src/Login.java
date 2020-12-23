@@ -6,8 +6,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class Login implements ActionListener  {
 
@@ -25,7 +28,7 @@ public class Login implements ActionListener  {
 		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
 		frame.setSize(350, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		frame.add(panel);
 		panel.setLayout(null);
@@ -79,6 +82,8 @@ public class Login implements ActionListener  {
 		} else if (password.contentEquals(answer)) { //if phone exists in DB and password is also correct
 			success.setText("LOGIN SUCCESSFUL");
 			createCurrentAccount(phone);
+			Main m = new Main();
+			m.closeW();
 		} else if (!password.contentEquals(answer)) {
 			success.setText("Your password is incorrect");
 			success.setText("Please enter valid data");

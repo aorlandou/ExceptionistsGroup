@@ -6,7 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.Color;
+import java.awt.event.WindowEvent;
 
 
 public class Main extends JFrame implements ActionListener {
@@ -24,7 +26,7 @@ public class Main extends JFrame implements ActionListener {
 		getContentPane().setBackground(new Color(192, 192, 192));
 		setSize(386, 205);
 		setTitle("COVID-19");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		JButton Sign_up = new JButton("Sign up");
 		Sign_up.setBounds(85, 89, 82, 29);
 		Sign_up.setForeground(new Color(0, 0, 0));
@@ -48,13 +50,19 @@ public class Main extends JFrame implements ActionListener {
 		String buttonType = e.getActionCommand();
 		switch (buttonType) {
 		case "Sign up":
+			closeW();
 			SignUp.creatAccount();
 			break;
 		case "Login":
+			closeW();
 			Login log = new Login();
 			log.loginmethod();
 			break;
 		}
+	}
+	public void closeW() {
+		WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
 	}
 	public static void main(String[] args) {
 		Main w = new Main();
