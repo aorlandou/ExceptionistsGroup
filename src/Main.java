@@ -51,7 +51,7 @@ public class Main extends JFrame implements ActionListener {
 		String buttonType = e.getActionCommand();
 		switch (buttonType) {
 		case "Sign up":
-      closeW();
+			
 			SignUpwithgraphics obj = new SignUpwithgraphics();
 			obj.creatAccount();
 			break;

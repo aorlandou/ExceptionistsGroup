@@ -16,13 +16,7 @@ import java.util.Collections;
 import java.util.InputMismatchException;
 
 public class Account {
-	String name;
-	String password;
-	String birthdate;
-	private String municipality;
-	String gender;
-	String surname;
-	private String phone;
+	private String name, password,birthdate,municipality,gender,surname,phone;
 	private String covidState; // returns "yes" if user has covid or "no" if he doesn't have
 	private String message;
 	List<String> notifications = new ArrayList<String>();

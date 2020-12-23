@@ -9,9 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.FlowLayout;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
 import javax.swing.BoxLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -26,6 +23,8 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
 public class SignUpwithgraphics extends JFrame {
+	public SignUpwithgraphics() {
+	}
 
 	private  JPanel contentPane;
 	private  JTextField textField;
@@ -37,22 +36,6 @@ public class SignUpwithgraphics extends JFrame {
 	private  JTextField textField_6;
 	private  JTextField textField_7;
 	
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SignUpwithgraphics frame = new SignUpwithgraphics();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
