@@ -13,7 +13,7 @@ public class UserStatePanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public UserStatePanel() {
+	public UserStatePanel(Account accountnow) {
 		setBounds(0, 0, 420, 357);
 		setBackground(new Color(176, 196, 222));
 		setLayout(null);

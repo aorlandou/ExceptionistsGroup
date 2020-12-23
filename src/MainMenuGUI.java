@@ -20,13 +20,19 @@ public class MainMenuGUI extends JFrame implements ActionListener{
 	private NotifPanel notif;
 	private EditProfPanel edit;
 	private JPanel actionPanel = new JPanel();
-	public MainMenuGUI() {
+	
+	private Account accountnow; // current Account
+	
+	public MainMenuGUI(Account accountnow) {
 		super();
 		//creating the panel objects
 		frpanel = new FriendsPanel();
-		usrst = new UserStatePanel();
+		usrst = new UserStatePanel(accountnow);
 		notif = new NotifPanel();
 		edit = new EditProfPanel();
+		
+		//creation of the Account object
+		this.accountnow = accountnow;
 		
 		getContentPane().setBackground(new Color(176, 196, 222));
 		getContentPane().setLayout(null);
@@ -176,8 +182,8 @@ public class MainMenuGUI extends JFrame implements ActionListener{
 			panel.setBackground(new Color(105, 105, 105));
 		}
 	}
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		MainMenuGUI w = new MainMenuGUI();
 		w.setVisible(true);
-	}
+	}*/
 }
