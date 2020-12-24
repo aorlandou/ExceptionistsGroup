@@ -5,15 +5,23 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JTextField;
 
 public class EditProfPanel extends JPanel {
-
+	private MainMenuGUI m;
+	private JTextField txtTypeName;
+	private JTextField txtTypeSurname;
+	private JTextField txtTypeMun;
 	/**
 	 * Create the panel.
 	 */
@@ -37,12 +45,12 @@ public class EditProfPanel extends JPanel {
 		changeNamebtn.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 15));
 		changeNamebtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String name = JOptionPane.showInputDialog("Please enter the name");
+				String name = txtTypeName.getText();
 				accountnow.setName(name);
-				/* this.name=JOptionPane.showInputDialog("Please enter the name");*/
 				try {
 					data.updateName(accountnow.getPhone(), name);
 					JOptionPane.showMessageDialog(null, "Name has been changed successfully.");
+					txtTypeName.setText(null);
 				} catch (Exception ex) {
 					JOptionPane.showMessageDialog(null, ex);
 				}
@@ -58,12 +66,12 @@ public class EditProfPanel extends JPanel {
 		changeSurbtn.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 15));
 		changeSurbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String surname = JOptionPane.showInputDialog("Please enter the surname");
+				String surname = txtTypeSurname.getText();
 				accountnow.setSurname(surname);
-				/* this.surname=JOptionPane.showInputDialog("Please enter the surname");*/
 				try {
 					data.updateSurname(accountnow.getPhone(), surname);
 					JOptionPane.showMessageDialog(null, "Surname has been changed successfully.");
+					txtTypeSurname.setText(null);
 				} catch (Exception ex) {
 					JOptionPane.showMessageDialog(null, ex);
 				}
@@ -121,7 +129,7 @@ public class EditProfPanel extends JPanel {
 				}
 			}
 		});
-		changePassbtn.setBounds(20, 165, 156, 31);
+		changePassbtn.setBounds(20, 207, 156, 31);
 		add(changePassbtn);
 		
 		JButton changeMunbtn = new JButton("Change Municipality");
@@ -130,19 +138,19 @@ public class EditProfPanel extends JPanel {
 		changeMunbtn.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 15));
 		changeMunbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String municipality = JOptionPane.showInputDialog("Please enter the municipality");
+				String municipality = txtTypeMun.getText();
 				accountnow.setMunicipality(municipality);
-				/* this.municipality=OptionPane.showInputDialog("Please enter the surname");*/
 				try {
 					data.updateMunicipality(accountnow.getPhone(), municipality);
 					JOptionPane.showMessageDialog(null, "Municipality has been changed successfully.");
+					txtTypeMun.setText(null);
 				} catch (Exception ex) {
 					JOptionPane.showMessageDialog(null, ex);
 				}
 				
 			}
 		});
-		changeMunbtn.setBounds(20, 207, 156, 31);
+		changeMunbtn.setBounds(20, 165, 156, 31);
 		add(changeMunbtn);
 		
 		JButton deleteProfbtn = new JButton("Delete your profile");
@@ -155,13 +163,14 @@ public class EditProfPanel extends JPanel {
 				if(pass.equals(accountnow.getPassword())){
 					try {
 						data.deleteAcc(accountnow.getPhone());
+						JFrame fr = new JFrame("Exiting our application...");
+						JOptionPane.showMessageDialog(fr, "Your account has been deleted successfully!\n"
+								+ "Thank you for using our application.");
+						System.exit(0);
 					} catch (Exception ex) {
 						JOptionPane.showMessageDialog(null, ex);
 					}
 				}
-				
-				JOptionPane.showMessageDialog(null, "Account has been deleted successfully.");
-				
 			}
 		});
 		deleteProfbtn.setBounds(20, 249, 156, 31);
@@ -173,14 +182,42 @@ public class EditProfPanel extends JPanel {
 		finishbtn.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 15));
 		finishbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Profile editing finished.");
-				/* MainMenu User = new MainMenu(user);
-				User.printMenu();
-			} */
+				hide();
+				m =  new MainMenuGUI(accountnow);
+				m.getActionPanel().setVisible(true);
+				//JOptionPane.showMessageDialog(null, "Profile editing finished.");
+				 //MainMenu User = new MainMenu(user);
+				//User.printMenu();
 			}
+			
 		});
 		finishbtn.setBounds(20, 290, 156, 31);
 		add(finishbtn);
+		
+		txtTypeName = new JTextField();
+		txtTypeName.setToolTipText("");
+		txtTypeName.setForeground(new Color(47, 79, 79));
+		txtTypeName.setFont(new Font("Century Gothic", Font.PLAIN, 15));
+		txtTypeName.setBackground(new Color(211, 211, 211));
+		txtTypeName.setBounds(175, 81, 218, 31);
+		add(txtTypeName);
+		txtTypeName.setColumns(10);
+		
+		txtTypeSurname = new JTextField();
+		txtTypeSurname.setForeground(new Color(47, 79, 79));
+		txtTypeSurname.setFont(new Font("Century Gothic", Font.PLAIN, 15));
+		txtTypeSurname.setColumns(10);
+		txtTypeSurname.setBackground(new Color(211, 211, 211));
+		txtTypeSurname.setBounds(175, 123, 218, 31);
+		add(txtTypeSurname);
+		
+		txtTypeMun = new JTextField();
+		txtTypeMun.setForeground(new Color(47, 79, 79));
+		txtTypeMun.setFont(new Font("Century Gothic", Font.PLAIN, 15));
+		txtTypeMun.setColumns(10);
+		txtTypeMun.setBackground(new Color(211, 211, 211));
+		txtTypeMun.setBounds(175, 165, 218, 31);
+		add(txtTypeMun);
 		setVisible(true);
 	}
 }

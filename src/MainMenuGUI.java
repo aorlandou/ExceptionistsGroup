@@ -8,6 +8,7 @@ import java.awt.GridBagLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -20,6 +21,10 @@ public class MainMenuGUI extends JFrame implements ActionListener{
 	private NotifPanel notif;
 	private EditProfPanel edit;
 	private JPanel actionPanel = new JPanel();
+	
+	public JPanel getActionPanel() {
+		return actionPanel;
+	}
 	
 	private Account accountnow; // current Account
 	
@@ -131,6 +136,29 @@ public class MainMenuGUI extends JFrame implements ActionListener{
 		lblEditProfile.setBounds(0, 0, 226, 49);
 		editProf.add(lblEditProfile);
 		
+		JPanel signout = new JPanel();
+		signout.addMouseListener(new PanelMouseAdapter(signout){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JFrame fr = new JFrame("EXIT");
+				if(JOptionPane.showConfirmDialog(fr, "Confirm if you would like to Sign Out","EXIT",
+						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		signout.setLayout(null);
+		signout.setBackground(Color.LIGHT_GRAY);
+		signout.setBounds(10, 322, 226, 49);
+		panel.add(signout);
+		
+		JLabel lblsignout = new JLabel("Sign Out");
+		lblsignout.setHorizontalAlignment(SwingConstants.CENTER);
+		lblsignout.setForeground(Color.WHITE);
+		lblsignout.setFont(new Font("Eras Bold ITC", Font.PLAIN, 20));
+		lblsignout.setBounds(0, 0, 226, 49);
+		signout.add(lblsignout);
+		
 		
 		actionPanel.setBackground(new Color(176, 196, 222));
 		actionPanel.setBounds(256, 11, 420, 357);
@@ -183,8 +211,4 @@ public class MainMenuGUI extends JFrame implements ActionListener{
 			panel.setBackground(new Color(105, 105, 105));
 		}
 	}
-	/*public static void main(String[] args) {
-		MainMenuGUI w = new MainMenuGUI();
-		w.setVisible(true);
-	}*/
 }
