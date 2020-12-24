@@ -7,6 +7,7 @@ import javax.swing.JDesktopPane;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
 import java.awt.event.ActionEvent;
 
 public class EditProfPanel extends JPanel {
@@ -18,6 +19,7 @@ public class EditProfPanel extends JPanel {
 		setBounds(0, 0, 420, 357);
 		setBackground(new Color(176, 196, 222));
 		setLayout(null);
+		DB data = new DB();//initialization of DB object
 		
 		JLabel lblNewLabel = new JLabel("Edit Profile ");
 		lblNewLabel.setFont(new Font("Calibri Light", Font.BOLD, 24));
@@ -58,10 +60,13 @@ public class EditProfPanel extends JPanel {
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog("Please enter the name");
-				/* this.name=JOptionPane.showInputDialog("Please enter the name");
-			    data.updateName(phone,name);
-				*/
-				JOptionPane.showInternalMessageDialog(null, "Name has been changed successfully.");
+				/* this.name=JOptionPane.showInputDialog("Please enter the name");*/
+				try {
+					data.updateName(accountnow.getPhone(), name);
+					JOptionPane.showMessageDialog(null, "Name has been changed successfully.");
+				} catch (Exception ex) {
+					JOptionPane.showMessageDialog(null, ex);
+				}
 			}
 		});
 		btn1.setBounds(303, 80, 85, 21);
@@ -71,11 +76,14 @@ public class EditProfPanel extends JPanel {
 		JButton btn2 = new JButton("2");
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tring surname = JOptionPane.showInputDialog("Please enter the surname");
-				/* this.surname=JOptionPane.showInputDialog("Please enter the surname");
-					data.updateSurname(phone, surname);
-					*/
-				JOptionPane.showInternalMessageDialog(null, "Surname has been changed successfully.");
+				String surname = JOptionPane.showInputDialog("Please enter the surname");
+				/* this.surname=JOptionPane.showInputDialog("Please enter the surname");*/
+				try {
+					data.updateSurname(accountnow.getPhone(), surname);
+					JOptionPane.showMessageDialog(null, "Surname has been changed successfully.");
+				} catch (Exception ex) {
+					JOptionPane.showMessageDialog(null, ex);
+				}
 			}
 		});
 		btn2.setBounds(303, 122, 85, 21);
@@ -86,14 +94,44 @@ public class EditProfPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				String password = JOptionPane.showInputDialog("Please enter the new password");
 				String password2;
-				do {
-					password2 = JOptionPane.showInputDialog("Please enter your password again to confirm");
-
-				} while (!password2.equals(password));
-				/* this.password=password2;
-				   data.updatePassword(phone, password);
-						*/
-				JOptionPane.showInternalMessageDialog(null, "Password has been changed successfully.");
+				password2 = JOptionPane.showInputDialog("Please enter your password again to confirm");
+				if (password.equals(password2)) {
+					try {
+						data.updatePassword(accountnow.getPhone(), password);
+						JOptionPane.showMessageDialog(null, "Password has been changed successfully.");
+					} catch (Exception ex) {
+						JOptionPane.showMessageDialog(null, ex);
+					}
+				}else {
+					int count = 3;
+					boolean cor = false;
+					while (count > 0 && cor == false) {
+						String pass1, pass2;
+						pass1 = JOptionPane.showInputDialog(null,"Wrong password.\n"
+						+"You have " + count + " trial(s) left to enter your new " + "password correctly.\n"
+						+"Please try again and enter a new password.");
+						
+						pass2 = JOptionPane.showInputDialog("Please enter the new password again.");
+						
+						if (pass1.equals(pass2)) {
+							password = pass1;
+							try {
+								data.updatePassword(accountnow.getPhone(), password);
+								JOptionPane.showMessageDialog(null, "Password has been changed successfully.");
+							} catch (Exception ex) {
+								JOptionPane.showMessageDialog(null, ex);
+							}
+							
+							cor = true;
+						} else {
+							count--;
+						}
+					}
+					if (count == 0) {
+						JOptionPane.showMessageDialog(null, "You exceeded the number of trials you had to change "
+								+ "your password. \nYou are redirected back to PROFILE EDITING...");
+					}
+				}
 			}
 		});
 		btn3.setBounds(303, 164, 85, 21);
@@ -103,10 +141,14 @@ public class EditProfPanel extends JPanel {
 		btn4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String municipality = JOptionPane.showInputDialog("Please enter the municipality");
-				/* this.municipality=OptionPane.showInputDialog("Please enter the surname");
-					data.updateMunicipality(phone, municipality);
-					*/
-				JOptionPane.showInternalMessageDialog(null, "Municipality has been changed successfully.");
+				/* this.municipality=OptionPane.showInputDialog("Please enter the surname");*/
+				try {
+					data.updateMunicipality(accountnow.getPhone(), municipality);
+					JOptionPane.showMessageDialog(null, "Municipality has been changed successfully.");
+				} catch (Exception ex) {
+					JOptionPane.showMessageDialog(null, ex);
+				}
+				
 			}
 		});
 		btn4.setBounds(303, 206, 85, 21);
@@ -116,16 +158,16 @@ public class EditProfPanel extends JPanel {
 		btn5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String pass = JOptionPane.showInputDialog("Do you want to delete your profile? If so, enter your password.");
-				/*if(pass.equals(this.password)){
-						 try {
-							data.deleteAcc(phone);
-						} catch (Exception e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						*/ 
-				JOptionPane.showInternalMessageDialog(null, "Account has been deleted successfully.");
-				/* System.exit(0); */
+				if(pass.equals(accountnow.getPassword())){
+					try {
+						data.deleteAcc(accountnow.getPhone());
+					} catch (Exception ex) {
+						JOptionPane.showMessageDialog(null, ex);
+					}
+				}
+				
+				JOptionPane.showMessageDialog(null, "Account has been deleted successfully.");
+				
 			}
 		});
 		btn5.setBounds(303, 251, 85, 21);
@@ -134,7 +176,7 @@ public class EditProfPanel extends JPanel {
 		JButton btn0 = new JButton("0");
 		btn0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showInternalMessageDialog(null, "Profile editing finished.");
+				JOptionPane.showMessageDialog(null, "Profile editing finished.");
 				/* MainMenu User = new MainMenu(user);
 				User.printMenu();
 			} */
