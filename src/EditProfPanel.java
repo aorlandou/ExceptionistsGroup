@@ -3,12 +3,14 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.JDesktopPane;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 import java.awt.event.ActionEvent;
+import javax.swing.JSeparator;
 
 public class EditProfPanel extends JPanel {
 
@@ -21,43 +23,19 @@ public class EditProfPanel extends JPanel {
 		setLayout(null);
 		DB data = new DB();//initialization of DB object
 		
-		JLabel lblNewLabel = new JLabel("Edit Profile ");
-		lblNewLabel.setFont(new Font("Calibri Light", Font.BOLD, 24));
-		lblNewLabel.setBounds(136, 22, 274, 37);
-		add(lblNewLabel);
+		JLabel editprofLabel = new JLabel("Edit Profile ");
+		editprofLabel.setSize(182, 52);
+		editprofLabel.setLocation(10, 18);
+		editprofLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		editprofLabel.setForeground(Color.WHITE);
+		editprofLabel.setFont(new Font("Eras Bold ITC", Font.PLAIN, 24));
+		add(editprofLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Change Name");
-		lblNewLabel_1.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(20, 81, 168, 21);
-		add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_1_1 = new JLabel("Change Surname");
-		lblNewLabel_1_1.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblNewLabel_1_1.setBounds(20, 123, 168, 21);
-		add(lblNewLabel_1_1);
-		
-		JLabel lblNewLabel_1_2 = new JLabel("Change Password");
-		lblNewLabel_1_2.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblNewLabel_1_2.setBounds(20, 160, 168, 30);
-		add(lblNewLabel_1_2);
-		
-		JLabel lblNewLabel_1_2_1 = new JLabel("Change Municipality");
-		lblNewLabel_1_2_1.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblNewLabel_1_2_1.setBounds(20, 206, 204, 30);
-		add(lblNewLabel_1_2_1);
-		
-		JLabel lblNewLabel_1_2_1_1 = new JLabel("Delete your profile");
-		lblNewLabel_1_2_1_1.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblNewLabel_1_2_1_1.setBounds(20, 251, 168, 30);
-		add(lblNewLabel_1_2_1_1);
-		
-		JLabel lblNewLabel_1_2_1_1_1 = new JLabel("Finish profile editing");
-		lblNewLabel_1_2_1_1_1.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblNewLabel_1_2_1_1_1.setBounds(20, 296, 204, 30);
-		add(lblNewLabel_1_2_1_1_1);
-		
-		JButton btn1 = new JButton("1");
-		btn1.addActionListener(new ActionListener() {
+		JButton changeNamebtn = new JButton("Change Name");
+		changeNamebtn.setForeground(new Color(47, 79, 79));
+		changeNamebtn.setBackground(new Color(192, 192, 192));
+		changeNamebtn.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 15));
+		changeNamebtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog("Please enter the name");
 				/* this.name=JOptionPane.showInputDialog("Please enter the name");*/
@@ -69,12 +47,15 @@ public class EditProfPanel extends JPanel {
 				}
 			}
 		});
-		btn1.setBounds(303, 80, 85, 21);
-		add(btn1);
+		changeNamebtn.setBounds(20, 81, 156, 31);
+		add(changeNamebtn);
 		
 		
-		JButton btn2 = new JButton("2");
-		btn2.addActionListener(new ActionListener() {
+		JButton changeSurbtn = new JButton("Change Surname");
+		changeSurbtn.setForeground(new Color(47, 79, 79));
+		changeSurbtn.setBackground(new Color(192, 192, 192));
+		changeSurbtn.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 15));
+		changeSurbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String surname = JOptionPane.showInputDialog("Please enter the surname");
 				/* this.surname=JOptionPane.showInputDialog("Please enter the surname");*/
@@ -86,11 +67,14 @@ public class EditProfPanel extends JPanel {
 				}
 			}
 		});
-		btn2.setBounds(303, 122, 85, 21);
-		add(btn2);
+		changeSurbtn.setBounds(20, 123, 156, 31);
+		add(changeSurbtn);
 		
-		JButton btn3 = new JButton("3");
-		btn3.addActionListener(new ActionListener() {
+		JButton changePassbtn = new JButton("Change Password");
+		changePassbtn.setForeground(new Color(47, 79, 79));
+		changePassbtn.setBackground(new Color(192, 192, 192));
+		changePassbtn.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 15));
+		changePassbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String password = JOptionPane.showInputDialog("Please enter the new password");
 				String password2;
@@ -134,11 +118,14 @@ public class EditProfPanel extends JPanel {
 				}
 			}
 		});
-		btn3.setBounds(303, 164, 85, 21);
-		add(btn3);
+		changePassbtn.setBounds(20, 165, 156, 31);
+		add(changePassbtn);
 		
-		JButton btn4 = new JButton("4");
-		btn4.addActionListener(new ActionListener() {
+		JButton changeMunbtn = new JButton("Change Municipality");
+		changeMunbtn.setForeground(new Color(47, 79, 79));
+		changeMunbtn.setBackground(new Color(192, 192, 192));
+		changeMunbtn.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 15));
+		changeMunbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String municipality = JOptionPane.showInputDialog("Please enter the municipality");
 				/* this.municipality=OptionPane.showInputDialog("Please enter the surname");*/
@@ -151,11 +138,14 @@ public class EditProfPanel extends JPanel {
 				
 			}
 		});
-		btn4.setBounds(303, 206, 85, 21);
-		add(btn4);
+		changeMunbtn.setBounds(20, 207, 156, 31);
+		add(changeMunbtn);
 		
-		JButton btn5 = new JButton("5");
-		btn5.addActionListener(new ActionListener() {
+		JButton deleteProfbtn = new JButton("Delete your profile");
+		deleteProfbtn.setForeground(new Color(47, 79, 79));
+		deleteProfbtn.setBackground(new Color(192, 192, 192));
+		deleteProfbtn.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 15));
+		deleteProfbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String pass = JOptionPane.showInputDialog("Do you want to delete your profile? If so, enter your password.");
 				if(pass.equals(accountnow.getPassword())){
@@ -170,11 +160,14 @@ public class EditProfPanel extends JPanel {
 				
 			}
 		});
-		btn5.setBounds(303, 251, 85, 21);
-		add(btn5);
+		deleteProfbtn.setBounds(20, 249, 156, 31);
+		add(deleteProfbtn);
 		
-		JButton btn0 = new JButton("0");
-		btn0.addActionListener(new ActionListener() {
+		JButton finishbtn = new JButton("Finish profile editing");
+		finishbtn.setForeground(new Color(47, 79, 79));
+		finishbtn.setBackground(new Color(192, 192, 192));
+		finishbtn.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 15));
+		finishbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "Profile editing finished.");
 				/* MainMenu User = new MainMenu(user);
@@ -182,8 +175,8 @@ public class EditProfPanel extends JPanel {
 			} */
 			}
 		});
-		btn0.setBounds(303, 289, 85, 21);
-		add(btn0);
+		finishbtn.setBounds(20, 290, 156, 31);
+		add(finishbtn);
 		setVisible(true);
 	}
 }
