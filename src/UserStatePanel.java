@@ -2,6 +2,8 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -27,6 +29,7 @@ public class UserStatePanel extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				accountnow.userState("yes");
+				JOptionPane.showInternalMessageDialog(null, "Your state has been updated successfully.");
 			}
 		});
 		btnNewButton.setBackground(Color.LIGHT_GRAY);
@@ -38,6 +41,7 @@ public class UserStatePanel extends JPanel {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				accountnow.userState("no");
+				JOptionPane.showInternalMessageDialog(null, "Your state has been updated successfully.");
 			}
 		});
 		btnNewButton_1.setBackground(Color.LIGHT_GRAY);
