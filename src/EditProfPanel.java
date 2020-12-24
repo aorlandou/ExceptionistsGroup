@@ -38,6 +38,7 @@ public class EditProfPanel extends JPanel {
 		changeNamebtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = JOptionPane.showInputDialog("Please enter the name");
+				accountnow.setName(name);
 				/* this.name=JOptionPane.showInputDialog("Please enter the name");*/
 				try {
 					data.updateName(accountnow.getPhone(), name);
@@ -58,6 +59,7 @@ public class EditProfPanel extends JPanel {
 		changeSurbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String surname = JOptionPane.showInputDialog("Please enter the surname");
+				accountnow.setSurname(surname);
 				/* this.surname=JOptionPane.showInputDialog("Please enter the surname");*/
 				try {
 					data.updateSurname(accountnow.getPhone(), surname);
@@ -100,6 +102,7 @@ public class EditProfPanel extends JPanel {
 						if (pass1.equals(pass2)) {
 							password = pass1;
 							try {
+								accountnow.setPassword(password);
 								data.updatePassword(accountnow.getPhone(), password);
 								JOptionPane.showMessageDialog(null, "Password has been changed successfully.");
 							} catch (Exception ex) {
@@ -128,6 +131,7 @@ public class EditProfPanel extends JPanel {
 		changeMunbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String municipality = JOptionPane.showInputDialog("Please enter the municipality");
+				accountnow.setMunicipality(municipality);
 				/* this.municipality=OptionPane.showInputDialog("Please enter the surname");*/
 				try {
 					data.updateMunicipality(accountnow.getPhone(), municipality);
