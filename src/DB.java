@@ -3,6 +3,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 
 public class DB {
 
@@ -91,10 +93,9 @@ public class DB {
 			pstmt.setString(6, ac.getGender());
 			pstmt.setString(7, ac.getBirthdate());
 
-			int row = pstmt.executeUpdate();
-
-			System.out.println("Number of rows inserted:" + row);
-
+			pstmt.executeUpdate();
+			JOptionPane.showMessageDialog(null, "Your profile has been created!");
+			
 			database.closeConnection();
 		} catch (Exception e) {
 			throw new Exception("Could not insert account to the database: " + e.getMessage());

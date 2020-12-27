@@ -21,8 +21,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.WindowEvent;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
@@ -187,14 +190,17 @@ public class SignUpwithgraphics extends JFrame {
 				} catch (Exception en) {
 					en.printStackTrace();
 				}
-				Main m = new Main();
-				m.closeW();
+				closeWin();
 				MainMenuGUI mainMenu = new MainMenuGUI(user); // create MainMenu object
 				mainMenu.setVisible(true);
 			}
 		});
 		
 		
+	}
+	private void closeWin() {
+		WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
 	}
 	
 	private void String(JTextField textField_72) {
