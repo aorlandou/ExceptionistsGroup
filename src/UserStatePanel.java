@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.concurrent.TimeUnit;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 
@@ -30,6 +31,12 @@ public class UserStatePanel extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				accountnow.userState("yes");
 				JOptionPane.showMessageDialog(null, "Your state has been updated successfully.");
+				try {
+					TimeUnit.SECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				btnNewButton.setSelected(false);
 			}
 		});
@@ -43,8 +50,16 @@ public class UserStatePanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				accountnow.userState("no");
 				JOptionPane.showMessageDialog(null, "Your state has been updated successfully.");
-				btnNewButton_1.setSelected(false);
-			}
+				
+					try {
+						TimeUnit.SECONDS.sleep(10);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				
+				btnNewButton_1.setSelected(false);}
+			
 		});
 		btnNewButton_1.setBackground(Color.LIGHT_GRAY);
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
