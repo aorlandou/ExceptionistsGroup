@@ -50,7 +50,9 @@ public class SignUpwithgraphics extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		setLocationRelativeTo(null);
+
 		contentPane.setLayout(null);
+
 		
 		JLabel lblNewLabel = new JLabel("Name :");
 		lblNewLabel.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 15));
