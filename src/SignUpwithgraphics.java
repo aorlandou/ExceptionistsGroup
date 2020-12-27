@@ -181,7 +181,7 @@ public class SignUpwithgraphics extends JFrame {
 				String phone = phoneField.getText();
 				String birthdate = bdateField.getText();
 				String gender = (String)genderbox.getSelectedItem();
-				String municipality = (String)
+				String municipality = (String)comboBox.getSelectedItem();
 				Account user = new Account(name, surname, password, phone, birthdate, gender, municipality);
 				
 				DB data = new DB();
