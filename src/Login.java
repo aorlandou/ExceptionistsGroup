@@ -6,8 +6,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.Color;
 
 public class Login implements ActionListener  {
 
@@ -15,24 +19,29 @@ public class Login implements ActionListener  {
 	private static JTextField phoneText;
 	private static JLabel passwordLabel;
 	private static JPasswordField passwordText;
-	private static JButton button;
+	private static JButton btnEnter;
 	private static JLabel success;
 	private static int count = 0; //counts how many trials user has done to login
 
 	//Method for login
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public void loginmethod() {
 
-		JFrame frame = new JFrame();
+		JFrame frmLogin = new JFrame();
+		frmLogin.setTitle("Login");
 		JPanel panel = new JPanel();
-		frame.setSize(350, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmLogin.setSize(393, 221);
+		frmLogin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmLogin.setLocationRelativeTo(null);
 
-		frame.add(panel);
+		frmLogin.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		//FOR THE PHONENUMBER
 		phoneLabel = new JLabel("Phone:");
-		phoneLabel.setBounds(10, 20, 800, 25);
+		phoneLabel.setBounds(10, 15, 800, 34);
 		panel.add(phoneLabel);
 		phoneText = new JTextField();
 		phoneText.setBounds(100, 20, 165, 25);
@@ -40,22 +49,23 @@ public class Login implements ActionListener  {
 
 		//FOR THE PASSWORD
 		passwordLabel = new JLabel("Password:");
-		passwordLabel.setBounds(10, 50, 800, 25);
+		passwordLabel.setBounds(10, 43, 800, 38);
 		panel.add(passwordLabel);
 		passwordText = new JPasswordField();
 		passwordText.setBounds(100, 50, 165, 25);
 		panel.add(passwordText);
 
-		button = new JButton("Login");
-		button.setBounds(10, 80 , 80, 25);
-		button.addActionListener(new Login());
-		panel.add(button);
+		btnEnter = new JButton("Enter");
+		btnEnter.setBackground(Color.LIGHT_GRAY);
+		btnEnter.setBounds(137, 92 , 97, 37);
+		btnEnter.addActionListener(new Login());
+		panel.add(btnEnter);
 
 		success = new JLabel("");
 		success.setBounds(10, 110, 300, 25);
 		panel.add(success);
 
-		frame.setVisible(true);
+		frmLogin.setVisible(true);
 		this.count++; //increase the trials of login into account
 	}
 
@@ -79,6 +89,8 @@ public class Login implements ActionListener  {
 		} else if (password.contentEquals(answer)) { //if phone exists in DB and password is also correct
 			success.setText("LOGIN SUCCESSFUL");
 			createCurrentAccount(phone);
+			Main m = new Main();
+			m.closeW();
 		} else if (!password.contentEquals(answer)) {
 			success.setText("Your password is incorrect");
 			success.setText("Please enter valid data");
@@ -93,6 +105,9 @@ public class Login implements ActionListener  {
 	}
 
 	// Method that creates the current account
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public void createCurrentAccount(String phone) {
 		DB db = new DB(); // create DB object
 		String name = db.getName(phone);
@@ -114,8 +129,8 @@ public class Login implements ActionListener  {
 		if (covidState != null) { // this means that user has already inserted his covidState
 			currentAccount.setCovidState(covidState); // call of method setCovidState so that to save user's state
 		}
-		MainMenu mainMenu = new MainMenu(currentAccount); // create MainMenu object
-		mainMenu.printMenu();
+		MainMenuGUI mainMenu = new MainMenuGUI(currentAccount); // create MainMenu object
+		mainMenu.setVisible(true);
 
 	}
 }
