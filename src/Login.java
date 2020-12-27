@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.SystemColor;
 
 public class Login implements ActionListener  {
 
@@ -30,9 +32,11 @@ public class Login implements ActionListener  {
 	public void loginmethod() {
 
 		JFrame frmLogin = new JFrame();
+		frmLogin.getContentPane().setBackground(Color.LIGHT_GRAY);
 		frmLogin.setTitle("Login");
 		JPanel panel = new JPanel();
-		frmLogin.setSize(393, 221);
+		panel.setBackground(SystemColor.windowBorder);
+		frmLogin.setSize(372, 211);
 		frmLogin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmLogin.setLocationRelativeTo(null);
 
@@ -41,23 +45,29 @@ public class Login implements ActionListener  {
 
 		//FOR THE PHONENUMBER
 		phoneLabel = new JLabel("Phone:");
-		phoneLabel.setBounds(10, 15, 800, 34);
+		phoneLabel.setForeground(SystemColor.activeCaption);
+		phoneLabel.setFont(new Font("Eras Bold ITC", Font.BOLD, 14));
+		phoneLabel.setBounds(10, 20, 800, 29);
 		panel.add(phoneLabel);
 		phoneText = new JTextField();
-		phoneText.setBounds(100, 20, 165, 25);
+		phoneText.setBounds(100, 20, 165, 29);
 		panel.add(phoneText);
 
 		//FOR THE PASSWORD
 		passwordLabel = new JLabel("Password:");
-		passwordLabel.setBounds(10, 43, 800, 38);
+		passwordLabel.setForeground(SystemColor.activeCaption);
+		passwordLabel.setFont(new Font("Eras Bold ITC", Font.BOLD, 14));
+		passwordLabel.setBounds(10, 52, 800, 29);
 		panel.add(passwordLabel);
 		passwordText = new JPasswordField();
-		passwordText.setBounds(100, 50, 165, 25);
+		passwordText.setBounds(100, 52, 165, 29);
 		panel.add(passwordText);
 
 		btnEnter = new JButton("Enter");
-		btnEnter.setBackground(Color.LIGHT_GRAY);
-		btnEnter.setBounds(137, 92 , 97, 37);
+		btnEnter.setForeground(Color.WHITE);
+		btnEnter.setFont(new Font("Eras Bold ITC", Font.BOLD, 14));
+		btnEnter.setBackground(Color.GRAY);
+		btnEnter.setBounds(133, 98 , 97, 37);
 		btnEnter.addActionListener(new Login());
 		panel.add(btnEnter);
 

@@ -9,6 +9,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.Color;
 import java.awt.event.WindowEvent;
+import java.awt.SystemColor;
 
 
 public class Main extends JFrame implements ActionListener {
@@ -23,26 +24,30 @@ public class Main extends JFrame implements ActionListener {
 
 	public Main() {
 		super();
-		getContentPane().setBackground(new Color(192, 192, 192));
-		setSize(386, 205);
+		getContentPane().setBackground(SystemColor.windowBorder);
+		setSize(417, 234);
 		setTitle("COVID-19");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		JButton Sign_up = new JButton("Sign up");
-		Sign_up.setBounds(85, 89, 82, 29);
-		Sign_up.setForeground(new Color(0, 0, 0));
-		Sign_up.setBackground(new Color(119, 136, 153));
+		Sign_up.setFont(new Font("Eras Bold ITC", Font.BOLD, 14));
+		Sign_up.setBounds(209, 80, 113, 46);
+		Sign_up.setForeground(Color.WHITE);
+		Sign_up.setBackground(SystemColor.controlDkShadow);
 		Sign_up.addActionListener(this);
 		getContentPane().setLayout(null);
 		JLabel label = new JLabel(
 				"Press one button to start!");
-		label.setBounds(95, 30, 198, 24);
-		label.setFont(new Font("Impact", Font.PLAIN, 19));
+		label.setForeground(SystemColor.activeCaption);
+		label.setBounds(60, 11, 268, 58);
+		label.setFont(new Font("Eras Bold ITC", Font.BOLD, 19));
 		getContentPane().add(label);
 		getContentPane().add(Sign_up);
 		JButton Log_in = new JButton("Login");
-		Log_in.setBounds(221, 89, 82, 29);
-		Log_in.setBackground(new Color(119, 136, 153));
+		Log_in.setForeground(Color.WHITE);
+		Log_in.setFont(new Font("Eras Bold ITC", Font.BOLD, 14));
+		Log_in.setBounds(60, 80, 113, 46);
+		Log_in.setBackground(SystemColor.controlDkShadow);
 		Log_in.addActionListener(this);
 		getContentPane().add(Log_in);
 	}
