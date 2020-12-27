@@ -36,7 +36,6 @@ public class SignUpwithgraphics extends JFrame {
 	private  JPasswordField pass2Field;
 	private  JTextField phoneField;
 	private  JTextField bdateField;
-	private  JTextField municField;
 	
 
 	/**
@@ -147,11 +146,6 @@ public class SignUpwithgraphics extends JFrame {
 		lblNewLabel_7.setBounds(10, 264, 104, 14);
 		contentPane.add(lblNewLabel_7);
 		
-		municField = new JTextField();
-		municField.setBounds(165, 256, 183, 30);
-		contentPane.add(municField);
-		municField.setColumns(10);
-		
 		JButton btnNewButton = new JButton("Create ");
 		btnNewButton.setBackground(Color.GRAY);
 		btnNewButton.setForeground(Color.WHITE);
@@ -167,6 +161,13 @@ public class SignUpwithgraphics extends JFrame {
 		genderbox.setBounds(165, 184, 183, 30);
 
 		contentPane.add(genderbox);
+        contentPane.add(btnNewButton);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"    Acharnes", "    Aegina", "    Agia Paraskevi", "    Agia Varvara", "    Agioi Anargyroi-Kamatero", "    Agios Dimitrios", "    Agistri", "    Aigaleo", "    Alimos", "    Aspropyrgos", "    Chalandri ", "    Dafni-Ymittos", "    Dionysos", "    Eleusis", "    Elliniko-Argyroupoli", "    Filadelfeia-Chalkidona", "    Filothei-Psychiko", "    Fyli", "    Galatsi", "    Glyfada", "    Haidari", "    Hydra", "    Ilion", "    Ilioupoli", "    Irakleio", "    Kaisariani", "    Kallithea", "    Keratsini-Drapetsona", "    Kifissia", "    Korydallos", "    Kropia", "    Kythira", "    Lavreotiki", "    Lykovrysi-Pefki", "    Mandra-Eidyllia", "    Markopoulo Mesogaias", "    Marousi", "    Megara", "    Metamorfosi", "    Moschato-Tavros", "    Nea Ionia", "    Nea Smyrni", "    Nikaia-Agios Ioannis Rentis", "    Oropos", "    Paiania", "    Palaio Faliro", "    Pallini", "    Papagou-Cholargos", "    Penteli", "    Perama", "    Peristeri", "    Petroupoli", "    Piraeus", "    Rafina-Pikermi", "    Salamis ", "    Saronikos", "    Spata-Artemida", "    Spetses", "    Troizinia-Methana", "    Vari-Voula-Vouliagmeni", "    Vrilissia", "    Vyronas", "    Zografou"}));
+		comboBox.setBounds(165, 262, 183, 28);
+		contentPane.add(comboBox);
+		
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -177,7 +178,7 @@ public class SignUpwithgraphics extends JFrame {
 				String phone = phoneField.getText();
 				String birthdate = bdateField.getText();
 				String gender = (String)genderbox.getSelectedItem();
-				String municipality = municField.getText();
+				String municipality = (String)
 				Account user = new Account(name, surname, password, phone, birthdate, gender, municipality);
 				
 				DB data = new DB();
@@ -192,7 +193,6 @@ public class SignUpwithgraphics extends JFrame {
 				mainMenu.setVisible(true);
 			}
 		});
-		contentPane.add(btnNewButton);
 		
 		
 	}
