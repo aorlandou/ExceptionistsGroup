@@ -102,18 +102,26 @@ public class Login implements ActionListener  {
 			Main back = new Main();
 			back.main(null);
 		} else if (password.contentEquals(answer)) { //if phone exists in DB and password is also correct
-			success.setText("LOGIN SUCCESSFUL");
+			
 			createCurrentAccount(phone);
 			Main m = new Main();
 			m.closeW();
 		} else if (!password.contentEquals(answer)) {
-			success.setText("Your password is incorrect");
-			success.setText("Please enter valid data");
+			try {
+				JOptionPane.showMessageDialog(null, "Your password is wrong");
+				
+			} catch (Exception ex) {
+				JOptionPane.showMessageDialog(null, ex);
+			}
 				if (getCount() <= 3 ) {
 					loginmethod();
 				} else {
-					success.setText("Sorry you can not login");
-					success.setText("Try again later");
+					try {
+						JOptionPane.showMessageDialog(null, "Sorry you can not login.Try again later");
+						
+					} catch (Exception ex) {
+						JOptionPane.showMessageDialog(null, ex);
+					}
 					System.exit(0);
 				}
 		}
