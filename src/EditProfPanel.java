@@ -124,7 +124,7 @@ public class EditProfPanel extends JPanel {
 					}
 					if (count == 0) {
 						JOptionPane.showMessageDialog(null, "You exceeded the number of trials you had to change "
-								+ "your password. \nYou are redirected back to PROFILE EDITING...");
+								+ "your password. \nYou are redirected back to Edit Profile Menu...");
 					}
 				}
 			}
