@@ -22,6 +22,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.Font;
+import java.awt.SystemColor;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class SignUpwithgraphics extends JFrame {
 
@@ -32,7 +35,6 @@ public class SignUpwithgraphics extends JFrame {
 	private  JPasswordField pass1Field;
 	private  JPasswordField pass2Field;
 	private  JTextField phoneField;
-	private  JTextField genderField;
 	private  JTextField bdateField;
 	private  JTextField municField;
 	
@@ -42,11 +44,12 @@ public class SignUpwithgraphics extends JFrame {
 	 */
 	public SignUpwithgraphics() {
 		
-		setTitle("Register Form");
+		setTitle("Sign Up ");
 		setBackground(new Color(255, 255, 255));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 330);
+		setBounds(100, 100, 494, 428);
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.windowBorder);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		setLocationRelativeTo(null);
@@ -55,40 +58,46 @@ public class SignUpwithgraphics extends JFrame {
 
 		
 		JLabel lblNewLabel = new JLabel("Name :");
-		lblNewLabel.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 15));
-		lblNewLabel.setBounds(51, 6, 42, 17);
+		lblNewLabel.setForeground(SystemColor.activeCaption);
+		lblNewLabel.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
+		lblNewLabel.setBounds(15, 10, 57, 17);
 		contentPane.add(lblNewLabel);
 		
 		nameField = new JTextField();
-		nameField.setBounds(103, 5, 269, 20);
+		nameField.setBounds(165, 6, 183, 26);
 		contentPane.add(nameField);
 		nameField.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Surname :");
-		lblNewLabel_1.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 15));
-		lblNewLabel_1.setBounds(36, 33, 62, 17);
+		lblNewLabel_1.setForeground(SystemColor.activeCaption);
+		lblNewLabel_1.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(10, 51, 88, 17);
 		contentPane.add(lblNewLabel_1);
 		
 		surnameField = new JTextField();
-		surnameField.setBounds(103, 30, 326, 20);
+		surnameField.setBounds(165, 108, 183, 28);
 		contentPane.add(surnameField);
 		surnameField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Password :");
-		lblNewLabel_2.setBounds(45, 58, 53, 14);
+		lblNewLabel_2.setForeground(SystemColor.activeCaption);
+		lblNewLabel_2.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
+		lblNewLabel_2.setBounds(10, 79, 88, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		pass1Field = new JPasswordField();
-		pass1Field.setBounds(103, 55, 326, 20);
+		pass1Field.setBounds(165, 73, 183, 28);
 		contentPane.add(pass1Field);
 		pass1Field.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Confirm password :");
-		lblNewLabel_3.setBounds(5, 83, 93, 14);
+		lblNewLabel_3.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
+		lblNewLabel_3.setForeground(SystemColor.activeCaption);
+		lblNewLabel_3.setBounds(10, 112, 149, 17);
 		contentPane.add(lblNewLabel_3);
 		
 		pass2Field = new JPasswordField();
-		pass2Field.setBounds(103, 80, 326, 20);
+		pass2Field.setBounds(165, 40, 183, 26);
 		pass2Field.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusLost(FocusEvent arg0) {
@@ -99,43 +108,57 @@ public class SignUpwithgraphics extends JFrame {
 		pass2Field.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Phone :");
-		lblNewLabel_4.setBounds(61, 108, 37, 14);
+		lblNewLabel_4.setForeground(SystemColor.activeCaption);
+		lblNewLabel_4.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
+		lblNewLabel_4.setBounds(10, 153, 83, 14);
 		contentPane.add(lblNewLabel_4);
 		
 		phoneField = new JTextField();
-		phoneField.setBounds(103, 105, 326, 20);
+		phoneField.setBounds(165, 147, 183, 28);
 		contentPane.add(phoneField);
 		phoneField.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("Gender :");
-		lblNewLabel_5.setBounds(56, 133, 42, 14);
+		lblNewLabel_5.setForeground(SystemColor.activeCaption);
+		lblNewLabel_5.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
+		lblNewLabel_5.setBounds(10, 192, 88, 14);
 		contentPane.add(lblNewLabel_5);
 		
-		genderField = new JTextField();
-		genderField.setBounds(103, 130, 326, 20);
-		contentPane.add(genderField);
-		genderField.setColumns(10);
-		
 		JLabel lblNewLabel_6 = new JLabel("Birthdate :");
-		lblNewLabel_6.setBounds(47, 158, 51, 14);
+		lblNewLabel_6.setForeground(SystemColor.activeCaption);
+		lblNewLabel_6.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
+		lblNewLabel_6.setBounds(10, 229, 88, 14);
 		contentPane.add(lblNewLabel_6);
 		
 		bdateField = new JTextField();
-		bdateField.setBounds(103, 155, 326, 20);
+		bdateField.setBounds(165, 223, 183, 28);
 		contentPane.add(bdateField);
 		bdateField.setColumns(10);
 		
 		JLabel lblNewLabel_7 = new JLabel("Municipality :");
-		lblNewLabel_7.setBounds(36, 183, 62, 14);
+		lblNewLabel_7.setForeground(SystemColor.activeCaption);
+		lblNewLabel_7.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
+		lblNewLabel_7.setBounds(10, 264, 104, 14);
 		contentPane.add(lblNewLabel_7);
 		
 		municField = new JTextField();
-		municField.setBounds(103, 180, 326, 20);
+		municField.setBounds(165, 256, 183, 30);
 		contentPane.add(municField);
 		municField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Sign Up");
-		btnNewButton.setBounds(181, 244, 69, 23);
+		JButton btnNewButton = new JButton("Create ");
+		btnNewButton.setBackground(Color.GRAY);
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setFont(new Font("Eras Bold ITC", Font.BOLD, 14));
+		btnNewButton.setBounds(181, 311, 135, 47);
+		
+		JComboBox genderbox = new JComboBox();
+		genderbox.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		genderbox.setForeground(new Color(0, 0, 0));
+		genderbox.setModel(new DefaultComboBoxModel(new String[] {"Female", "Male", "Other"}));
+		genderbox.setToolTipText("");
+		genderbox.setBounds(165, 186, 183, 30);
+		contentPane.add(genderbox);
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -145,7 +168,7 @@ public class SignUpwithgraphics extends JFrame {
 				String password2 = pass2Field.getText();
 				String phone = phoneField.getText();
 				String birthdate = bdateField.getText();
-				String gender = genderField.getText();
+				String gender = (String)genderbox.getSelectedItem();
 				String municipality = municField.getText();
 				Account user = new Account(name, surname, password, phone, birthdate, gender, municipality);
 				
@@ -161,8 +184,9 @@ public class SignUpwithgraphics extends JFrame {
 				mainMenu.setVisible(true);
 			}
 		});
-		btnNewButton.setHorizontalAlignment(SwingConstants.LEFT);
 		contentPane.add(btnNewButton);
+		
+		
 	}
 	
 	private void String(JTextField textField_72) {
