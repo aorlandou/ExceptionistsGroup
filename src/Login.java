@@ -126,7 +126,6 @@ public class Login implements ActionListener  {
 				}
 		}
 	}
-
 	// Method that creates the current account
 	/**
 	 * @wbp.parser.entryPoint
