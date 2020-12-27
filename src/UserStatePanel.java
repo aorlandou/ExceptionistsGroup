@@ -32,7 +32,7 @@ public class UserStatePanel extends JPanel {
 				accountnow.userState("yes");
 				JOptionPane.showMessageDialog(null, "Your state has been updated successfully.");
 				try {
-					TimeUnit.SECONDS.sleep(10);
+					TimeUnit.SECONDS.sleep(3);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -52,7 +52,7 @@ public class UserStatePanel extends JPanel {
 				JOptionPane.showMessageDialog(null, "Your state has been updated successfully.");
 				
 					try {
-						TimeUnit.SECONDS.sleep(10);
+						TimeUnit.SECONDS.sleep(3);
 					} catch (InterruptedException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
