@@ -60,7 +60,7 @@ public class SignUpwithgraphics extends JFrame {
 		JLabel lblNewLabel = new JLabel("Name :");
 		lblNewLabel.setForeground(SystemColor.activeCaption);
 		lblNewLabel.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
-		lblNewLabel.setBounds(15, 10, 57, 17);
+		lblNewLabel.setBounds(10, 10, 152, 17);
 		contentPane.add(lblNewLabel);
 		
 		nameField = new JTextField();
@@ -71,18 +71,18 @@ public class SignUpwithgraphics extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("Surname :");
 		lblNewLabel_1.setForeground(SystemColor.activeCaption);
 		lblNewLabel_1.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
-		lblNewLabel_1.setBounds(10, 51, 88, 17);
+		lblNewLabel_1.setBounds(10, 38, 152, 17);
 		contentPane.add(lblNewLabel_1);
 		
 		surnameField = new JTextField();
-		surnameField.setBounds(165, 108, 183, 28);
+		surnameField.setBounds(165, 40, 183, 28);
 		contentPane.add(surnameField);
 		surnameField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Password :");
 		lblNewLabel_2.setForeground(SystemColor.activeCaption);
 		lblNewLabel_2.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
-		lblNewLabel_2.setBounds(10, 79, 88, 14);
+		lblNewLabel_2.setBounds(10, 75, 152, 22);
 		contentPane.add(lblNewLabel_2);
 		
 		pass1Field = new JPasswordField();
@@ -93,11 +93,11 @@ public class SignUpwithgraphics extends JFrame {
 		JLabel lblNewLabel_3 = new JLabel("Confirm password :");
 		lblNewLabel_3.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
 		lblNewLabel_3.setForeground(SystemColor.activeCaption);
-		lblNewLabel_3.setBounds(10, 112, 149, 17);
+		lblNewLabel_3.setBounds(10, 112, 152, 17);
 		contentPane.add(lblNewLabel_3);
 		
 		pass2Field = new JPasswordField();
-		pass2Field.setBounds(165, 40, 183, 26);
+		pass2Field.setBounds(165, 108, 183, 28);
 		pass2Field.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusLost(FocusEvent arg0) {
@@ -157,7 +157,7 @@ public class SignUpwithgraphics extends JFrame {
 		genderbox.setForeground(new Color(0, 0, 0));
 		genderbox.setModel(new DefaultComboBoxModel(new String[] {"Female", "Male", "Other"}));
 		genderbox.setToolTipText("");
-		genderbox.setBounds(165, 186, 183, 30);
+		genderbox.setBounds(165, 184, 183, 30);
 		contentPane.add(genderbox);
 		
 		btnNewButton.addActionListener(new ActionListener() {
