@@ -30,6 +30,7 @@ public class UserStatePanel extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				accountnow.userState("yes");
 				JOptionPane.showMessageDialog(null, "Your state has been updated successfully.");
+				btnNewButton.doClick();
 			}
 		});
 		btnNewButton.setBackground(Color.LIGHT_GRAY);
@@ -42,6 +43,7 @@ public class UserStatePanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				accountnow.userState("no");
 				JOptionPane.showMessageDialog(null, "Your state has been updated successfully.");
+				btnNewButton_1.doClick();
 			}
 		});
 		btnNewButton_1.setBackground(Color.LIGHT_GRAY);
