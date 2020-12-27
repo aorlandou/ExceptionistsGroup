@@ -38,7 +38,6 @@ public class SignUpwithgraphics extends JFrame {
 	private  JPasswordField pass1Field;
 	private  JPasswordField pass2Field;
 	private  JTextField phoneField;
-	private  JTextField bdateField;
 	
 
 	/**
@@ -145,15 +144,8 @@ public class SignUpwithgraphics extends JFrame {
 		JLabel lblNewLabel_6 = new JLabel("Birthdate :");
 		lblNewLabel_6.setForeground(new Color(176, 196, 222));
 		lblNewLabel_6.setFont(new Font("Eras Bold ITC", Font.PLAIN, 15));
-		lblNewLabel_6.setBounds(10, 262, 152, 31);
+		lblNewLabel_6.setBounds(10, 262, 91, 31);
 		contentPane.add(lblNewLabel_6);
-		
-		bdateField = new JTextField();
-		bdateField.setFont(new Font("Century Gothic", Font.PLAIN, 15));
-		bdateField.setBackground(new Color(211, 211, 211));
-		bdateField.setBounds(165, 263, 218, 31);
-		contentPane.add(bdateField);
-		bdateField.setColumns(10);
 		
 		JLabel lblNewLabel_7 = new JLabel("Municipality :");
 		lblNewLabel_7.setForeground(new Color(176, 196, 222));
@@ -183,19 +175,41 @@ public class SignUpwithgraphics extends JFrame {
 		JComboBox comboBox = new JComboBox();
 		comboBox.setFont(new Font("Century Gothic", Font.PLAIN, 15));
 		comboBox.setBackground(new Color(211, 211, 211));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Acharnes", "Aegina", "Agia Paraskevi",
-				"Agia Varvara", "Agioi Anargyroi-Kamatero", "Agios Dimitrios", "Agistri", "Aigaleo", "Alimos", 
-				"Aspropyrgos", "Chalandri ", "Dafni-Ymittos", "Dionysos", "Eleusis", "Elliniko-Argyroupoli",
-				"Filadelfeia-Chalkidona", "Filothei-Psychiko", "Fyli", "Galatsi", "Glyfada", "Haidari", "Hydra", 
-				"Ilion", "Ilioupoli", "Irakleio", "Kaisariani", "Kallithea", "Keratsini-Drapetsona", "Kifissia", 
-				"Korydallos", "Kropia", "Kythira", "Lavreotiki", "Lykovrysi-Pefki", "Mandra-Eidyllia", 
-				"Markopoulo Mesogaias", "Marousi", "Megara", "Metamorfosi","Moschato-Tavros", 
-				"Nea Ionia", "Nea Smyrni", "Nikaia-Agios Ioannis Rentis", "Oropos", "Paiania", "Palaio Faliro", 
-				"Pallini", "Papagou-Cholargos", "Penteli", "Perama", "Peristeri", "Petroupoli", "Piraeus", 
-				"Rafina-Pikermi", "Salamis ", "Saronikos", "Spata-Artemida", "Spetses", "Troizinia-Methana", 
-				"Vari-Voula-Vouliagmeni", "Vrilissia", "Vyronas", "Zografou"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Acharnes", "Aegina", "Agia Paraskevi", "Agia Varvara", "Agioi Anargyroi-Kamatero", "Agios Dimitrios", "Agistri", "Aigaleo", "Alimos", "Aspropyrgos", "Chalandri ", "Dafni-Ymittos", "Dionysos", "Eleusis", "Elliniko-Argyroupoli", "Filadelfeia-Chalkidona", "Filothei-Psychiko", "Fyli", "Galatsi", "Glyfada", "Haidari", "Hydra", "Ilion", "Ilioupoli", "Irakleio", "Kaisariani", "Kallithea", "Keratsini-Drapetsona", "Kifissia", "Korydallos", "Kropia", "Kythira", "Lavreotiki", "Lykovrysi-Pefki", "Mandra-Eidyllia", "Markopoulo Mesogaias", "Marousi", "Megara", "Metamorfosi", "Moschato-Tavros", "Nea Ionia", "Nea Smyrni", "Nikaia-Agios Ioannis Rentis", "Oropos", "Paiania", "Palaio Faliro", "Pallini", "Papagou-Cholargos", "Penteli", "Perama", "Peristeri", "Petroupoli", "Piraeus", "Rafina-Pikermi", "Salamis ", "Saronikos", "Spata-Artemida", "Spetses", "Troizinia-Methana", "Vari-Voula-Vouliagmeni", "Vrilissia", "Vyronas", "Zografou"}));
 		comboBox.setBounds(165, 304, 218, 31);
 		contentPane.add(comboBox);
+		
+		JComboBox day = new JComboBox();
+		day.setFont(new Font("Century Gothic", Font.PLAIN, 15));
+		day.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		day.setBounds(165, 261, 44, 31);
+		contentPane.add(day);
+		
+		JComboBox month = new JComboBox();
+		month.setFont(new Font("Century Gothic", Font.PLAIN, 15));
+		month.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+		month.setBounds(253, 261, 44, 31);
+		contentPane.add(month);
+		
+		JComboBox year = new JComboBox();
+		year.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		year.setModel(new DefaultComboBoxModel(new String[] {"2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940"}));
+		year.setBounds(338, 261, 69, 31);
+		contentPane.add(year);
+		
+		JLabel lblNewLabel_8 = new JLabel("/");
+		lblNewLabel_8.setForeground(new Color(153, 180, 209));
+		lblNewLabel_8.setFont(new Font("Eras Bold ITC", Font.PLAIN, 16));
+		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_8.setBounds(207, 261, 51, 31);
+		contentPane.add(lblNewLabel_8);
+		
+		JLabel label = new JLabel("/");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setForeground(SystemColor.activeCaption);
+		label.setFont(new Font("Eras Bold ITC", Font.PLAIN, 16));
+		label.setBounds(296, 261, 51, 31);
+		contentPane.add(label);
 		
 		
 		btnNewButton.addActionListener(new ActionListener() {
@@ -206,7 +220,10 @@ public class SignUpwithgraphics extends JFrame {
 					String password = pass1Field.getText();
 					String password2 = pass2Field.getText();
 					String phone = phoneField.getText();
-					String birthdate = bdateField.getText();
+					String day1 = (String)day.getSelectedItem();
+					String month1=(String)month.getSelectedItem();
+					String year1=(String)year.getSelectedItem();
+					String birthdate=day1 + "/" + month1 + "/" + year1;
 					String gender = (String)genderbox.getSelectedItem();
 					String municipality = (String)comboBox.getSelectedItem();
 					
