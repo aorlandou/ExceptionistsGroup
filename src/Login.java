@@ -3,6 +3,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -92,8 +93,12 @@ public class Login implements ActionListener  {
 		String answer = dbObject.getPassword(phone);
 
 		if (answer.equals("nothing returned")) {
-			success.setText("Sorry, this phonenumber does not exist");
-			//return in Main !! PROBLEM
+			try {
+				JOptionPane.showMessageDialog(null, "This phone number doesn't exist");
+				
+			} catch (Exception ex) {
+				JOptionPane.showMessageDialog(null, ex);
+			}
 			Main back = new Main();
 			back.main(null);
 		} else if (password.contentEquals(answer)) { //if phone exists in DB and password is also correct
