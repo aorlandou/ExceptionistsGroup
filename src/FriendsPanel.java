@@ -100,6 +100,7 @@ public class FriendsPanel extends JPanel implements ActionListener{
 							DefaultListModel dlm = new DefaultListModel();
 							for (String s : d.getFriends(accountnow.getPhone())) {
 								dlm.addElement(s + " " + d.getName(s) + " " + d.getSurname(s));
+								list.setModel(dlm);
 							}
 						}
 					} catch (Exception ex) {
