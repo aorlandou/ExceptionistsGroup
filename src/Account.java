@@ -77,13 +77,13 @@ public class Account {
 		LocalDate date = LocalDate.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		if (covidState.equals("positive")) {
-			message = "Your friend " + surname + " " + name + " has been tested possitive for COVID-19 "
+			message = "Your friend " + surname + " " + name + "<html><br /> has been tested possitive for COVID-19</html> "
 					+ date.format(formatter) + " " + DateTimeFormatter.ofPattern("hh:mm a").format(LocalTime.now());
 		} else if (covidState.equals("negative")) {
-			message = "Your friend " + surname + " " + name + " has been tested negative for COVID-19 "
+			message = "Your friend " + surname + " " + name + "<html><br /> has been tested negative for COVID-19</html> "
 					+ date.format(formatter) + " " + DateTimeFormatter.ofPattern("hh:mm a").format(LocalTime.now());
 		} else if (covidState.equals("recovered")) {
-			message = "Your friend " + surname + " " + name + " has recovered from COVID-19 "
+			message = "Your friend " + surname + " " + name + "<html><br /> has recovered from COVID-19</html> "
 					+ date.format(formatter) + " " + DateTimeFormatter.ofPattern("hh:mm a").format(LocalTime.now());
 		}
 		if (friends.size() != 0) {
@@ -96,7 +96,7 @@ public class Account {
 				
 				for (int i = 0; i < friends.size(); i++) {
 					message = "One person from " + data.getSurname(friends.get(i)) + " " + data.getName(friends.get(i))
-					+ " friend list has been tested possitive for COVID-19 " + date.format(formatter) + " "
+					+ "<html><br /> friend list has been tested possitive for COVID-19</html> " + date.format(formatter) + " "
 					+ DateTimeFormatter.ofPattern("hh:mm a").format(LocalTime.now());
 					temp = data.getFriends(friends.get(i));
 					if (temp.size() != 0) {
