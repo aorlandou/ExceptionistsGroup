@@ -89,10 +89,13 @@ public class FriendsPanel extends JPanel implements ActionListener{
 					if(d.getName(phone).equals("nothing returned")) {
 						JOptionPane.showMessageDialog(null, "Sorry but this phonenumber does not exist. Please try again.");
 					} else {
-						accountnow.friends.add(phone);
-						d.insertFriend(accountnow.getPhone(), phone);
-						JOptionPane.showMessageDialog(null, "Your friends has been added!");
-						textField.setText(null);
+						if(d.getFriends(accountnow.getPhone()).contains(phone)) {
+							JOptionPane.showMessageDialog(null, "You have already added this friend.");
+						} else {
+							accountnow.friends.add(phone);
+							d.insertFriend(accountnow.getPhone(), phone);
+							JOptionPane.showMessageDialog(null, "Your friend has been added successfully.");
+						}
 					}
 				} catch (Exception ex) {
 					JOptionPane.showMessageDialog(null, "An error has occured. Please try again.");
