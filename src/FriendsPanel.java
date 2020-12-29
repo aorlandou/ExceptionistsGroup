@@ -91,6 +91,8 @@ public class FriendsPanel extends JPanel implements ActionListener{
 					} else {
 						accountnow.friends.add(phone);
 						d.insertFriend(accountnow.getPhone(), phone);
+						JOptionPane.showMessageDialog(null, "Your friends has been added!");
+						textField.setText(null);
 					}
 				} catch (Exception ex) {
 					JOptionPane.showMessageDialog(null, "An error has occured. Please try again.");
