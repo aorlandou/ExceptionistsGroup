@@ -24,6 +24,7 @@ import java.awt.ScrollPane;
 import java.awt.Point;
 import java.awt.Scrollbar;
 import javax.swing.JScrollBar;
+import javax.swing.JLayeredPane;
 
 public class NotifPanel extends JPanel {
 	private JTable table;
@@ -39,52 +40,31 @@ public class NotifPanel extends JPanel {
 		setVisible(true);
 		
 		JList list = new JList();
-		list.setBorder(new LineBorder(new Color(0, 0, 0)));
-		list.setBackground(Color.WHITE);
-		list.setBounds(232, 324, 143, -276);
+		list.setBounds(10, 60, 400, 268);
 		add(list);
-	
-		
-		JButton btnNewButton = new JButton("Show notifications");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		list.setBorder(new LineBorder(new Color(0, 0, 0)));
+		list.setBackground(new Color(0, 128, 128));
+		try {
+			if (accountnow.getNotifications().size() == 0) {
+				JOptionPane.showMessageDialog(null, "You don't have any notifications yet");
+			} else {
+				DefaultListModel dlm = new DefaultListModel();
+				Collections.sort(accountnow.getNotifications());
 				
-				try {
-					if(accountnow.getNotifications().size() == 0) {
-						JOptionPane.showMessageDialog(null, "You don't have any notifications yet");
-					}
-					else {
-						DefaultListModel dlm = new DefaultListModel();
-						Collections.sort(accountnow.getNotifications());
-						for (int i = 0; i < accountnow.getNotifications().size(); i++) {
-							dlm.addElement(accountnow.getNotifications());
-							list.setModel(dlm);
+				dlm.addElement(accountnow.getNotifications());
+				list.setModel(dlm);
 
-						}
-					}
-			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(null, "An error has occured. Please try again.");
 			}
-			}
-	});
-			
+		} catch (Exception ex) {
+			JOptionPane.showMessageDialog(null, "An error has occured. Please try again.");
+		}
    
 
-		btnNewButton.setFont(new Font("Calibri", Font.PLAIN, 12));
-		btnNewButton.setBounds(22, 146, 134, 39);
-		add(btnNewButton);
 		
 		JLabel Notifications = new JLabel("Notifications");
 		Notifications.setFont(new Font("Calibri Light", Font.BOLD, 24));
 		Notifications.setBounds(65, 10, 211, 39);
 		add(Notifications);
-		
-		
-		
-		
-		
-		
-
 		
 	}
 }
