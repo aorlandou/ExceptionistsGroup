@@ -20,6 +20,7 @@ import javax.swing.JScrollPane;
 public class FriendsPanel extends JPanel implements ActionListener{
 
 	private JPanel actionPanel = new JPanel();
+	private JTextField textField;
 	
 	public JPanel getActionPanel() {
 		return actionPanel;
@@ -47,7 +48,7 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		actionPanel.add(lblNewLabel);
 		
 		JPanel panel2 = new JPanel();
-		panel2.setBounds(0, 0, 396, 264);
+		panel2.setBounds(0, 0, 396, 277);
 		actionPanel.add(panel2);
 		panel2.setLayout(null);
 		
@@ -59,6 +60,45 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		list.setFont(new Font("Dialog", Font.PLAIN, 14));
 		list.setBackground(new Color(230, 230, 250));
 		scrollPane.setViewportView(list);
+
+		JPanel panel1 = new JPanel();
+		panel1.setBounds(0, 0, 396, 277);
+		actionPanel.add(panel1);
+		panel1.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("Your friend's phone:");
+		lblNewLabel_1.setBackground(Color.WHITE);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1.setBounds(12, 123, 188, 42);
+		panel1.add(lblNewLabel_1);
+		
+		textField = new JTextField();
+		textField.setBounds(212, 123, 153, 42);
+		panel1.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton = new JButton("OK");
+		btnNewButton.setBackground(Color.GRAY);
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setFont(new Font("Eras Bold ITC", Font.BOLD, 27));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				String phone = textField.getText();
+				try {
+					if(d.getName(phone).equals("nothing returned")) {
+						JOptionPane.showMessageDialog(null, "Sorry but this phonenumber does not exist. Please try again.");
+					} else {
+						accountnow.friends.add(phone);
+						d.insertFriend(accountnow.getPhone(), phone);
+					}
+				} catch (Exception ex) {
+					JOptionPane.showMessageDialog(null, "An error has occured. Please try again.");
+				}
+			}
+		});
+		btnNewButton.setBounds(131, 178, 153, 42);
+		panel1.add(btnNewButton);
 		
 		JPanel addfrPanel = new JPanel();
 		addfrPanel.setBackground(new Color(192, 192, 192));
@@ -69,12 +109,12 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		     public void mousePressed(MouseEvent e) { 
 
 		    	 	actionPanel.removeAll();
-					actionPanel.add(panel2);
+					actionPanel.add(panel1);
 					actionPanel.repaint();
 					actionPanel.revalidate();
 		        } 
 		     }); 
-		
+
 		JLabel lblAddFriends = new JLabel("Add Friends");
 		lblAddFriends.setBounds(0, 0, 174, 41);
 		addfrPanel.add(lblAddFriends);
@@ -103,7 +143,6 @@ public class FriendsPanel extends JPanel implements ActionListener{
 							for (String s : d.getFriends(accountnow.getPhone())) {
 								dlm.addElement(s + " " + d.getName(s) + " " + d.getSurname(s));
 								list.setModel(dlm);
-
 							}
 						}
 					} catch (Exception ex) {
