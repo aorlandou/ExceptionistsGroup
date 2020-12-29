@@ -41,22 +41,25 @@ public class NotifPanel extends JPanel {
 		setBackground(new Color(176, 196, 222));
 		setLayout(null);
 		setVisible(true);
-		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 41, 396, 223);
+		add(scrollPane);
 		JList list = new JList();
 		list.setBounds(10, 60, 400, 268);
 		add(list);
 		list.setBorder(new LineBorder(new Color(0, 0, 0)));
 		list.setBackground(new Color(0, 128, 128));
+		scrollPane.setViewportView(list);
 		
 		notifications = new ArrayList<String>();
 		notifications = (ArrayList<String>) accountnow.getNotifications();
+		Collections.sort(notifications);
 		
 		try {
 			if (accountnow.getNotifications().size() == 0) {
 				JOptionPane.showMessageDialog(null, "You don't have any notifications yet");
 			} else {
 				DefaultListModel dlm = new DefaultListModel();
-				Collections.sort(notifications);
 				for(String s : notifications) {
 					dlm.addElement(s);
 					list.setModel(dlm);
