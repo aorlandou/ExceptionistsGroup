@@ -57,6 +57,8 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		panel2.add(scrollPane);
 		
 		JList list = new JList();
+		list.setFont(new Font("Dialog", Font.PLAIN, 14));
+		list.setBackground(new Color(230, 230, 250));
 		scrollPane.setViewportView(list);
 
 		JPanel panel1 = new JPanel();
