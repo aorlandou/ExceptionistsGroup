@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Collections;
 
 import javax.swing.JLabel;
@@ -25,10 +26,12 @@ import java.awt.Point;
 import java.awt.Scrollbar;
 import javax.swing.JScrollBar;
 import javax.swing.JLayeredPane;
+import java.util.ArrayList;
+
 
 public class NotifPanel extends JPanel {
 	private JTable table;
-
+	private ArrayList<String> notifications;
 	/**
 	 * Create the panel.
 	 */
@@ -44,15 +47,22 @@ public class NotifPanel extends JPanel {
 		add(list);
 		list.setBorder(new LineBorder(new Color(0, 0, 0)));
 		list.setBackground(new Color(0, 128, 128));
+		
+		notifications = new ArrayList<String>();
+		notifications = (ArrayList<String>) accountnow.getNotifications();
+		
 		try {
 			if (accountnow.getNotifications().size() == 0) {
 				JOptionPane.showMessageDialog(null, "You don't have any notifications yet");
 			} else {
 				DefaultListModel dlm = new DefaultListModel();
-				Collections.sort(accountnow.getNotifications());
-				
-				dlm.addElement(accountnow.getNotifications());
-				list.setModel(dlm);
+				Collections.sort(notifications);
+				for(String s : notifications) {
+					dlm.addElement(s);
+					list.setModel(dlm);
+				}
+				//dlm.addElement(accountnow.getNotifications());
+				//list.setModel(dlm);
 
 			}
 		} catch (Exception ex) {
