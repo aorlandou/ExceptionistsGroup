@@ -3,6 +3,8 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+
+
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -112,15 +114,16 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		addfrPanel.setBounds(12, 13, 174, 41);
 		add(addfrPanel);
 		addfrPanel.setLayout(null);
-		addfrPanel.addMouseListener(new MouseAdapter() { 
+		addfrPanel.addMouseListener(new PanelMouseAdapter(addfrPanel){
+			@Override
 		     public void mousePressed(MouseEvent e) { 
 
 		    	 	actionPanel.removeAll();
 					actionPanel.add(panel1);
 					actionPanel.repaint();
 					actionPanel.revalidate();
-		        } 
-		     }); 
+		        }
+		     });
 
 		JLabel lblAddFriends = new JLabel("Add Friends");
 		lblAddFriends.setBounds(0, 0, 174, 41);
@@ -134,7 +137,8 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		showFrpanel.setBackground(Color.LIGHT_GRAY);
 		showFrpanel.setBounds(234, 13, 174, 41);
 		add(showFrpanel);
-		showFrpanel.addMouseListener(new MouseAdapter() { 
+		showFrpanel.addMouseListener(new PanelMouseAdapter(showFrpanel){
+			@Override
 		     public void mousePressed(MouseEvent e) { 
 
 		    	 	actionPanel.removeAll();
@@ -168,6 +172,29 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		showFriends.setFont(new Font("Eras Bold ITC", Font.PLAIN, 16));
 		
 		
+	}
+	
+	private class PanelMouseAdapter extends MouseAdapter{
+		JPanel panel;
+		public PanelMouseAdapter(JPanel panel) {
+			this.panel = panel;
+		}
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			panel.setBackground(new Color(105, 105, 105));
+		}
+		@Override
+		public void mouseExited(MouseEvent e) {
+			panel.setBackground(new Color(192, 192, 192));
+		}
+		@Override
+		public void mousePressed(MouseEvent e) {
+			panel.setBackground(new Color(60, 179, 113));
+		}
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			panel.setBackground(new Color(105, 105, 105));
+		}
 	}
 
 	public void actionPerformed(ActionEvent e) {

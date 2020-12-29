@@ -42,13 +42,14 @@ public class NotifPanel extends JPanel {
 		setLayout(null);
 		setVisible(true);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 41, 396, 223);
+		scrollPane.setBounds(10, 41, 400, 305);
 		add(scrollPane);
 		JList list = new JList();
+		list.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		list.setBounds(10, 60, 400, 268);
-		add(list);
+		//add(list);
 		list.setBorder(new LineBorder(new Color(0, 0, 0)));
-		list.setBackground(new Color(0, 128, 128));
+		list.setBackground(new Color(211, 211, 211));
 		scrollPane.setViewportView(list);
 		
 		notifications = new ArrayList<String>();
@@ -75,8 +76,9 @@ public class NotifPanel extends JPanel {
 
 		
 		JLabel Notifications = new JLabel("Notifications");
-		Notifications.setFont(new Font("Calibri Light", Font.BOLD, 24));
-		Notifications.setBounds(65, 10, 211, 39);
+		Notifications.setForeground(new Color(255, 255, 255));
+		Notifications.setFont(new Font("Eras Bold ITC", Font.PLAIN, 24));
+		Notifications.setBounds(10, 11, 184, 24);
 		add(Notifications);
 		
 	}
