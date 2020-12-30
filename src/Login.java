@@ -21,7 +21,6 @@ public class Login implements ActionListener  {
 	private static JPasswordField passwordText;
 	private static JButton btnEnter;
 	private static JLabel success;
-	private static int count = 0; //counts how many trials user has done to login
 
 	//Method for login
 	/**
@@ -66,13 +65,8 @@ public class Login implements ActionListener  {
 		panel.add(success);
 
 		frmLogin.setVisible(true);
-		this.count++; //increase the trials of login into account
 	}
 
-	//method getCount
-	public int getCount() {
-		return count;
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -80,11 +74,11 @@ public class Login implements ActionListener  {
 		String phone = phoneText.getText();
 		String password = passwordText.getText();
 		String answer = dbObject.getPassword(phone);
-
+		Main back = new Main();
+		
 		if (answer.equals("nothing returned")) {
 			success.setText("Sorry, this phonenumber does not exist");
-			//return in Main !! PROBLEM
-			Main back = new Main();
+			//return in Main
 			back.main(null);
 		} else if (password.contentEquals(answer)) { //if phone exists in DB and password is also correct
 			success.setText("LOGIN SUCCESSFUL");
@@ -93,14 +87,8 @@ public class Login implements ActionListener  {
 			m.closeW();
 		} else if (!password.contentEquals(answer)) {
 			success.setText("Your password is incorrect");
-			success.setText("Please enter valid data");
-				if (getCount() <= 3 ) {
-					loginmethod();
-				} else {
-					success.setText("Sorry you can not login");
-					success.setText("Try again later");
-					System.exit(0);
-				}
+			success.setText("Back in menu");
+			back.main(null);
 		}
 	}
 
