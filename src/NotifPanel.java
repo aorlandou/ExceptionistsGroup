@@ -54,7 +54,7 @@ public class NotifPanel extends JPanel {
 		list.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		list.setBounds(10, 60, 400, 268);
 		//add(list);
-		list.setBorder(new LineBorder(Color.DARK_GRAY, 4, true));
+		list.setBorder(new LineBorder(Color.DARK_GRAY));
 		list.setBackground(new Color(211, 211, 211));
 		scrollPane.setViewportView(list);
 		
@@ -95,7 +95,7 @@ public class NotifPanel extends JPanel {
 	                    Object value, int index, boolean isSelected,
 	                    boolean cellHasFocus) {
 	                JLabel listCellRendererComponent = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected,cellHasFocus);
-	                listCellRendererComponent.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0,Color.BLACK));
+	                listCellRendererComponent.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0,Color.DARK_GRAY));
 	                return listCellRendererComponent;
 	            }
 	        };
