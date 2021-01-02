@@ -11,7 +11,6 @@ import java.awt.Color;
 import java.awt.event.WindowEvent;
 import java.awt.SystemColor;
 
-
 public class Main extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
@@ -32,8 +31,7 @@ public class Main extends JFrame implements ActionListener {
 		Sign_up.setBackground(SystemColor.controlDkShadow);
 		Sign_up.addActionListener(this);
 		getContentPane().setLayout(null);
-		JLabel label = new JLabel(
-				"Press one button to start!");
+		JLabel label = new JLabel("Press one button to start!");
 		label.setForeground(SystemColor.activeCaption);
 		label.setBounds(60, 11, 268, 58);
 		label.setFont(new Font("Eras Bold ITC", Font.BOLD, 19));
@@ -63,10 +61,12 @@ public class Main extends JFrame implements ActionListener {
 			break;
 		}
 	}
+
 	public void closeW() {
-		WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+		WindowEvent winClosingEvent = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
 	}
+
 	public static void main(String[] args) {
 		Main w = new Main();
 		w.setVisible(true);
