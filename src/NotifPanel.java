@@ -33,15 +33,15 @@ import javax.swing.JScrollBar;
 import javax.swing.JLayeredPane;
 import java.util.ArrayList;
 
-
 public class NotifPanel extends JPanel {
 	private JTable table;
 	private ArrayList<String> notifications;
+
 	/**
 	 * Create the panel.
 	 */
 	public NotifPanel(Account accountnow) {
-		
+
 		setBounds(0, 0, 420, 357);
 		setBackground(new Color(176, 196, 222));
 		setLayout(null);
@@ -53,51 +53,46 @@ public class NotifPanel extends JPanel {
 		list.setCellRenderer(getRenderer());
 		list.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		list.setBounds(10, 60, 400, 268);
-		//add(list);
 		list.setBorder(new LineBorder(Color.DARK_GRAY));
 		list.setBackground(new Color(211, 211, 211));
 		scrollPane.setViewportView(list);
-		
+
 		notifications = new ArrayList<String>();
 		notifications = (ArrayList<String>) accountnow.getNotifications();
 		Collections.sort(notifications);
-		
+
 		try {
 			if (accountnow.getNotifications().size() == 0) {
 				JOptionPane.showMessageDialog(null, "You don't have any notifications yet");
 			} else {
 				DefaultListModel dlm = new DefaultListModel();
-				for(int i = 0;i<notifications.size();i++) {
-					dlm.addElement(notifications.get(notifications.size()-(i+1)));
+				for (int i = 0; i < notifications.size(); i++) {
+					dlm.addElement(notifications.get(notifications.size() - (i + 1)));
 					list.setModel(dlm);
 				}
-				//dlm.addElement(accountnow.getNotifications());
-				//list.setModel(dlm);
-
 			}
 		} catch (Exception ex) {
 			JOptionPane.showMessageDialog(null, "An error has occured. Please try again.");
 		}
-   
 
-		
 		JLabel Notifications = new JLabel("Notifications");
 		Notifications.setForeground(new Color(255, 255, 255));
 		Notifications.setFont(new Font("Eras Bold ITC", Font.PLAIN, 24));
 		Notifications.setBounds(10, 11, 184, 24);
 		add(Notifications);
-		
+
 	}
-	 private ListCellRenderer<? super String> getRenderer() {
-	        return new DefaultListCellRenderer(){
-	            @Override
-	            public Component getListCellRendererComponent(JList<?> list,
-	                    Object value, int index, boolean isSelected,
-	                    boolean cellHasFocus) {
-	                JLabel listCellRendererComponent = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected,cellHasFocus);
-	                listCellRendererComponent.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0,Color.DARK_GRAY));
-	                return listCellRendererComponent;
-	            }
-	        };
-	    }
+
+	private ListCellRenderer<? super String> getRenderer() {
+		return new DefaultListCellRenderer() {
+			@Override
+			public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected,
+					boolean cellHasFocus) {
+				JLabel listCellRendererComponent = (JLabel) super.getListCellRendererComponent(list, value, index,
+						isSelected, cellHasFocus);
+				listCellRendererComponent.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.DARK_GRAY));
+				return listCellRendererComponent;
+			}
+		};
+	}
 }
