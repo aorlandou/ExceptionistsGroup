@@ -16,12 +16,13 @@ import javax.swing.JSeparator;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class EditProfPanel extends JPanel {
 	private MainMenuGUI m;
 	private JTextField txtTypeName;
 	private JTextField txtTypeSurname;
-	private JTextField txtTypeMun;
 	/**
 	 * Create the panel.
 	 */
@@ -136,14 +137,22 @@ public class EditProfPanel extends JPanel {
 		changeMunbtn.setForeground(new Color(47, 79, 79));
 		changeMunbtn.setBackground(new Color(192, 192, 192));
 		changeMunbtn.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 15));
+		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Century Gothic", Font.PLAIN, 13));
+		comboBox.setForeground(new Color(0, 0, 0));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Acharnes", "Aegina", "Agia Paraskevi", "Agia Varvara", "Agioi Anargyroi-Kamatero", "Agios Dimitrios", "Agistri", "Aigaleo", "Alimos", "Aspropyrgos", "Chalandri ", "Dafni-Ymittos", "Dionysos", "Eleusis", "Elliniko-Argyroupoli", "Filadelfeia-Chalkidona", "Filothei-Psychiko", "Fyli", "Galatsi", "Glyfada", "Haidari", "Hydra", "Ilion", "Ilioupoli", "Irakleio", "Kaisariani", "Kallithea", "Keratsini-Drapetsona", "Kifissia", "Korydallos", "Kropia", "Kythira", "Lavreotiki", "Lykovrysi-Pefki", "Mandra-Eidyllia", "Markopoulo Mesogaias", "Marousi", "Megara", "Metamorfosi", "Moschato-Tavros", "Nea Ionia", "Nea Smyrni", "Nikaia-Agios Ioannis Rentis", "Oropos", "Paiania", "Palaio Faliro", "Pallini", "Papagou-Cholargos", "Penteli", "Perama", "Peristeri", "Petroupoli", "Piraeus", "Rafina-Pikermi", "Salamis ", "Saronikos", "Spata-Artemida", "Spetses", "Troizinia-Methana", "Vari-Voula-Vouliagmeni", "Vrilissia", "Vyronas", "Zografou"}));
+		comboBox.setBackground(new Color(192, 192, 192));
+		comboBox.setBounds(175, 165, 218, 31);
+		add(comboBox);
+		setVisible(true);
 		changeMunbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String municipality = txtTypeMun.getText();
+				String municipality = (String)comboBox.getSelectedItem();
 				accountnow.setMunicipality(municipality);
 				try {
 					data.updateMunicipality(accountnow.getPhone(), municipality);
 					JOptionPane.showMessageDialog(null, "Municipality has been changed successfully.");
-					txtTypeMun.setText(null);
+					
 				} catch (Exception ex) {
 					JOptionPane.showMessageDialog(null, ex);
 				}
@@ -211,13 +220,6 @@ public class EditProfPanel extends JPanel {
 		txtTypeSurname.setBounds(175, 123, 218, 31);
 		add(txtTypeSurname);
 		
-		txtTypeMun = new JTextField();
-		txtTypeMun.setForeground(new Color(47, 79, 79));
-		txtTypeMun.setFont(new Font("Century Gothic", Font.PLAIN, 15));
-		txtTypeMun.setColumns(10);
-		txtTypeMun.setBackground(new Color(211, 211, 211));
-		txtTypeMun.setBounds(175, 165, 218, 31);
-		add(txtTypeMun);
-		setVisible(true);
+		
 	}
 }
