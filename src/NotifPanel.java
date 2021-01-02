@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -8,6 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JTable;
@@ -20,6 +23,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.List;
 import javax.swing.JTextField;
+import javax.swing.ListCellRenderer;
+
 import java.awt.Panel;
 import java.awt.ScrollPane;
 import java.awt.Point;
@@ -45,10 +50,11 @@ public class NotifPanel extends JPanel {
 		scrollPane.setBounds(10, 41, 400, 305);
 		add(scrollPane);
 		JList list = new JList();
+		list.setCellRenderer(getRenderer());
 		list.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		list.setBounds(10, 60, 400, 268);
 		//add(list);
-		list.setBorder(new LineBorder(new Color(0, 0, 0)));
+		list.setBorder(new LineBorder(Color.DARK_GRAY, 4, true));
 		list.setBackground(new Color(211, 211, 211));
 		scrollPane.setViewportView(list);
 		
@@ -82,4 +88,16 @@ public class NotifPanel extends JPanel {
 		add(Notifications);
 		
 	}
+	 private ListCellRenderer<? super String> getRenderer() {
+	        return new DefaultListCellRenderer(){
+	            @Override
+	            public Component getListCellRendererComponent(JList<?> list,
+	                    Object value, int index, boolean isSelected,
+	                    boolean cellHasFocus) {
+	                JLabel listCellRendererComponent = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected,cellHasFocus);
+	                listCellRendererComponent.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0,Color.BLACK));
+	                return listCellRendererComponent;
+	            }
+	        };
+	    }
 }
