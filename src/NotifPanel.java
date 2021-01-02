@@ -68,7 +68,7 @@ public class NotifPanel extends JPanel {
 			} else {
 				DefaultListModel dlm = new DefaultListModel();
 				for(int i = 0;i<notifications.size();i++) {
-					dlm.addElement(notifications.get(i));
+					dlm.addElement(notifications.get(notifications.size()-(i+1)));
 					list.setModel(dlm);
 				}
 				//dlm.addElement(accountnow.getNotifications());
