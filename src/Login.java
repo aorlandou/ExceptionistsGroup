@@ -69,6 +69,7 @@ public class Login extends JFrame {
 	}
 	
 	public void login() {
+	setVisible(true);
 	btnEnter.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent arg0) {
 		DB dbObject = new DB(); // create DB object
