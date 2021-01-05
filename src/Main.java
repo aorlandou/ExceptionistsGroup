@@ -57,7 +57,7 @@ public class Main extends JFrame implements ActionListener {
 		case "Login":
 			closeW();
 			Login log = new Login();
-			log.loginmethod();
+			log.login();
 			break;
 		}
 	}

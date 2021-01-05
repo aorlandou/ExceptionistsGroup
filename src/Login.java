@@ -1,5 +1,13 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -7,86 +15,62 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.SystemColor;
-
-public class Login implements ActionListener  {
-
-	private static JLabel phoneLabel;
-	private static JTextField phoneText;
-	private static JLabel passwordLabel;
-	private static JPasswordField passwordText;
-	private static JButton btnEnter;
-	private static JLabel success;
-	private static int count = 0; //counts how many trials user has done to login
-
-	//Method for login
-	/**
-	 * @wbp.parser.entryPoint
-	 */
-	public void loginmethod() {
-
-		JFrame frmLogin = new JFrame();
-		frmLogin.getContentPane().setBackground(Color.LIGHT_GRAY);
-		frmLogin.setTitle("Login");
-		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.windowBorder);
-		frmLogin.setSize(372, 211);
-		frmLogin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frmLogin.setLocationRelativeTo(null);
-
-		frmLogin.getContentPane().add(panel);
-		panel.setLayout(null);
-
+public class Login extends JFrame {
+	
+	private JPanel contentPane;
+	private JLabel phoneLabel;
+	private  JTextField phoneText;
+	private JLabel passwordLabel;
+	private JPasswordField passwordText;
+	private JButton btnEnter;
+	
+	
+	public Login() {
+		setTitle("Login");
+		setBackground(new Color(255, 255, 255));
+		setBounds(100, 100, 389, 229);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(128, 128, 128));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(null);
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+	
 		//FOR THE PHONENUMBER
 		phoneLabel = new JLabel("Phone:");
 		phoneLabel.setForeground(SystemColor.activeCaption);
 		phoneLabel.setFont(new Font("Eras Bold ITC", Font.BOLD, 14));
 		phoneLabel.setBounds(10, 20, 800, 29);
-		panel.add(phoneLabel);
+		contentPane.add(phoneLabel);
 		phoneText = new JTextField();
 		phoneText.setBounds(100, 20, 165, 29);
-		panel.add(phoneText);
+		contentPane.add(phoneText);
 
 		//FOR THE PASSWORD
 		passwordLabel = new JLabel("Password:");
 		passwordLabel.setForeground(SystemColor.activeCaption);
 		passwordLabel.setFont(new Font("Eras Bold ITC", Font.BOLD, 14));
 		passwordLabel.setBounds(10, 52, 800, 29);
-		panel.add(passwordLabel);
+		contentPane.add(passwordLabel);
 		passwordText = new JPasswordField();
 		passwordText.setBounds(100, 52, 165, 29);
-		panel.add(passwordText);
+		contentPane.add(passwordText);
 
 		btnEnter = new JButton("Enter");
 		btnEnter.setForeground(Color.WHITE);
 		btnEnter.setFont(new Font("Eras Bold ITC", Font.BOLD, 14));
 		btnEnter.setBackground(Color.GRAY);
-		btnEnter.setBounds(133, 98 , 97, 37);
-		btnEnter.addActionListener(new Login());
-		panel.add(btnEnter);
+		btnEnter.setBounds(134, 106 , 97, 37);
+		contentPane.add(btnEnter);
 
-		success = new JLabel("");
-		success.setBounds(10, 110, 300, 25);
-		panel.add(success);
-
-		frmLogin.setVisible(true);
-		this.count++; //increase the trials of login into account
 	}
-
-	//method getCount
-	public int getCount() {
-		return count;
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
+	
+	public void login() {
+	btnEnter.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent arg0) {
 		DB dbObject = new DB(); // create DB object
 		String phone = phoneText.getText();
 		String password = passwordText.getText();
@@ -101,11 +85,12 @@ public class Login implements ActionListener  {
 			}
 			Main back = new Main();
 			back.main(null);
+			closeWin();
 		} else if (password.contentEquals(answer)) { //if phone exists in DB and password is also correct
 			
 			createCurrentAccount(phone);
 			Main m = new Main();
-			m.closeW();
+			closeWin();
 		} else if (!password.contentEquals(answer)) {
 			try {
 				JOptionPane.showMessageDialog(null, "Your password is wrong");
@@ -113,23 +98,19 @@ public class Login implements ActionListener  {
 			} catch (Exception ex) {
 				JOptionPane.showMessageDialog(null, ex);
 			}
-				if (getCount() <= 3 ) {
-					loginmethod();
-				} else {
-					try {
-						JOptionPane.showMessageDialog(null, "Sorry you can not login.Try again later");
-						
-					} catch (Exception ex) {
-						JOptionPane.showMessageDialog(null, ex);
-					}
-					System.exit(0);
-				}
-		}
+	   }
 	}
-	// Method that creates the current account
-	/**
-	 * @wbp.parser.entryPoint
-	 */
+	
+	});
+  }
+		
+
+	private void closeWin() {
+		WindowEvent winClosingEvent = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+	}
+	
+	
 	public void createCurrentAccount(String phone) {
 		DB db = new DB(); // create DB object
 		String name = db.getName(phone);
@@ -155,4 +136,9 @@ public class Login implements ActionListener  {
 		mainMenu.setVisible(true);
 
 	}
-}
+	
+	
+	
+	}
+
+
