@@ -1,10 +1,12 @@
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-
-
+import javax.swing.BorderFactory;
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -12,6 +14,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.ListCellRenderer;
+
 import java.awt.CardLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -59,6 +63,7 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		panel2.add(scrollPane);
 		
 		JList list = new JList();
+		list.setCellRenderer(getRenderer());
 		list.setFont(new Font("Dialog", Font.PLAIN, 14));
 		list.setBackground(new Color(230, 230, 250));
 		scrollPane.setViewportView(list);
@@ -200,5 +205,20 @@ public class FriendsPanel extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 	}
+	
 
+	private ListCellRenderer<? super String> getRenderer() {
+		return new DefaultListCellRenderer() {
+			@Override
+			public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected,
+					boolean cellHasFocus) {
+				JLabel listCellRendererComponent = (JLabel) super.getListCellRendererComponent(list, value, index,
+						isSelected, cellHasFocus);
+				listCellRendererComponent.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.DARK_GRAY));
+				return listCellRendererComponent;
+			}
+		};
+	}
+	
+	
 }
