@@ -18,15 +18,14 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 public class Login extends JFrame {
-	
+
 	private JPanel contentPane;
 	private JLabel phoneLabel;
-	private  JTextField phoneText;
+	private JTextField phoneText;
 	private JLabel passwordLabel;
 	private JPasswordField passwordText;
 	private JButton btnEnter;
-	
-	
+
 	public Login() {
 		setTitle("Login");
 		setBackground(new Color(255, 255, 255));
@@ -38,8 +37,8 @@ public class Login extends JFrame {
 		setLocationRelativeTo(null);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-	
-		//FOR THE PHONENUMBER
+
+		// FOR THE PHONENUMBER
 		phoneLabel = new JLabel("Phone:");
 		phoneLabel.setForeground(SystemColor.activeCaption);
 		phoneLabel.setFont(new Font("Eras Bold ITC", Font.BOLD, 14));
@@ -49,7 +48,7 @@ public class Login extends JFrame {
 		phoneText.setBounds(100, 20, 165, 29);
 		contentPane.add(phoneText);
 
-		//FOR THE PASSWORD
+		// FOR THE PASSWORD
 		passwordLabel = new JLabel("Password:");
 		passwordLabel.setForeground(SystemColor.activeCaption);
 		passwordLabel.setFont(new Font("Eras Bold ITC", Font.BOLD, 14));
@@ -63,55 +62,53 @@ public class Login extends JFrame {
 		btnEnter.setForeground(Color.WHITE);
 		btnEnter.setFont(new Font("Eras Bold ITC", Font.BOLD, 14));
 		btnEnter.setBackground(Color.GRAY);
-		btnEnter.setBounds(134, 106 , 97, 37);
+		btnEnter.setBounds(134, 106, 97, 37);
 		contentPane.add(btnEnter);
 
 	}
-	
-	public void login() {
-	setVisible(true);
-	btnEnter.addActionListener(new ActionListener() {
-	public void actionPerformed(ActionEvent arg0) {
-		DB dbObject = new DB(); // create DB object
-		String phone = phoneText.getText();
-		String password = passwordText.getText();
-		String answer = dbObject.getPassword(phone);
 
-		if (answer.equals("nothing returned")) {
-			try {
-				JOptionPane.showMessageDialog(null, "This phone number doesn't exist");
-				
-			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(null, ex);
+	public void login() {
+		setVisible(true);
+		btnEnter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				DB dbObject = new DB(); // create DB object
+				String phone = phoneText.getText();
+				String password = passwordText.getText();
+				String answer = dbObject.getPassword(phone);
+
+				if (answer.equals("nothing returned")) {
+					try {
+						JOptionPane.showMessageDialog(null, "This phone number doesn't exist");
+
+					} catch (Exception ex) {
+						JOptionPane.showMessageDialog(null, ex);
+					}
+					Main back = new Main();
+					back.main(null);
+					closeWin();
+				} else if (password.contentEquals(answer)) { // if phone exists in DB and password is also correct
+
+					createCurrentAccount(phone);
+					Main m = new Main();
+					closeWin();
+				} else if (!password.contentEquals(answer)) {
+					try {
+						JOptionPane.showMessageDialog(null, "Your password is wrong");
+
+					} catch (Exception ex) {
+						JOptionPane.showMessageDialog(null, ex);
+					}
+				}
 			}
-			Main back = new Main();
-			back.main(null);
-			closeWin();
-		} else if (password.contentEquals(answer)) { //if phone exists in DB and password is also correct
-			
-			createCurrentAccount(phone);
-			Main m = new Main();
-			closeWin();
-		} else if (!password.contentEquals(answer)) {
-			try {
-				JOptionPane.showMessageDialog(null, "Your password is wrong");
-				
-			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(null, ex);
-			}
-	   }
+
+		});
 	}
-	
-	});
-  }
-		
 
 	private void closeWin() {
 		WindowEvent winClosingEvent = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
 	}
-	
-	
+
 	public void createCurrentAccount(String phone) {
 		DB db = new DB(); // create DB object
 		String name = db.getName(phone);
@@ -128,7 +125,7 @@ public class Login extends JFrame {
 		notifications = db.getNotifications(phone);
 		currentAccount.setNotifications(notifications);
 		currentAccount.setFriends(friends);
-		String covidState = db.getState(phone); // returns yes if user has covid /  no if user hasn't covid
+		String covidState = db.getState(phone); // returns yes if user has covid / no if user hasn't covid
 
 		if (covidState != null) { // this means that user has already inserted his covidState
 			currentAccount.setCovidState(covidState); // call of method setCovidState so that to save user's state
@@ -137,9 +134,5 @@ public class Login extends JFrame {
 		mainMenu.setVisible(true);
 
 	}
-	
-	
-	
-	}
 
-
+}

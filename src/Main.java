@@ -21,7 +21,7 @@ public class Main extends JFrame implements ActionListener {
 		super();
 		getContentPane().setBackground(SystemColor.windowBorder);
 		setSize(417, 234);
-		setTitle("COVID-19");
+		setTitle("TRACE-19");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		JButton Sign_up = new JButton("Sign up");
@@ -31,11 +31,11 @@ public class Main extends JFrame implements ActionListener {
 		Sign_up.setBackground(SystemColor.controlDkShadow);
 		Sign_up.addActionListener(this);
 		getContentPane().setLayout(null);
-		JLabel label = new JLabel("Press one button to start!");
-		label.setForeground(SystemColor.activeCaption);
-		label.setBounds(60, 11, 268, 58);
-		label.setFont(new Font("Eras Bold ITC", Font.BOLD, 19));
-		getContentPane().add(label);
+		JLabel lblWelcomeToTrace = new JLabel("WELCOME TO TRACE-19");
+		lblWelcomeToTrace.setForeground(SystemColor.activeCaption);
+		lblWelcomeToTrace.setBounds(60, 11, 268, 58);
+		lblWelcomeToTrace.setFont(new Font("Eras Bold ITC", Font.BOLD, 19));
+		getContentPane().add(lblWelcomeToTrace);
 		getContentPane().add(Sign_up);
 		JButton Log_in = new JButton("Login");
 		Log_in.setForeground(Color.WHITE);

@@ -52,7 +52,7 @@ public class MainMenuGUI extends JFrame implements ActionListener {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JLabel WelcomeLabel = new JLabel("Welcome to \r\nMain Menu");
+		JLabel WelcomeLabel = new JLabel("Menu");
 		WelcomeLabel.setToolTipText("Welcome\r\n");
 		WelcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		WelcomeLabel.setFont(new Font("Impact", Font.PLAIN, 23));
@@ -166,7 +166,7 @@ public class MainMenuGUI extends JFrame implements ActionListener {
 
 		menuClicked(actionPanel);
 
-		JLabel lblNewLabel = new JLabel("Main Menu Screen");
+		JLabel lblNewLabel = new JLabel("TRACE-19");
 		lblNewLabel.setForeground(new Color(47, 79, 79));
 		lblNewLabel.setFont(new Font("Impact", Font.PLAIN, 28));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
