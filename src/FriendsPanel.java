@@ -59,7 +59,7 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		panel2.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 41, 396, 223);
+		scrollPane.setBounds(0, 41, 396, 236);
 		panel2.add(scrollPane);
 		
 		JList list = new JList();
@@ -80,11 +80,13 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		panel1.add(lblNewLabel_1);
 		
 		textField = new JTextField();
+		textField.setFont(new Font("Century Gothic", Font.BOLD, 17));
 		textField.setBounds(212, 123, 153, 42);
 		panel1.add(textField);
 		textField.setColumns(10);
+		textField.setVisible(false);
 		
-		JButton btnNewButton = new JButton("OK");
+		JButton btnNewButton = new JButton("ADD");
 		btnNewButton.setBackground(Color.GRAY);
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("Eras Bold ITC", Font.BOLD, 27));
@@ -121,12 +123,13 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		addfrPanel.setLayout(null);
 		addfrPanel.addMouseListener(new PanelMouseAdapter(addfrPanel){
 			@Override
-		     public void mousePressed(MouseEvent e) { 
+		     public void mouseClicked(MouseEvent e) { 
 
 		    	 	actionPanel.removeAll();
 					actionPanel.add(panel1);
 					actionPanel.repaint();
 					actionPanel.revalidate();
+					textField.setVisible(true);
 		        }
 		     });
 
@@ -144,7 +147,7 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		add(showFrpanel);
 		showFrpanel.addMouseListener(new PanelMouseAdapter(showFrpanel){
 			@Override
-		     public void mousePressed(MouseEvent e) { 
+		     public void mouseClicked(MouseEvent e) { 
 
 		    	 	actionPanel.removeAll();
 					actionPanel.add(panel2);
@@ -205,8 +208,6 @@ public class FriendsPanel extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 	}
-	
-
 	private ListCellRenderer<? super String> getRenderer() {
 		return new DefaultListCellRenderer() {
 			@Override
@@ -219,6 +220,5 @@ public class FriendsPanel extends JPanel implements ActionListener{
 			}
 		};
 	}
-	
 	
 }
