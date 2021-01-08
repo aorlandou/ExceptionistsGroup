@@ -1,10 +1,12 @@
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-
-
+import javax.swing.BorderFactory;
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -12,6 +14,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.ListCellRenderer;
+
 import java.awt.CardLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -55,10 +59,11 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		panel2.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 41, 396, 236);
+		scrollPane.setBounds(0, 41, 396, 223);
 		panel2.add(scrollPane);
 		
 		JList list = new JList();
+		list.setCellRenderer(getRenderer());
 		list.setFont(new Font("Dialog", Font.PLAIN, 14));
 		list.setBackground(new Color(230, 230, 250));
 		scrollPane.setViewportView(list);
@@ -75,13 +80,11 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		panel1.add(lblNewLabel_1);
 		
 		textField = new JTextField();
-		textField.setFont(new Font("Century Gothic", Font.BOLD, 17));
 		textField.setBounds(212, 123, 153, 42);
 		panel1.add(textField);
 		textField.setColumns(10);
-		textField.setVisible(false);
 		
-		JButton btnNewButton = new JButton("ADD");
+		JButton btnNewButton = new JButton("OK");
 		btnNewButton.setBackground(Color.GRAY);
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("Eras Bold ITC", Font.BOLD, 27));
@@ -118,13 +121,12 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		addfrPanel.setLayout(null);
 		addfrPanel.addMouseListener(new PanelMouseAdapter(addfrPanel){
 			@Override
-		     public void mouseClicked(MouseEvent e) { 
+		     public void mousePressed(MouseEvent e) { 
 
 		    	 	actionPanel.removeAll();
 					actionPanel.add(panel1);
 					actionPanel.repaint();
 					actionPanel.revalidate();
-					textField.setVisible(true);
 		        }
 		     });
 
@@ -142,7 +144,7 @@ public class FriendsPanel extends JPanel implements ActionListener{
 		add(showFrpanel);
 		showFrpanel.addMouseListener(new PanelMouseAdapter(showFrpanel){
 			@Override
-		     public void mouseClicked(MouseEvent e) { 
+		     public void mousePressed(MouseEvent e) { 
 
 		    	 	actionPanel.removeAll();
 					actionPanel.add(panel2);
@@ -203,4 +205,20 @@ public class FriendsPanel extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 	}
+	
+
+	private ListCellRenderer<? super String> getRenderer() {
+		return new DefaultListCellRenderer() {
+			@Override
+			public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected,
+					boolean cellHasFocus) {
+				JLabel listCellRendererComponent = (JLabel) super.getListCellRendererComponent(list, value, index,
+						isSelected, cellHasFocus);
+				listCellRendererComponent.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.DARK_GRAY));
+				return listCellRendererComponent;
+			}
+		};
+	}
+	
+	
 }
