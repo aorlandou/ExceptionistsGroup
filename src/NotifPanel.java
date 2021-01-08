@@ -90,7 +90,7 @@ public class NotifPanel extends JPanel {
 					boolean cellHasFocus) {
 				JLabel listCellRendererComponent = (JLabel) super.getListCellRendererComponent(list, value, index,
 						isSelected, cellHasFocus);
-				listCellRendererComponent.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.DARK_GRAY));
+				listCellRendererComponent.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.DARK_GRAY));
 				return listCellRendererComponent;
 			}
 		};
