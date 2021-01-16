@@ -59,7 +59,7 @@ public class NotifPanel extends JPanel {
 
 		notifications = new ArrayList<String>();
 		notifications = (ArrayList<String>) accountnow.getNotifications();
-		Collections.sort(notifications);
+		
 
 		try {
 			if (accountnow.getNotifications().size() == 0) {
@@ -67,7 +67,7 @@ public class NotifPanel extends JPanel {
 			} else {
 				DefaultListModel dlm = new DefaultListModel();
 				for (int i = 0; i < notifications.size(); i++) {
-					dlm.addElement(notifications.get(notifications.size() - (i + 1)));
+					dlm.addElement(notifications.get(notifications.size() - (i+1)));
 					list.setModel(dlm);
 				}
 			}

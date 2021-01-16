@@ -73,13 +73,13 @@ public class Account {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		if (covidState.equals("positive")) {
 			message = date.format(formatter) + " " + DateTimeFormatter.ofPattern("hh:mm a").format(LocalTime.now())
-					+ "Your friend " + surname + " " + name + " has been tested possitive for COVID-19";
+					+ " Your friend " + surname + " " + name + " has been tested possitive for COVID-19";
 		} else if (covidState.equals("negative")) {
 			message = date.format(formatter) + " " + DateTimeFormatter.ofPattern("hh:mm a").format(LocalTime.now())
-					+ "Your friend " + surname + " " + name + " has been tested negative for COVID-19 ";
+					+ " Your friend " + surname + " " + name + " has been tested negative for COVID-19 ";
 		} else if (covidState.equals("recovered")) {
 			message = date.format(formatter) + " " + DateTimeFormatter.ofPattern("hh:mm a").format(LocalTime.now())
-					+ "Your friend " + surname + " " + name + " has recovered from COVID-19 ";
+					+ " Your friend " + surname + " " + name + " has recovered from COVID-19 ";
 		}
 		if (friends.size() != 0) {
 			for (int i = 0; i < friends.size(); i++) {
@@ -91,7 +91,7 @@ public class Account {
 
 				for (int i = 0; i < friends.size(); i++) {
 					message = date.format(formatter) + " "
-							+ DateTimeFormatter.ofPattern("hh:mm a").format(LocalTime.now()) + "One person from "
+							+ DateTimeFormatter.ofPattern("hh:mm a").format(LocalTime.now()) + " One person from "
 							+ data.getSurname(friends.get(i)) + " " + data.getName(friends.get(i))
 							+ " friend list has been tested possitive for COVID-19 ";
 					temp = data.getFriends(friends.get(i));
