@@ -63,9 +63,9 @@ public class NotifPanel extends JPanel {
 
 		try {
 			if (accountnow.getNotifications().size() == 0) {
-				JOptionPane.showMessageDialog(null, "You don't have any notifications yet");
-			} else {
 				DefaultListModel dlm = new DefaultListModel();
+				dlm.addElement("You don't have any notifications yet");
+			}else { DefaultListModel dlm = new DefaultListModel();
 				for (int i = 0; i < notifications.size(); i++) {
 					dlm.addElement(notifications.get(notifications.size() - (i+1)));
 					list.setModel(dlm);
