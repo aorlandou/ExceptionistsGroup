@@ -11,9 +11,9 @@ public class DB {
 	private final String dbServer = "127.0.0.1";
 	private final String dbServerPort = "3306";
 	private final String dbName = "account";
-	private final String dbusername = "root";
-	private final String dbpassword = "aliki2345";
-
+	private final String dbusername = "exception";
+	private final String dbpassword = "123";
+	
 	private Connection con = null;
 
 	/**
