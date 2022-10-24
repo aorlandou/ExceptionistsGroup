@@ -1,41 +1,36 @@
-# ExceptionistsGroup
+# Trace19
+<img src="resources/trace19_screenshot.png" width="400" height="230" />
 
-Εφαρμογή ιχνηλάτησης κρουσμάτων  covid-19 – Βασικά στοιχεία
+## About
 
-Η εφαρμογή που κληθήκαμε να δημιουργήσουμε, έχει ως στόχο να αποτελέσει ένα χρήσιμο εργαλείο για τον χρήστη. Στόχος της εφαρμογής είναι να δημιουργήσουμε μία μορφή 
-κοινωνικού δικτύου, η οποία αποσκοπεί στην πρόληψη της διασποράς του covid-19. Συγκεκριμένα, κάθε χρήστης έχει τη δυνατότητα να εγγραφεί στην εφαρμογή και να 
-δημιουργήσει ένα προφίλ. Κατά δημιουργία προφίλ, εισάγει ορισμένες βασικές πληροφορίες (όνομα, τηλέφωνο, ηλικία, φύλο κοκ.), αλλά και την πληροφορία για την 
-τωρινή του κατάσταση υγείας όσον αφορά τον ιό (αρνητικός, θετικός, ανάρρωση μετά τον ιό). Παράλληλα, μέσα από την εφαρμογή ο χρήστης έχει τη δυνατότητα να δημιουργήσει 
-μία λίστα φίλων, τους οποίους θα προσθέτει μέσω της εισαγωγής του τηλεφώνου τους, με την προϋπόθεση φυσικά και οι αντίστοιχοι φίλοι να έχουν δημιουργήσει προφίλ στην 
-εφαρμογή. Ο χρήστης μπορεί να ενημερώνει τις επαφές του για την κατάσταση της υγείας του σε περίπτωση που υποβληθεί σε τεστ και βρεθεί θετικός στον ιό, ή αναρρώσει αν 
-είχε προσβληθεί από τον covid-19. Η ενημέρωση αυτή γίνεται μέσα από την αυτόματη αποστολή ειδοποιήσεων στους δύο πρώτους κύκλους επαφών, δηλαδή στα άτομα που έχει στη 
-λίστα φίλων και στις αντίστοιχες επαφές των φίλων του. Τονίζεται στο σημείο αυτό πως τα άτομα τα οποία βρίσκονται στον δεύτερο κύκλο επαφών (είναι φίλοι  κάποιας επαφής 
-του χρήστη, χωρίς όμως να βρίσκονται στην λίστα φίλων του ίδιου), ενημερώνονται μόνο στην περίπτωση που ο χρήστης βρεθεί θετικός και όχι στην περίπτωση ανάρρωσης.
-Επίσης, δεν πληροφορούνται για το όνομα του χρήστη που νοσεί, για λόγους απορρήτου. Στέλνεται όμως μία ειδοποίηση, η οποία τα ενημερώνει για το ότι κάποιο άτομο που 
-βρίσκεται στη λίστα επαφών ενός δικού τους φίλου νοσεί.
+Trace19 is an application that aims to be a form of
+social network which prevents the spread of covid-19. 
 
-Πέραν της κεντρικής ιδέας τα άτομα να δημιουργούν έναν λογαριασμό και να ενημερώνονται για την πορεία των επαφών τους όσον αφορά τον covid-19 αλλά και να ενημερώνουν 
-έγκαιρα σε περίπτωση που προσβληθούν οι ίδιοι, μέσα από την αποστολή ειδοποιήσεων, η εφαρμογή παρέχει και τις τυπικές δυνατότητες ενός τέτοιου δικτύου. Συγκεκριμένα, 
-μετά την εγγραφή του (κλάση  Signup ) ή την εισαγωγή στον λογαριασμό (κλάση Login), ο χρήστης μπορεί να επεξεργαστεί τα στοιχεία που έχει εισάγει. Παρέχεται η 
-δυνατότητα δηλαδή τροποποίησης του ονόματος, κωδικού πρόσβασης, δήμου, κατάσταση υγείας όσον αφορά τον covid-19, αλλά και η διαγραφή του λογαριασμού. Σε περίπτωση 
-τροποποίησης του γνωρίσματος της κατάστασης υγείας, όπως ήδη αναφέρθηκε, στέλνονται αυτόματα ειδοποιήσεις στους δύο κύκλους επαφών, στις οποίες αναγράφεται η 
-αντίστοιχη τροποποίηση του χρήστη, ακολουθούμενη από ορισμένες πληροφορίες όπως η ημερομηνία και το όνομα. Σημειώνεται πως οι ειδοποιήσεις στέλνονται στις εξής 
-περιπτώσεις :
-•	Αν ο χρήστης βρέθηκε θετικός
-•	Αν ο χρήστης είχε προσβληθεί από τον ιό και πλέον έχει αναρρώσει
+In particular, every can register in the application and create a profile. When the user creates the profile he enters some basic nformation (name, phone, age, gender etc.) and his current health status regarding the virus (negative, positive, recovered from the virus). Also the user can create a list of friends. He can add friends by searching their phone number (the friends have to be registered in the app). Then the user can inform his contacts about his health status in case he is tested and found positive for the virus or if he recovered from covid-19. This update is done through notifications that are send to the first two circles of contacts: the people he has on his friends list, the corresponding contacts of his friends. The people who are in the second circle of contacts are only updated when the user tests positive and not when he recovers. Also, they are not informed about the name of the sick user for privacy reasons. But a notification is sent, which informs them that a person who is in the contact list of a friend of theirs is sick.
 
-Για να μπορέσουμε να καταστήσουμε την εφαρμογή λειτουργική, οι πληροφορίες των χρηστών και οι λογαριασμοί που δημιουργούνται καταχωρούνται αυτόματα μέσα σε μία βάση 
-δεδομένων. Παρακάτω παρατίθενται ορισμένες βασικές οδηγίες για χρήση της βάσης δεδομένων που έχουμε δημιουργήσει :
-1.	Ανοίξτε το mysql workbench και δημιουργήστε ένα νέο connection (Δείτε οδηγίες για το πως μπορείτε να δημιουργήσετε ένα νέο connection εδώ 
-https://dev.mysql.com/doc/workbench/en/wb-getting-started-tutorial-create-connection.html ). ΠΡΟΣΟΧΗ: To connection πρέπει να έχει Hostname 127.0.0.1 και Port 3306.
-2.	Αφού έχετε δημιουργήσει το connection, ανοίγετε την σύνδεση και δημιουργείται ένα νέο schema με όνομα account.
-3.	Στο schema account, ανοίγετε το αρχείο sql με όνομα data (το αρχείο μπορείτε να βρείτε στο αποθετήριό μας στο github) και το κάνετε execute.
-Μόλις εκτελέσετε τα queries και κάνετε refresh στο schema θα δείτε ότι θα έχουν δημιουργηθεί οι πίνακες account, notification και friends.
-4.	Στην συνέχεια θα χρειαστεί να δημιουργήσετε έναν νέο user, ο οποίος θα έχει πρόσβαση στον server. Για να τον δημιουργήσετε επιλέγετε Server και μετά Users and 
-Privileges. 
-5.	Επιλέγετε add user και στο login tab στα επόμενα πεδία τοποθετείτε τα εξής:
-Login Name: exception
-Authentication Type: Standard
-Limit to Hosts Matching: localhost
-Password: 123
-6.	Στο tab Administrative Roles κάνετε check όλα τα boxes του Role και Global Privileges και πατάτε Apply για να δημιουργηθεί ο νέος χρήστης.
+In addition the application also provides the typical features of a network. Specifically,
+after registering (class Signup ) or entering the account (class Login), the user can edit the information he has entered. He can modify the name, password, municipality, health status regarding covid-19 and also delete the account. In case
+modification of the health status attribute, as already mentioned, notifications are automatically sent to the two circles of contacts followed by some information such as the date and name. It is noted that notifications are sent to the following
+cases :
+- If the user tested positive
+- If the user was infected with the virus and has now recovered
+
+## Run
+
+### Database requirements
+- Download a mysql database and create a new connection with Hostname 127.0.0.1 and Port 3306
+- Create a new schema
+- In the new schema open the `data.sql` file and execute it
+- Create a new user for the server with the following attributes:
+
+   Login Name= exception
+
+   Authentication Type= Standard
+
+   Limit to Hosts Matching= localhost
+
+   Password= 123
+
+### Application jar
+
+Dowload the project locally and run the `Trace-19.jar` file.
