@@ -1,5 +1,5 @@
 # Trace19
-<img src="resources/trace19_screenshot.png" width="400" height="230" />
+<img src="resources/trace19_screenshot.png" width="600" height="430" />
 
 ## About
 
